@@ -1,0 +1,289 @@
+"use client";
+
+import { useRef, useCallback, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
+import { ZoomIn, ZoomOut, Target } from "lucide-react";
+import type { GraphData } from "@/lib/markdown";
+
+// CRITICAL: react-force-graph-2d uses Canvas + window — must disable SSR
+const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), {
+  ssr: false,
+  loading: () => (
+    <div
+      style={{
+        height: "100%",
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        color: "rgba(255,255,255,0.2)",
+        fontSize: "0.8rem",
+        fontFamily: "var(--font-geist-mono), monospace",
+        letterSpacing: "0.1em",
+      }}
+    >
+      Initializing neural map…
+    </div>
+  ),
+});
+
+// ── Premium cluster color palette ──
+const CLUSTER_COLORS: Record<string, string> = {
+  "Profile & Foundations": "#60a5fa",
+  "The Regulatory Straightjacket": "#a78bfa",
+  "The Quant Trinity": "#2dd4bf",
+  "Execution, Validation & ML": "#f472b6",
+  "Specialized Portfolios & Stress": "#fbbf24",
+  "Cross-Domain Risk": "#34d399",
+  Uncategorized: "#9ca3af",
+};
+
+function getColor(group: string): string {
+  return CLUSTER_COLORS[group] ?? "#9ca3af";
+}
+
+function hexToRgba(hex: string, alpha: number): string {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+interface GraphViewProps {
+  graphData: GraphData;
+}
+
+export default function GraphView({ graphData }: GraphViewProps) {
+  const router = useRouter();
+  const fgRef = useRef<any>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
+  const [hoveredNode, setHoveredNode] = useState<string | null>(null);
+
+  // ── Sizing to fill container ──
+  useEffect(() => {
+    function measure() {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        setDimensions({
+          width: rect.width,
+          height: rect.height,
+        });
+      }
+    }
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  const handleNodeClick = useCallback(
+    (node: any) => {
+      if (node?.id) router.push(`/notes/${node.id}`);
+    },
+    [router]
+  );
+
+  // ── View Controls ──
+  const zoomIn = () => {
+    if (!fgRef.current) return;
+    const currentZoom = fgRef.current.zoom();
+    fgRef.current.zoom(currentZoom * 1.5, 400);
+  };
+
+  const zoomOut = () => {
+    if (!fgRef.current) return;
+    const currentZoom = fgRef.current.zoom();
+    fgRef.current.zoom(currentZoom / 1.5, 400);
+  };
+
+  const resetView = () => {
+    if (!fgRef.current) return;
+    fgRef.current.zoomToFit(800, 60);
+  };
+
+  return (
+    <div
+      ref={containerRef}
+      style={{ position: "relative", width: "100%", height: "100%" }}
+    >
+      {/* ── Graph Canvas ── */}
+      <ForceGraph2D
+        ref={fgRef}
+        graphData={graphData}
+        width={dimensions.width}
+        height={dimensions.height}
+        backgroundColor="transparent"
+        /* ── Node painting with small permanent labels ── */
+        nodeCanvasObject={(node, ctx, globalScale) => {
+          const n = node as {
+            id: string;
+            name: string;
+            group: string;
+            x?: number;
+            y?: number;
+          };
+          const x = n.x ?? 0;
+          const y = n.y ?? 0;
+          const color = getColor(n.group);
+          const isHovered = hoveredNode === n.id;
+          const radius = isHovered ? 7 : 4.5;
+
+          // Outer glow
+          const glowRadius = isHovered ? 18 : 10;
+          const grad = ctx.createRadialGradient(x, y, 0, x, y, glowRadius);
+          grad.addColorStop(0, hexToRgba(color, isHovered ? 0.35 : 0.12));
+          grad.addColorStop(1, hexToRgba(color, 0));
+          ctx.beginPath();
+          ctx.arc(x, y, glowRadius, 0, 2 * Math.PI);
+          ctx.fillStyle = grad;
+          ctx.fill();
+
+          // Core dot
+          ctx.beginPath();
+          ctx.arc(x, y, radius, 0, 2 * Math.PI);
+          ctx.fillStyle = color;
+          ctx.fill();
+
+          // Specular highlight
+          ctx.beginPath();
+          ctx.arc(x, y - radius * 0.25, radius * 0.35, 0, 2 * Math.PI);
+          ctx.fillStyle = "rgba(255,255,255,0.25)";
+          ctx.fill();
+
+          // ── Small permanent label ──
+          const fontSize = isHovered
+            ? Math.min(13 / globalScale, 11)
+            : Math.min(10 / globalScale, 7);
+          ctx.font = `${isHovered ? 600 : 400} ${fontSize}px Inter, system-ui, sans-serif`;
+          ctx.textAlign = "center";
+          ctx.textBaseline = "top";
+          ctx.fillStyle = isHovered
+            ? "rgba(255,255,255,0.92)"
+            : "rgba(255,255,255,0.28)";
+
+          if (isHovered) {
+            ctx.shadowColor = "rgba(0,0,0,0.8)";
+            ctx.shadowBlur = 4;
+          }
+          ctx.fillText(n.name, x, y + radius + 3);
+          ctx.shadowBlur = 0;
+        }}
+        nodePointerAreaPaint={(node, color, ctx) => {
+          const n = node as { x?: number; y?: number };
+          ctx.beginPath();
+          ctx.arc(n.x ?? 0, n.y ?? 0, 12, 0, 2 * Math.PI);
+          ctx.fillStyle = color;
+          ctx.fill();
+        }}
+        /* ── Link styling ── */
+        linkColor={() => "rgba(255,255,255,0.06)"}
+        linkWidth={0.8}
+        /* ── Interactions ── */
+        onNodeClick={handleNodeClick}
+        onNodeHover={(node: any) =>
+          setHoveredNode(node ? node.id : null)
+        }
+        nodeLabel={(node) => (node as { name: string }).name}
+        /* ── Physics ── */
+        cooldownTicks={120}
+        d3AlphaDecay={0.02}
+        d3VelocityDecay={0.3}
+      />
+
+      {/* ── Zoom Controls (Bottom Right) ── */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "1.5rem",
+          right: "1.5rem",
+          zIndex: 20,
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.35rem",
+        }}
+      >
+        {[
+          { icon: <ZoomIn size={16} />, fn: zoomIn, label: "Zoom In" },
+          { icon: <ZoomOut size={16} />, fn: zoomOut, label: "Zoom Out" },
+          { icon: <Target size={16} />, fn: resetView, label: "Reset" },
+        ].map((btn) => (
+          <button
+            key={btn.label}
+            onClick={btn.fn}
+            title={btn.label}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "2.25rem",
+              height: "2.25rem",
+              borderRadius: "0.6rem",
+              border: "1px solid rgba(255,255,255,0.08)",
+              background: "rgba(5,5,5,0.6)",
+              backdropFilter: "blur(12px)",
+              color: "rgba(255,255,255,0.5)",
+              cursor: "pointer",
+              transition: "all 0.15s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "#fff";
+              e.currentTarget.style.background = "rgba(255,255,255,0.08)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "rgba(255,255,255,0.5)";
+              e.currentTarget.style.background = "rgba(5,5,5,0.6)";
+            }}
+          >
+            {btn.icon}
+          </button>
+        ))}
+      </div>
+
+      {/* ── Cluster Legend (Bottom Left) ── */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "1.5rem",
+          left: "1.5rem",
+          zIndex: 20,
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "0.5rem 1rem",
+          maxWidth: "380px",
+          pointerEvents: "none",
+        }}
+      >
+        {Object.entries(CLUSTER_COLORS)
+          .filter(([k]) => k !== "Uncategorized")
+          .map(([name, color]) => (
+            <div
+              key={name}
+              style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}
+            >
+              <div
+                style={{
+                  width: "6px",
+                  height: "6px",
+                  borderRadius: "50%",
+                  background: color,
+                  boxShadow: `0 0 5px ${color}55`,
+                }}
+              />
+              <span
+                style={{
+                  fontSize: "9px",
+                  fontWeight: 700,
+                  color: "rgba(255,255,255,0.25)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.12em",
+                }}
+              >
+                {name}
+              </span>
+            </div>
+          ))}
+      </div>
+    </div>
+  );
+}

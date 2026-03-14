@@ -1,26 +1,105 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
+/* ─── Design Tokens ──────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --void:          #050505;
+  --surface:       rgba(255, 255, 255, 0.03);
+  --border:        rgba(255, 255, 255, 0.08);
+  --text-primary:  #f0f0f5;
+  --text-muted:    rgba(240, 240, 245, 0.4);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─── Reset + Void ───────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  /* Prevent horizontal scroll caused by absolutely-positioned orbs */
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--void);
+  /* Center radial glow to provide ambient light for glass */
+  background-image: radial-gradient(
+    ellipse 100% 70% at 50% -10%,
+    rgba(30, 30, 60, 0.9) 0%,
+    var(--void) 65%
+  );
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100dvh;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+}
+
+/* ─── Selection ──────────────────────────────────────── */
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: #fff;
+}
+
+/* ─── Smooth scroll ──────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Sidebar nav scrollbar (ultra-thin) ─────────────── */
+.sidebar-scroll::-webkit-scrollbar { width: 3px; }
+.sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+}
+
+/* ─── Focus-visible for keyboard nav ─────────────────── */
+:focus-visible {
+  outline: 2px solid rgba(96, 165, 250, 0.4);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── EXACT OBSIDIAN MARKDOWN SPACING OVERRIDES ─────────── */
+.prose p {
+  margin-top: 1.5em !important;
+  margin-bottom: 1.5em !important;
+  line-height: 1.75 !important;
+}
+
+.prose ul, .prose ol {
+  margin-top: 1.5em !important;
+  margin-bottom: 1.5em !important;
+}
+
+.prose li {
+  margin-top: 0.5em !important;
+  margin-bottom: 0.5em !important;
+}
+
+.prose pre {
+  margin-top: 2em !important;
+  margin-bottom: 2em !important;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  margin-top: 2em !important;
+  margin-bottom: 1em !important;
+}
+
+.prose table {
+  margin-top: 2em !important;
+  margin-bottom: 2em !important;
 }
