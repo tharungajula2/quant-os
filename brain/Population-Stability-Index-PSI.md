@@ -16,7 +16,7 @@ That is what **Population Stability Index (PSI)** is trying to detect. It does n
 
 ## The Institutional Reality
 
-At a global bank, [[Population-Stability-Index-PSI.md]] is one of the most practical tools in ongoing model monitoring. It sits directly under the governance expectations of [[SR-11-7-Model-Governance.md]] and complements the discrimination metrics in [[Model-Performance-Metrics.md]]. The baseline report states this directly: PSI is part of the model monitoring toolkit, reported periodically to detect drift, and elevated PSI may trigger investigation, review, or retraining.
+At a global bank, [[Population-Stability-Index-PSI]] is one of the most practical tools in ongoing model monitoring. It sits directly under the governance expectations of [[SR-11-7-Model-Governance]] and complements the discrimination metrics in [[Model-Performance-Metrics]]. The baseline report states this directly: PSI is part of the model monitoring toolkit, reported periodically to detect drift, and elevated PSI may trigger investigation, review, or retraining.
 
 This is the first red-pill truth: **a model can keep the same coefficients and still become wrong because the population moved.** That movement can happen because of:
 
@@ -41,9 +41,9 @@ This is the first red-pill truth: **a model can keep the same coefficients and s
 
 That means PSI is not a performance metric in the same sense as AUC or KS. AUC asks whether the model still ranks well. PSI asks whether the **input world** or **score world** has shifted enough that ranking and calibration may no longer be trustworthy. This is why a strong bank monitors both:
 
-- **performance decay** through [[Model-Performance-Metrics.md]]
+- **performance decay** through [[Model-Performance-Metrics]]
     
-- **population drift** through [[Population-Stability-Index-PSI.md]]
+- **population drift** through [[Population-Stability-Index-PSI]]
     
 
 The second red-pill truth is that PSI is often used in **two distinct ways**:
@@ -61,15 +61,15 @@ This distinction matters. A portfolio can show stable overall scores while one i
 
 A bank-grade risk model is always built under some historical distribution. That distribution is never permanent. If the live portfolio begins to differ materially from the development sample, several bad things can happen:
 
-- calibration can break in [[Probability-of-Default.md]]
+- calibration can break in [[Probability-of-Default]]
     
-- Stage allocation behavior can become unstable in [[IFRS-9-and-ECL.md]]
+- Stage allocation behavior can become unstable in [[IFRS-9-and-ECL]]
     
-- approval cutoffs become less meaningful in [[Logistic-Regression-Scorecards.md]]
+- approval cutoffs become less meaningful in [[Logistic-Regression-Scorecards]]
     
-- advanced models may become brittle in [[Advanced-ML-in-Risk.md]]
+- advanced models may become brittle in [[Advanced-ML-in-Risk]]
     
-- governance conclusions from validation become stale under [[SR-11-7-Model-Governance.md]]
+- governance conclusions from validation become stale under [[SR-11-7-Model-Governance]]
     
 
 That is why PSI is not cosmetic. It is an early-warning siren.
@@ -100,15 +100,15 @@ So PSI is an **environmental drift indicator**, not a complete health certificat
 
 That is why strong institutions interpret PSI jointly with:
 
-- AUC / Gini / KS from [[Model-Performance-Metrics.md]]
+- AUC / Gini / KS from [[Model-Performance-Metrics]]
     
-- calibration reviews from [[Probability-of-Default.md]]
+- calibration reviews from [[Probability-of-Default]]
     
-- override trends from [[Logistic-Regression-Scorecards.md]]
+- override trends from [[Logistic-Regression-Scorecards]]
     
-- staging behavior from [[IFRS-9-and-ECL.md]]
+- staging behavior from [[IFRS-9-and-ECL]]
     
-- validation governance thresholds from [[SR-11-7-Model-Governance.md]]
+- validation governance thresholds from [[SR-11-7-Model-Governance]]
     
 
 ## The Core Math / Code
@@ -217,7 +217,7 @@ For variable-level PSI, they often use:
 
 - model development bins
     
-- WoE bins from [[Weight-of-Evidence-and-IV.md]]
+- WoE bins from [[Weight-of-Evidence-and-IV]]
     
 - business-policy buckets
     
@@ -392,7 +392,7 @@ This does the real work a monitoring script should do:
 - makes the output traceable for dashboards and governance packs
     
 
-That is the kind of code that belongs in a controlled monitoring environment beside [[Model-Performance-Metrics.md]].
+That is the kind of code that belongs in a controlled monitoring environment beside [[Model-Performance-Metrics]].
 
 ### PSI as an Ongoing Monitoring Trigger
 
@@ -417,7 +417,7 @@ This creates a governance ladder:
 |Moderate PSI|Investigate drift source, review segment behavior|
 |High PSI|Formal model review, performance deep-dive, possible remediation or retraining|
 
-This is why PSI is so useful under [[SR-11-7-Model-Governance.md]]. It converts “the portfolio feels different” into a measurable escalation signal.
+This is why PSI is so useful under [[SR-11-7-Model-Governance]]. It converts “the portfolio feels different” into a measurable escalation signal.
 
 ### What PSI Cannot Tell You
 
@@ -442,7 +442,7 @@ That means a good validator uses PSI as the **start of the investigation**, not 
 
 ### What Validators Attack First
 
-Under [[SR-11-7-Model-Governance.md]], validators usually challenge PSI monitoring on:
+Under [[SR-11-7-Model-Governance]], validators usually challenge PSI monitoring on:
 
 - choice of reference population
     
@@ -467,15 +467,15 @@ That is the sixth red-pill truth: **bad PSI governance is often worse than no PS
 
 PSI connects naturally to the rest of the system:
 
-- [[Logistic-Regression-Scorecards.md]] because scorecards drift when populations change
+- [[Logistic-Regression-Scorecards]] because scorecards drift when populations change
     
-- [[Advanced-ML-in-Risk.md]] because complex models can be even more fragile under drift
+- [[Advanced-ML-in-Risk]] because complex models can be even more fragile under drift
     
-- [[Model-Performance-Metrics.md]] because drift and discrimination must be monitored together
+- [[Model-Performance-Metrics]] because drift and discrimination must be monitored together
     
-- [[Probability-of-Default.md]] because PD calibration can break under population change
+- [[Probability-of-Default]] because PD calibration can break under population change
     
-- [[IFRS-9-and-ECL.md]] because stage allocations and ECL behavior can become unstable when score distributions shift
+- [[IFRS-9-and-ECL]] because stage allocations and ECL behavior can become unstable when score distributions shift
     
 
 That is why PSI is not a side note. It is the production-survival metric.

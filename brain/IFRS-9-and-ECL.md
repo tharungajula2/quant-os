@@ -20,7 +20,7 @@ That is the spirit of **IFRS 9 Expected Credit Loss (ECL)**. It forces banks to 
 
 ## The Institutional Reality
 
-At a global bank, [[IFRS-9-and-ECL.md]] is the accounting engine for credit impairment. Its deepest shift was replacing the old **incurred loss** mindset with a **forward-looking expected credit loss** framework. That means the bank must reserve for credit losses **before** default happens, not after the damage is already obvious. The baseline report you uploaded captures this directly: IFRS 9 requires firms to recognize expected losses from loan inception and to use current and future information in doing so.
+At a global bank, [[IFRS-9-and-ECL]] is the accounting engine for credit impairment. Its deepest shift was replacing the old **incurred loss** mindset with a **forward-looking expected credit loss** framework. That means the bank must reserve for credit losses **before** default happens, not after the damage is already obvious. The baseline report you uploaded captures this directly: IFRS 9 requires firms to recognize expected losses from loan inception and to use current and future information in doing so.
 
 The heart of IFRS 9 is the **three-stage framework**:
 
@@ -31,13 +31,13 @@ The heart of IFRS 9 is the **three-stage framework**:
 - **Stage 3**: credit-impaired asset → recognize **lifetime ECL**, usually with stronger alignment to non-performing asset treatment and interest recognition adjustments depending on accounting policy and jurisdictional practice
     
 
-This is not just an accounting detail. It changes earnings, capital planning, investor communication, and business behavior. A bank with weak staging logic can massively understate provisioning in good times and then suffer violent reserve shocks when conditions deteriorate. That is why IFRS 9 sits right beside [[Probability-of-Default.md]], [[Loss-Given-Default.md]], and [[Exposure-at-Default.md]]: the accounting reserve is built from the same core risk ingredients, but used for a different institutional purpose than Basel capital.
+This is not just an accounting detail. It changes earnings, capital planning, investor communication, and business behavior. A bank with weak staging logic can massively understate provisioning in good times and then suffer violent reserve shocks when conditions deteriorate. That is why IFRS 9 sits right beside [[Probability-of-Default]], [[Loss-Given-Default]], and [[Exposure-at-Default]]: the accounting reserve is built from the same core risk ingredients, but used for a different institutional purpose than Basel capital.
 
 This is the first red-pill distinction:
 
-- [[Basel-IRB-Framework.md]] and [[RWA-Risk-Weighted-Assets.md]] are mainly about capital for **unexpected loss**
+- [[Basel-IRB-Framework]] and [[RWA-Risk-Weighted-Assets]] are mainly about capital for **unexpected loss**
     
-- [[IFRS-9-and-ECL.md]] is mainly about accounting recognition of **expected loss**
+- [[IFRS-9-and-ECL]] is mainly about accounting recognition of **expected loss**
     
 
 That is why a bank can hold both provisions and capital without contradiction. The provision is the accounting estimate of expected future credit loss. The capital buffer is the solvency shield against tail outcomes beyond that mean.
@@ -82,13 +82,13 @@ This is crucial because default risk is not only borrower-specific. It moves wit
 
 and then probability-weight them.
 
-That links IFRS 9 directly to [[Macro-Stress-Testing.md]] and, increasingly, to [[Climate-Risk-Modeling.md]], where transition and physical risk factors may feed sector-level deterioration or overlay logic.
+That links IFRS 9 directly to [[Macro-Stress-Testing]] and, increasingly, to [[Climate-Risk-Modeling]], where transition and physical risk factors may feed sector-level deterioration or overlay logic.
 
 ### RBI and Global Institutional Context
 
 In a global setting, IFRS 9 is an accounting standard rather than a Basel capital rule. But in practice, provisioning, earnings volatility, and capital planning are tightly linked. Supervisors care whether banks are using forward-looking provisioning responsibly, whether overlays are credible rather than opportunistic, and whether staging policies are consistent and auditable. In India-facing contexts, even when local accounting or prudential regimes differ in detailed implementation, the intellectual structure still matters enormously for multinational banks, consulting work, and model risk roles because the same underlying logic appears in ECL design, prudential overlays, and board-level reserve governance.
 
-That is why [[SR-11-7-Model-Governance.md]] matters here too. An IFRS 9 model can fail not because the math is impossible, but because:
+That is why [[SR-11-7-Model-Governance]] matters here too. An IFRS 9 model can fail not because the math is impossible, but because:
 
 - staging triggers are weak
     
@@ -146,7 +146,7 @@ $$
 ECL_{LT}=\sum_{t=1}^{T}\frac{mPD_t \times LGD_t \times EAD_t}{(1+r)^t}  
 $$
 
-Here $mPD_t$ is often understood as the marginal default probability for each future period, though implementations may derive it from cumulative PD term structures. This is where term-structure modeling becomes serious. You cannot compute lifetime ECL properly if your [[Probability-of-Default.md]] framework stops at one-year odds.
+Here $mPD_t$ is often understood as the marginal default probability for each future period, though implementations may derive it from cumulative PD term structures. This is where term-structure modeling becomes serious. You cannot compute lifetime ECL properly if your [[Probability-of-Default]] framework stops at one-year odds.
 
 ### Stage Summary Table
 
@@ -183,11 +183,11 @@ This is one of the most important connections between accounting and economics. 
 
 IFRS 9 depends heavily on the same risk triad used throughout the Credit Risk OS:
 
-- [[Probability-of-Default.md]] provides the default timing structure
+- [[Probability-of-Default]] provides the default timing structure
     
-- [[Loss-Given-Default.md]] provides recovery severity and collateral assumptions
+- [[Loss-Given-Default]] provides recovery severity and collateral assumptions
     
-- [[Exposure-at-Default.md]] provides balance-at-default logic, especially for revolving products
+- [[Exposure-at-Default]] provides balance-at-default logic, especially for revolving products
     
 
 But unlike Basel IRB, the calibration philosophy is different. IFRS 9 is usually more **point-in-time**, more sensitive to current and forecasted conditions, and more directly tied to accounting recognition. Basel IRB often seeks a more prudential and sometimes more through-the-cycle capital view. That difference is one of the most important conceptual distinctions in all of credit risk.
@@ -200,8 +200,8 @@ But unlike Basel IRB, the calibration philosophy is different. IFRS 9 is usually
 |Core risk lens|Expected loss|Unexpected loss capital|
 |Horizon|12-month or lifetime depending on stage|One-year capital framework with prudential structure|
 |Sensitivity|Often more point-in-time and forward-looking|Prudential and capital-oriented|
-|Output|Provision / allowance|Capital requirement and [[RWA-Risk-Weighted-Assets.md]]|
-|Main connected notes|[[Probability-of-Default.md]], [[Loss-Given-Default.md]], [[Exposure-at-Default.md]]|[[Basel-IRB-Framework.md]], [[RWA-Risk-Weighted-Assets.md]]|
+|Output|Provision / allowance|Capital requirement and [[RWA-Risk-Weighted-Assets]]|
+|Main connected notes|[[Probability-of-Default]], [[Loss-Given-Default]], [[Exposure-at-Default]]|[[Basel-IRB-Framework]], [[RWA-Risk-Weighted-Assets]]|
 
 ### Why Stage 2 Is So Politically Important
 
@@ -220,7 +220,7 @@ In the real world, Stage 2 is often the most sensitive part of the framework bec
 - committee review of management judgment
     
 
-This is precisely where [[SR-11-7-Model-Governance.md]] and later execution notes such as [[Model-Performance-Metrics.md]] and [[Population-Stability-Index-PSI.md]] become essential. A model that predicts well in development but creates unstable stage migration in production is not institutionally successful.
+This is precisely where [[SR-11-7-Model-Governance]] and later execution notes such as [[Model-Performance-Metrics]] and [[Population-Stability-Index-PSI]] become essential. A model that predicts well in development but creates unstable stage migration in production is not institutionally successful.
 
 ### Red-Pill Summary
 

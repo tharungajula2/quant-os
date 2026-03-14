@@ -16,7 +16,7 @@ That is what **advanced machine learning** does in risk. Traditional scorecards 
 
 ## The Institutional Reality
 
-At a global bank, [[Advanced-ML-in-Risk.md]] is not about replacing [[Logistic-Regression-Scorecards.md]] just because ML is fashionable. It is about deciding when extra predictive power is worth the extra governance burden. Your baseline report states this clearly: banks increasingly use models such as **XGBoost** and **artificial neural networks** because they can detect complex patterns beyond logistic regression, especially in heterogeneous data. It also highlights that regulators still require interpretability, stability, and strong governance, especially for capital, provisioning, and other material risk uses.
+At a global bank, [[Advanced-ML-in-Risk]] is not about replacing [[Logistic-Regression-Scorecards]] just because ML is fashionable. It is about deciding when extra predictive power is worth the extra governance burden. Your baseline report states this clearly: banks increasingly use models such as **XGBoost** and **artificial neural networks** because they can detect complex patterns beyond logistic regression, especially in heterogeneous data. It also highlights that regulators still require interpretability, stability, and strong governance, especially for capital, provisioning, and other material risk uses.
 
 This is the first red-pill truth: **banks do not ask “Is ML more accurate?” first. They ask “Can this ML model survive governance?”** A model in banking must not only rank risk well. It must also be:
 
@@ -30,7 +30,7 @@ This is the first red-pill truth: **banks do not ask “Is ML more accurate?” 
     
 - stable under population drift
     
-- defensible under [[SR-11-7-Model-Governance.md]]
+- defensible under [[SR-11-7-Model-Governance]]
     
 
 That is why advanced ML usually enters the bank in one of four ways:
@@ -84,7 +84,7 @@ That often includes:
     
 - early-warning systems
     
-- fraud and anomaly detection links to [[AML-and-Financial-Crime-Models.md]]
+- fraud and anomaly detection links to [[AML-and-Financial-Crime-Models]]
     
 - complex account-level monitoring where raw transactional behavior matters
     
@@ -93,7 +93,7 @@ But the closer the model gets to **Basel capital**, **IFRS 9 provisioning**, or 
 
 So the real institutional question is not “Can we use XGBoost?” It is:
 
-> “For this use case, can we prove that the model’s complexity is justified, interpretable, controlled, and more decision-useful than simpler alternatives such as [[Logistic-Regression-Scorecards.md]]?”
+> “For this use case, can we prove that the model’s complexity is justified, interpretable, controlled, and more decision-useful than simpler alternatives such as [[Logistic-Regression-Scorecards]]?”
 
 ### Why Logistic Regression Still Refuses to Die
 
@@ -120,7 +120,7 @@ $$
 \log\left(\frac{p}{1-p}\right)=\beta_0+\sum_{j=1}^{k}\beta_j x_j  
 $$
 
-That structure is powerful, but limited. It assumes that the effect of each input is additive and mostly linear on the log-odds scale, unless you manually create bins, interactions, and nonlinear transformations in notes like [[Weight-of-Evidence-and-IV.md]] and [[Logistic-Regression-Scorecards.md]].
+That structure is powerful, but limited. It assumes that the effect of each input is additive and mostly linear on the log-odds scale, unless you manually create bins, interactions, and nonlinear transformations in notes like [[Weight-of-Evidence-and-IV]] and [[Logistic-Regression-Scorecards]].
 
 Advanced ML models break that constraint.
 
@@ -441,13 +441,13 @@ But SHAP does **not** by itself solve:
 
 That is why SHAP belongs inside a broader control stack with:
 
-- [[Model-Performance-Metrics.md]] for discrimination and ranking performance
+- [[Model-Performance-Metrics]] for discrimination and ranking performance
     
-- [[Population-Stability-Index-PSI.md]] for distribution drift
+- [[Population-Stability-Index-PSI]] for distribution drift
     
-- [[SR-11-7-Model-Governance.md]] for lifecycle control
+- [[SR-11-7-Model-Governance]] for lifecycle control
     
-- [[IFRS-9-and-ECL.md]] or [[Basel-IRB-Framework.md]] depending on use case
+- [[IFRS-9-and-ECL]] or [[Basel-IRB-Framework]] depending on use case
     
 
 ### When ML Wins, and When It Should Lose
@@ -467,7 +467,7 @@ This is the real practical mindset. The question is not whether ML is “better.
 
 ### What Validators Will Attack First
 
-Under [[SR-11-7-Model-Governance.md]], validators usually challenge advanced ML models on:
+Under [[SR-11-7-Model-Governance]], validators usually challenge advanced ML models on:
 
 - conceptual justification for choosing ML over simpler baselines
     
@@ -483,7 +483,7 @@ Under [[SR-11-7-Model-Governance.md]], validators usually challenge advanced ML 
     
 - explainability sufficiency
     
-- benchmark comparison against [[Logistic-Regression-Scorecards.md]]
+- benchmark comparison against [[Logistic-Regression-Scorecards]]
     
 - portfolio and subgroup behavior, not just average performance
     

@@ -15,7 +15,7 @@ Now imagine the teacher gets the ranking mostly right, but says every risky stud
 
 ## The Institutional Reality
 
-At a global bank, [[Model-Performance-Metrics.md]] is the scorekeeper for whether a risk model is actually useful. But the institutional standard is much stricter than “the model has a high AUC.” A validator asks at least four different questions:
+At a global bank, [[Model-Performance-Metrics]] is the scorekeeper for whether a risk model is actually useful. But the institutional standard is much stricter than “the model has a high AUC.” A validator asks at least four different questions:
 
 1. **Discrimination** — does the model rank bad borrowers above good borrowers?
     
@@ -30,7 +30,7 @@ The baseline report focuses on the first of these, correctly naming **AUC**, **G
 
 This is the first red-pill truth: **AUC is not the model.** A model can have a respectable AUC and still fail institutionally because:
 
-- PDs are miscalibrated for [[Probability-of-Default.md]]
+- PDs are miscalibrated for [[Probability-of-Default]]
     
 - score migration is unstable across time
     
@@ -40,10 +40,10 @@ This is the first red-pill truth: **AUC is not the model.** A model can have a r
     
 - overrides destroy rank ordering
     
-- population drift breaks the development assumptions, linking directly to [[Population-Stability-Index-PSI.md]]
+- population drift breaks the development assumptions, linking directly to [[Population-Stability-Index-PSI]]
     
 
-That is why performance metrics must always be interpreted together with [[SR-11-7-Model-Governance.md]]. A strong validation report never says only “AUC is 0.78, therefore approved.” It asks whether that performance is **out-of-sample**, **stable through time**, **consistent across segments**, **adequately calibrated**, and **fit for the approved use case**.
+That is why performance metrics must always be interpreted together with [[SR-11-7-Model-Governance]]. A strong validation report never says only “AUC is 0.78, therefore approved.” It asks whether that performance is **out-of-sample**, **stable through time**, **consistent across segments**, **adequately calibrated**, and **fit for the approved use case**.
 
 The second red-pill truth is that **different metrics answer different questions**:
 
@@ -57,12 +57,12 @@ The second red-pill truth is that **different metrics answer different questions
     
 - **lift** matters when operations care about the top-ranked tail
     
-- calibration metrics matter when the output must be interpreted as a real PD, especially in [[IFRS-9-and-ECL.md]] or capital-linked PD frameworks
+- calibration metrics matter when the output must be interpreted as a real PD, especially in [[IFRS-9-and-ECL]] or capital-linked PD frameworks
     
 
 This matters because banks do not use models for just one thing. A collections prioritization model may care more about rank concentration in the top decile. A retail underwriting scorecard may care heavily about cutoffs. A Basel PD model may care deeply about calibration by grade. So the correct performance metric depends on the business purpose, not just on mathematical elegance.
 
-The third red-pill truth is that **discrimination usually gets too much glory because it is easier to show**. AUC, Gini, and KS look impressive in slides. But a bank actually booking provisions or assigning grades needs the probabilities to mean something. That is why this note must connect back to [[Probability-of-Default.md]], [[Logistic-Regression-Scorecards.md]], and [[Advanced-ML-in-Risk.md]]. A model may separate well, but if the predicted 2% PD bucket actually defaults at 6%, the institution has a serious problem even if the ROC curve looks beautiful.
+The third red-pill truth is that **discrimination usually gets too much glory because it is easier to show**. AUC, Gini, and KS look impressive in slides. But a bank actually booking provisions or assigning grades needs the probabilities to mean something. That is why this note must connect back to [[Probability-of-Default]], [[Logistic-Regression-Scorecards]], and [[Advanced-ML-in-Risk]]. A model may separate well, but if the predicted 2% PD bucket actually defaults at 6%, the institution has a serious problem even if the ROC curve looks beautiful.
 
 ## The Core Math / Code
 
@@ -203,7 +203,7 @@ This is why a model can have:
 - poor calibration
     
 
-and therefore still be dangerous for [[Probability-of-Default.md]] assignment or [[IFRS-9-and-ECL.md]] provisioning.
+and therefore still be dangerous for [[Probability-of-Default]] assignment or [[IFRS-9-and-ECL]] provisioning.
 
 ### 5. Lift and Capture
 
@@ -385,11 +385,11 @@ This code does five things that matter in practice:
 5. builds a lift table so business teams can see concentration power by risk bucket
     
 
-That is the kind of utility that naturally sits next to [[Logistic-Regression-Scorecards.md]] and [[Advanced-ML-in-Risk.md]] in a governed validation stack.
+That is the kind of utility that naturally sits next to [[Logistic-Regression-Scorecards]] and [[Advanced-ML-in-Risk]] in a governed validation stack.
 
 ### What Validators Actually Look For
 
-Under [[SR-11-7-Model-Governance.md]], a validator reading AUC, Gini, and KS does not stop at the headline values. They usually ask:
+Under [[SR-11-7-Model-Governance]], a validator reading AUC, Gini, and KS does not stop at the headline values. They usually ask:
 
 - Are these development, validation, or out-of-time numbers?
     
@@ -406,7 +406,7 @@ Under [[SR-11-7-Model-Governance.md]], a validator reading AUC, Gini, and KS doe
 - Are discrimination metrics strong while calibration remains weak?
     
 
-That last question is especially important. A scorecard used to assign PDs or drive [[IFRS-9-and-ECL.md]] must not hide behind rank-order strength alone.
+That last question is especially important. A scorecard used to assign PDs or drive [[IFRS-9-and-ECL]] must not hide behind rank-order strength alone.
 
 ### Common Failure Modes
 
@@ -422,7 +422,7 @@ A model may show attractive AUC/Gini/KS in development and still fail in product
     
 - event rarity made one metric unstable
     
-- population drift broke the development relationship, linking to [[Population-Stability-Index-PSI.md]]
+- population drift broke the development relationship, linking to [[Population-Stability-Index-PSI]]
     
 - business overrides weakened actual decision alignment
     

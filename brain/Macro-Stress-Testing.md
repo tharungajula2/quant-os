@@ -16,23 +16,23 @@ That is what **macro stress testing** does for a bank. It does not ask only what
 
 ## The Institutional Reality
 
-At a global bank, [[Macro-Stress-Testing.md]] is one of the clearest examples of risk management moving beyond point estimates into survival analysis. Your baseline report explicitly notes that in the United States, **CCAR** and related supervisory stress regimes require large banks to run forward-looking, multi-year capital stress tests, while in Europe and other jurisdictions the same broad logic appears through **ICAAP**, Pillar 2, and supervisor-driven scenario exercises. The common institutional objective is not just “good modeling,” but credible capital planning under adversity.
+At a global bank, [[Macro-Stress-Testing]] is one of the clearest examples of risk management moving beyond point estimates into survival analysis. Your baseline report explicitly notes that in the United States, **CCAR** and related supervisory stress regimes require large banks to run forward-looking, multi-year capital stress tests, while in Europe and other jurisdictions the same broad logic appears through **ICAAP**, Pillar 2, and supervisor-driven scenario exercises. The common institutional objective is not just “good modeling,” but credible capital planning under adversity.
 
 This is the first red-pill truth: **stress testing is not forecasting**. A forecast tries to estimate the most likely future path. A stress test deliberately asks about an ugly path that may not be the central expectation at all. In other words, stress testing is an exercise in disciplined pessimism. Regulators do not mainly care whether the exact scenario comes true. They care whether management understands how the bank breaks, which portfolios are fragile, how losses propagate, and whether capital actions are credible under pressure. That is why the baseline report emphasizes that stress testing is both **quantitative and qualitative**: the numbers matter, but so do governance, scenario design, capital actions, and management credibility.
 
 The second red-pill truth is that macro stress testing is really a **translation engine**. It takes an economic narrative and converts it into stressed risk parameters and financial outcomes. A severe recession scenario may imply:
 
-- higher [[Probability-of-Default.md]] because borrowers deteriorate
+- higher [[Probability-of-Default]] because borrowers deteriorate
     
-- higher [[Loss-Given-Default.md]] because collateral values fall and recoveries worsen
+- higher [[Loss-Given-Default]] because collateral values fall and recoveries worsen
     
-- higher [[Exposure-at-Default.md]] because revolvers and liquidity lines are drawn
+- higher [[Exposure-at-Default]] because revolvers and liquidity lines are drawn
     
-- larger provisions under [[IFRS-9-and-ECL.md]]
+- larger provisions under [[IFRS-9-and-ECL]]
     
-- higher capital consumption through [[RWA-Risk-Weighted-Assets.md]]
+- higher capital consumption through [[RWA-Risk-Weighted-Assets]]
     
-- pressure on solvency and internal capital under [[Economic-Capital-Basics.md]]
+- pressure on solvency and internal capital under [[Economic-Capital-Basics]]
     
 
 That is why your baseline report says stress testing “ties economic narrative to model parameters,” amplifying PD, LGD, and EAD under stress rather than treating them as fixed constants.
@@ -50,7 +50,7 @@ The point is not to memorize acronyms. The point is to understand the shared ins
 
 > the bank must prove that it can survive a bad macroeconomic path without pretending that recent benign experience is enough evidence.
 
-That is why stress testing sits naturally beside [[Expected-vs-Unexpected-Loss.md]] and [[Basel-IRB-Framework.md]]. It is the place where tail-risk thinking becomes operational.
+That is why stress testing sits naturally beside [[Expected-vs-Unexpected-Loss]] and [[Basel-IRB-Framework]]. It is the place where tail-risk thinking becomes operational.
 
 ### Why Stress Testing Matters More Than Ever
 
@@ -66,13 +66,13 @@ A serious macro stress program now often has to integrate:
     
 - trading and valuation losses
     
-- provisioning under [[IFRS-9-and-ECL.md]]
+- provisioning under [[IFRS-9-and-ECL]]
     
 - balance-sheet changes and management actions
     
-- climate overlays via [[Climate-Risk-Modeling.md]]
+- climate overlays via [[Climate-Risk-Modeling]]
     
-- concentration risk in portfolios such as [[Specialized-Lending-CRE-Project.md]] and [[Low-Default-Portfolios-LDP.md]]
+- concentration risk in portfolios such as [[Specialized-Lending-CRE-Project]] and [[Low-Default-Portfolios-LDP]]
     
 
 So macro stress testing is no longer a side exercise. It is the board-level mirror that shows whether all the other risk models still make sense when the world stops being friendly.
@@ -171,7 +171,7 @@ $$
 ECL^{stress} = \sum_{t=1}^{T}\frac{PD_t^{stress}\times LGD_t^{stress}\times EAD_t^{stress}}{(1+r)^t}  
 $$
 
-This is where [[IFRS-9-and-ECL.md]] enters directly.
+This is where [[IFRS-9-and-ECL]] enters directly.
 
 Under capital planning, the bank then projects the post-stress capital ratio:
 
@@ -245,9 +245,9 @@ A useful comparison is below.
 
 |Lens|Core question|Typical output|Linked note|
 |---|---|---|---|
-|Ordinary expected loss|What loss do we expect on average?|Reserve or average loss estimate|[[Expected-vs-Unexpected-Loss.md]]|
-|Economic capital|What tail loss buffer do we need?|Internal capital cushion|[[Economic-Capital-Basics.md]]|
-|Macro stress testing|What happens to the bank under a severe scenario path?|Loss, capital, and solvency trajectory|[[Macro-Stress-Testing.md]]|
+|Ordinary expected loss|What loss do we expect on average?|Reserve or average loss estimate|[[Expected-vs-Unexpected-Loss]]|
+|Economic capital|What tail loss buffer do we need?|Internal capital cushion|[[Economic-Capital-Basics]]|
+|Macro stress testing|What happens to the bank under a severe scenario path?|Loss, capital, and solvency trajectory|[[Macro-Stress-Testing]]|
 
 This is why stress testing is not redundant. It answers a different question from both provisioning and capital formulas.
 
@@ -264,7 +264,7 @@ Different portfolios react differently to the same scenario:
 |Sovereigns / banks|Funding stress, contagion, spread widening|
 |Derivatives / CCR|Counterparty deterioration and market volatility|
 
-This is where stress testing connects strongly to [[Specialized-Lending-CRE-Project.md]], [[Low-Default-Portfolios-LDP.md]], and [[Counterparty-Credit-Risk-CCR.md]]. A single macro shock does not hit every portfolio through the same pipe.
+This is where stress testing connects strongly to [[Specialized-Lending-CRE-Project]], [[Low-Default-Portfolios-LDP]], and [[Counterparty-Credit-Risk-CCR]]. A single macro shock does not hit every portfolio through the same pipe.
 
 ### Why Management Actions Matter
 
@@ -287,7 +287,7 @@ This is the fifth red-pill truth: **a bank is not a static model object**. Under
 
 ### What Validators Attack First
 
-Under [[SR-11-7-Model-Governance.md]], validators usually attack stress frameworks in these places:
+Under [[SR-11-7-Model-Governance]], validators usually attack stress frameworks in these places:
 
 - Are the scenarios coherent and severe enough?
     

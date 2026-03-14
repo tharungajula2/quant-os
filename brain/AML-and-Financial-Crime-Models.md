@@ -12,11 +12,11 @@ cluster: Cross-Domain Risk
 
 Imagine you are the head teacher watching thousands of students move through a huge school every day. Most behavior is normal: students go to class, eat lunch, and head home. But once in a while, something looks strange — one student suddenly runs through five classrooms, swaps bags with three people, and vanishes before attendance. You do not immediately know that a crime happened, but you know the pattern is weird enough to investigate.
 
-That is what **AML and financial-crime models** do inside a bank. They are not trying to predict who will default like [[Probability-of-Default.md]]. They are trying to detect behavior that looks suspicious, hidden, layered, or inconsistent with what is normal for that customer, account, network, or geography. In other words, this is less about credit loss and more about **pattern recognition under uncertainty**.
+That is what **AML and financial-crime models** do inside a bank. They are not trying to predict who will default like [[Probability-of-Default]]. They are trying to detect behavior that looks suspicious, hidden, layered, or inconsistent with what is normal for that customer, account, network, or geography. In other words, this is less about credit loss and more about **pattern recognition under uncertainty**.
 
 ## The Institutional Reality
 
-At a global bank, [[AML-and-Financial-Crime-Models.md]] refers to the transaction-monitoring, customer-risk, and anomaly-detection systems used to identify potential money laundering, sanctions evasion, fraud-linked movement, mule activity, structuring, and other suspicious financial behavior. Your uploaded baseline report states this directly: AML systems use rules-based filters plus increasingly machine-learning or anomaly-detection methods to flag unusual patterns such as large transfers, high-risk-country exposure, or rapid movement through multiple accounts, and banks are required to file **Suspicious Activity Reports (SARs)** when money laundering or predicate criminal behavior is suspected.
+At a global bank, [[AML-and-Financial-Crime-Models]] refers to the transaction-monitoring, customer-risk, and anomaly-detection systems used to identify potential money laundering, sanctions evasion, fraud-linked movement, mule activity, structuring, and other suspicious financial behavior. Your uploaded baseline report states this directly: AML systems use rules-based filters plus increasingly machine-learning or anomaly-detection methods to flag unusual patterns such as large transfers, high-risk-country exposure, or rapid movement through multiple accounts, and banks are required to file **Suspicious Activity Reports (SARs)** when money laundering or predicate criminal behavior is suspected.
 
 This is the first red-pill truth: **AML models are not judged mainly by “how many bad actors they catch.”** In real life, they are judged by whether they create a manageable, explainable, defensible alert stream. A model that flags half the bank’s customers is not a heroic detector. It is an operational disaster. More alerts usually mean:
 
@@ -31,7 +31,7 @@ This is the first red-pill truth: **AML models are not judged mainly by “how m
 - higher regulatory frustration if the bank cannot explain why alerts were generated
     
 
-So unlike a clean academic classification problem, AML modeling is a **triage system**. The goal is to move scarce investigative capacity toward the most suspicious activity with enough transparency that compliance teams can defend decisions. This is why AML modeling connects naturally to [[Model-Performance-Metrics.md]], but the metric culture is different. In credit risk, AUC can dominate the conversation. In AML, **alert quality, investigator efficiency, typology coverage, explainability, and case-conversion value** often matter just as much.
+So unlike a clean academic classification problem, AML modeling is a **triage system**. The goal is to move scarce investigative capacity toward the most suspicious activity with enough transparency that compliance teams can defend decisions. This is why AML modeling connects naturally to [[Model-Performance-Metrics]], but the metric culture is different. In credit risk, AUC can dominate the conversation. In AML, **alert quality, investigator efficiency, typology coverage, explainability, and case-conversion value** often matter just as much.
 
 The second red-pill truth is that **AML data are usually weakly labeled**. In credit risk, the target is relatively clear: default or no default. In AML, the true target is much noisier:
 
@@ -93,7 +93,7 @@ So the compliance burden is huge. A bank cannot say, “the model is accurate on
 - whether drift or customer-mix change is making the model stale
     
 
-That is why AML modeling belongs right beside [[SR-11-7-Model-Governance.md]], [[Advanced-ML-in-Risk.md]], and [[Population-Stability-Index-PSI.md]]. It is a model-risk problem even though the business objective is compliance rather than capital.
+That is why AML modeling belongs right beside [[SR-11-7-Model-Governance]], [[Advanced-ML-in-Risk]], and [[Population-Stability-Index-PSI]]. It is a model-risk problem even though the business objective is compliance rather than capital.
 
 ### Why Rules Still Matter
 
@@ -412,7 +412,7 @@ That is much closer to how real AML analytics operates than a pure textbook clas
 
 ### Why Explainability Is Non-Negotiable
 
-Even though AML can use advanced analytics, a bank still has to explain alerts to investigators, auditors, and supervisors. That is why this note links directly to [[Advanced-ML-in-Risk.md]] and [[SR-11-7-Model-Governance.md]]. A model that says “high risk” without a case-usable explanation is often operationally weak, even if it is technically clever.
+Even though AML can use advanced analytics, a bank still has to explain alerts to investigators, auditors, and supervisors. That is why this note links directly to [[Advanced-ML-in-Risk]] and [[SR-11-7-Model-Governance]]. A model that says “high risk” without a case-usable explanation is often operationally weak, even if it is technically clever.
 
 Good AML explainability usually answers:
 
@@ -439,7 +439,7 @@ Under a strong governance framework, AML models get challenged on questions like
     
 - Are alert volumes stable and explainable?
     
-- Has customer behavior drifted, linking to [[Population-Stability-Index-PSI.md]]?
+- Has customer behavior drifted, linking to [[Population-Stability-Index-PSI]]?
     
 - Are key typologies covered, or is the model blind to known risk patterns?
     

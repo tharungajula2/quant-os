@@ -15,7 +15,7 @@ That is **Exposure at Default (EAD)**. It is not the same as the current balance
 
 ## The Institutional Reality
 
-At a global bank, [[Exposure-at-Default.md]] is one of the three core credit risk parameters, alongside [[Probability-of-Default.md]] and [[Loss-Given-Default.md]]. The baseline report defines EAD as the total exposure the bank expects at the time of the borrower’s default, including both current on-balance amounts and likely future drawdowns from undrawn commitments.
+At a global bank, [[Exposure-at-Default]] is one of the three core credit risk parameters, alongside [[Probability-of-Default]] and [[Loss-Given-Default]]. The baseline report defines EAD as the total exposure the bank expects at the time of the borrower’s default, including both current on-balance amounts and likely future drawdowns from undrawn commitments.
 
 This is the first red-pill truth: **current balance is often a lie**. For fully drawn term loans, EAD may be close to today’s outstanding amount. But for credit cards, overdrafts, revolving credit facilities, trade lines, and unfunded corporate commitments, the borrower can still draw additional amounts before default. In stress, that behavior can accelerate rather than shrink. Troubled borrowers often pull liquidity exactly when their condition deteriorates. So if a bank models only today’s balance and ignores pre-default utilization, it will understate risk at the worst possible moment.
 
@@ -23,16 +23,16 @@ That is why Basel practice relies heavily on **Credit Conversion Factors (CCFs)*
 
 This matters institutionally for at least four reasons:
 
-1. **Expected loss** depends on EAD through [[Expected-vs-Unexpected-Loss.md]]
+1. **Expected loss** depends on EAD through [[Expected-vs-Unexpected-Loss]]
     
-2. **Regulatory capital** depends on EAD through [[Basel-IRB-Framework.md]] and [[RWA-Risk-Weighted-Assets.md]]
+2. **Regulatory capital** depends on EAD through [[Basel-IRB-Framework]] and [[RWA-Risk-Weighted-Assets]]
     
-3. **Provisioning** depends on term-structured exposure profiles under [[IFRS-9-and-ECL.md]]
+3. **Provisioning** depends on term-structured exposure profiles under [[IFRS-9-and-ECL]]
     
-4. **Stress testing** often reveals that EAD can surge under deteriorating macro conditions, linking directly to [[Macro-Stress-Testing.md]]
+4. **Stress testing** often reveals that EAD can surge under deteriorating macro conditions, linking directly to [[Macro-Stress-Testing]]
     
 
-The baseline report also points out that Basel IRB allows banks to estimate EAD from historical utilization patterns, especially for revolving products, and that EAD is more complex again in derivatives and [[Counterparty-Credit-Risk-CCR.md]].
+The baseline report also points out that Basel IRB allows banks to estimate EAD from historical utilization patterns, especially for revolving products, and that EAD is more complex again in derivatives and [[Counterparty-Credit-Risk-CCR]].
 
 The deeper institutional point is that EAD is a **behavioral parameter**, not just an accounting parameter. PD asks whether the borrower fails. LGD asks how much you lose after failure. EAD asks what the borrower manages to use before failure. That means EAD is shaped by borrower liquidity stress, covenant structure, product type, bank control rights, collateral mechanics, and operational timing. It is where credit risk starts behaving like a race between borrower distress and lender control.
 
@@ -60,7 +60,7 @@ $$
 EL = PD \times LGD \times EAD  
 $$
 
-So if [[Probability-of-Default.md]] and [[Loss-Given-Default.md]] stay fixed while EAD rises, expected loss rises linearly. This is why underestimating EAD is not a small modeling error. It directly understates both loss expectations and capital intensity. The baseline report makes this linkage explicit.
+So if [[Probability-of-Default]] and [[Loss-Given-Default]] stay fixed while EAD rises, expected loss rises linearly. This is why underestimating EAD is not a small modeling error. It directly understates both loss expectations and capital intensity. The baseline report makes this linkage explicit.
 
 ### On-Balance Plus Off-Balance View
 
@@ -156,25 +156,25 @@ where $CCF_t$ may itself rise as credit quality deteriorates. This is one reason
 |Credit card|Can materially exceed current balance due to pre-default drawdown|
 |Corporate revolver|Often sensitive to liquidity stress and covenant dynamics|
 |Trade finance / guarantees|Requires conversion from contingent exposure to funded-equivalent exposure|
-|Derivatives|Exposure depends on replacement cost and future market movement, linking to [[Counterparty-Credit-Risk-CCR.md]]|
+|Derivatives|Exposure depends on replacement cost and future market movement, linking to [[Counterparty-Credit-Risk-CCR]]|
 
 The baseline report explicitly notes that EAD for derivatives is more complex and often involves replacement cost plus future exposure add-ons, which is exactly why CCR is usually treated as a specialized branch of EAD logic.
 
 ### EAD in Basel IRB
 
-Under [[Basel-IRB-Framework.md]], EAD is one of the critical inputs feeding the capital engine. In stylized form:
+Under [[Basel-IRB-Framework]], EAD is one of the critical inputs feeding the capital engine. In stylized form:
 
 $$  
 RWA = 12.5 \times K \times EAD  
 $$
 
-So even if the capital rate $K$ is unchanged, a higher EAD mechanically increases [[RWA-Risk-Weighted-Assets.md]]. This is why EAD estimation has direct balance-sheet consequences. It is not a technical footnote. It changes capital consumption.
+So even if the capital rate $K$ is unchanged, a higher EAD mechanically increases [[RWA-Risk-Weighted-Assets]]. This is why EAD estimation has direct balance-sheet consequences. It is not a technical footnote. It changes capital consumption.
 
-This also explains why banks fight hard over EAD calibration. A lower CCF means lower EAD, which means lower RWA and lower capital requirement. That creates natural model-risk pressure, which is exactly why [[SR-11-7-Model-Governance.md]] matters so much here.
+This also explains why banks fight hard over EAD calibration. A lower CCF means lower EAD, which means lower RWA and lower capital requirement. That creates natural model-risk pressure, which is exactly why [[SR-11-7-Model-Governance]] matters so much here.
 
 ### EAD Under IFRS 9
 
-Under [[IFRS-9-and-ECL.md]], the challenge is even more dynamic. The bank may need **future exposure paths** over the remaining life of the facility, not just a one-year regulatory estimate. A stylized lifetime ECL expression is:
+Under [[IFRS-9-and-ECL]], the challenge is even more dynamic. The bank may need **future exposure paths** over the remaining life of the facility, not just a one-year regulatory estimate. A stylized lifetime ECL expression is:
 
 $$  
 ECL = \sum_{t=1}^{T}\frac{PD_t \times LGD_t \times EAD_t}{(1+r)^t}  
@@ -194,7 +194,7 @@ This is why EAD is not always just “today’s outstanding.” Timing matters. 
 
 ### What Validators Attack First
 
-Under [[SR-11-7-Model-Governance.md]], validators usually go after EAD models in very specific ways:
+Under [[SR-11-7-Model-Governance]], validators usually go after EAD models in very specific ways:
 
 - Is the drawdown sample representative of current usage behavior?
     

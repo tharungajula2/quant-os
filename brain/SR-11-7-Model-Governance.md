@@ -15,9 +15,9 @@ That is the real purpose of **model governance**. It exists because even a cleve
 
 ## The Institutional Reality
 
-At a serious bank, [[SR-11-7-Model-Governance.md]] is not a documentation exercise. It is the control framework that decides whether a model is allowed to influence real decisions such as underwriting, provisioning, capital, stress testing, pricing, or limits. The baseline report you uploaded captures the core principles directly: model risk must be managed like any other material risk, with **independent validation**, **effective challenge**, board and senior management oversight, ongoing performance monitoring, documentation, and internal audit embedded into the framework.
+At a serious bank, [[SR-11-7-Model-Governance]] is not a documentation exercise. It is the control framework that decides whether a model is allowed to influence real decisions such as underwriting, provisioning, capital, stress testing, pricing, or limits. The baseline report you uploaded captures the core principles directly: model risk must be managed like any other material risk, with **independent validation**, **effective challenge**, board and senior management oversight, ongoing performance monitoring, documentation, and internal audit embedded into the framework.
 
-The red-pill truth is this: **a model can be statistically powerful and still be institutionally unacceptable**. A PD model may rank borrowers well but fail because the development sample is not representative. An [[IFRS-9-and-ECL.md]] model may produce elegant lifetime ECL numbers but fail because staging overlays are ad hoc and governance cannot explain reserve jumps. An [[Advanced-ML-in-Risk.md]] model may outperform logistic regression but fail because nobody can explain why it made a decision or what happens when data drift. This is why model governance sits above the entire stack of [[Probability-of-Default.md]], [[Loss-Given-Default.md]], [[Exposure-at-Default.md]], [[Basel-IRB-Framework.md]], and [[Macro-Stress-Testing.md]]. It is the discipline that prevents “quantitative sophistication” from becoming uncontrolled institutional fragility.
+The red-pill truth is this: **a model can be statistically powerful and still be institutionally unacceptable**. A PD model may rank borrowers well but fail because the development sample is not representative. An [[IFRS-9-and-ECL]] model may produce elegant lifetime ECL numbers but fail because staging overlays are ad hoc and governance cannot explain reserve jumps. An [[Advanced-ML-in-Risk]] model may outperform logistic regression but fail because nobody can explain why it made a decision or what happens when data drift. This is why model governance sits above the entire stack of [[Probability-of-Default]], [[Loss-Given-Default]], [[Exposure-at-Default]], [[Basel-IRB-Framework]], and [[Macro-Stress-Testing]]. It is the discipline that prevents “quantitative sophistication” from becoming uncontrolled institutional fragility.
 
 In practical banking terms, model governance usually has five hard pillars:
 
@@ -34,7 +34,7 @@ In practical banking terms, model governance usually has five hard pillars:
     Committees decide whether the model is approved, approved with conditions, restricted, or rejected.
     
 5. **Ongoing monitoring and periodic review**  
-    Even a good model can decay in production, so metrics such as drift, override rates, calibration breaks, and stability must be monitored continuously, linking directly to [[Population-Stability-Index-PSI.md]] and [[Model-Performance-Metrics.md]].
+    Even a good model can decay in production, so metrics such as drift, override rates, calibration breaks, and stability must be monitored continuously, linking directly to [[Population-Stability-Index-PSI]] and [[Model-Performance-Metrics]].
     
 
 This is where people often misunderstand SR 11-7. They think it only means “validation.” That is too shallow. Validation is only one component. The full framework covers governance, ownership, documentation, approval, monitoring, change control, internal audit, and escalation. The model lifecycle is the object of governance, not just the equation.
@@ -69,7 +69,7 @@ A strong organization has real challenge:
 - they escalate when model outputs are being misused
     
 
-That is why [[SR-11-7-Model-Governance.md]] is foundational. It is the difference between “having a model” and “having a controlled decision system.”
+That is why [[SR-11-7-Model-Governance]] is foundational. It is the difference between “having a model” and “having a controlled decision system.”
 
 ### Why RBI / Basel / IFRS 9 Context Still Matters
 
@@ -77,15 +77,15 @@ SR 11-7 is U.S. supervisory guidance associated with the Fed and OCC, but the un
 
 This is especially important because the same bank may run:
 
-- capital models under [[Basel-IRB-Framework.md]]
+- capital models under [[Basel-IRB-Framework]]
     
-- provisioning models under [[IFRS-9-and-ECL.md]]
+- provisioning models under [[IFRS-9-and-ECL]]
     
-- stress frameworks under [[Macro-Stress-Testing.md]]
+- stress frameworks under [[Macro-Stress-Testing]]
     
-- anomaly or surveillance models under [[AML-and-Financial-Crime-Models.md]]
+- anomaly or surveillance models under [[AML-and-Financial-Crime-Models]]
     
-- advanced ML risk tools under [[Advanced-ML-in-Risk.md]]
+- advanced ML risk tools under [[Advanced-ML-in-Risk]]
     
 
 All of them create model risk. Governance is the umbrella that keeps them from becoming disconnected black boxes.
@@ -127,11 +127,11 @@ A strong validation framework usually tests four major domains.
 
 This asks whether the model makes sense before looking at performance. For example:
 
-- Does a [[Probability-of-Default.md]] model use plausible credit drivers?
+- Does a [[Probability-of-Default]] model use plausible credit drivers?
     
-- Does an [[IFRS-9-and-ECL.md]] model use a defensible staging methodology?
+- Does an [[IFRS-9-and-ECL]] model use a defensible staging methodology?
     
-- Does an [[Advanced-ML-in-Risk.md]] model have sufficient explainability for its use case?
+- Does an [[Advanced-ML-in-Risk]] model have sufficient explainability for its use case?
     
 
 You can think of this as:
@@ -154,7 +154,7 @@ In real life, this means reproducing transformations, cutoffs, joins, missing-va
 
 This asks whether the model works in reality.
 
-For classification-style models, validators often examine metrics covered in [[Model-Performance-Metrics.md]]:
+For classification-style models, validators often examine metrics covered in [[Model-Performance-Metrics]]:
 
 $$  
 AUC,\quad Gini=2\times AUC-1,\quad KS  
@@ -196,15 +196,15 @@ where:
 
 Examples include:
 
-- PSI above threshold in [[Population-Stability-Index-PSI.md]]
+- PSI above threshold in [[Population-Stability-Index-PSI]]
     
-- AUC deterioration in [[Model-Performance-Metrics.md]]
+- AUC deterioration in [[Model-Performance-Metrics]]
     
-- excessive rating overrides in [[Probability-of-Default.md]]
+- excessive rating overrides in [[Probability-of-Default]]
     
-- Stage 2 spike in [[IFRS-9-and-ECL.md]]
+- Stage 2 spike in [[IFRS-9-and-ECL]]
     
-- unexplained parameter drift in [[Loss-Given-Default.md]] or [[Exposure-at-Default.md]]
+- unexplained parameter drift in [[Loss-Given-Default]] or [[Exposure-at-Default]]
     
 
 That is the key mindset shift: governance is a control loop, not a static binder.
@@ -230,7 +230,7 @@ That is the key mindset shift: governance is a control loop, not a static binder
 |Validation difficulty|Moderate|Higher|
 |Stability assessment|Standard|More complex due to nonlinearity|
 |Regulatory comfort|Stronger|Conditional on controls and explainability|
-|Cross-link|[[Logistic-Regression-Scorecards.md]]|[[Advanced-ML-in-Risk.md]]|
+|Cross-link|[[Logistic-Regression-Scorecards]]|[[Advanced-ML-in-Risk]]|
 
 The deeper lesson is that SR 11-7 does not ban complexity. It says complexity must earn the right to exist through governance.
 
@@ -248,13 +248,13 @@ That is the version senior people respect.
 
 This note is therefore the nervous system of the Credit Risk OS. Without it:
 
-- [[Basel-IRB-Framework.md]] becomes capital theater
+- [[Basel-IRB-Framework]] becomes capital theater
     
-- [[IFRS-9-and-ECL.md]] becomes reserve theater
+- [[IFRS-9-and-ECL]] becomes reserve theater
     
-- [[Advanced-ML-in-Risk.md]] becomes black-box theater
+- [[Advanced-ML-in-Risk]] becomes black-box theater
     
-- [[Macro-Stress-Testing.md]] becomes scenario theater
+- [[Macro-Stress-Testing]] becomes scenario theater
     
 
 With it, those same models become governed risk infrastructure.

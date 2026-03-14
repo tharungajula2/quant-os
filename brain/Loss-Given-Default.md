@@ -11,30 +11,30 @@ cluster: The Quant Trinity
 
 Imagine you lend your friend a new bicycle worth ₹10,000. If he completely disappears, you do not always lose the full ₹10,000. Maybe you recover the lock, maybe his parents return part of the money, or maybe you sell the bicycle’s spare parts. **Loss Given Default (LGD)** is the share you still lose **after** default happens and **after** all recoveries are counted.
 
-That is why LGD is not about whether default happens. That job belongs to [[Probability-of-Default.md]]. LGD asks a different and more brutal question: **once the borrower has already failed, how much pain is left for the bank after collateral, legal recovery, guarantees, and workout efforts?**
+That is why LGD is not about whether default happens. That job belongs to [[Probability-of-Default]]. LGD asks a different and more brutal question: **once the borrower has already failed, how much pain is left for the bank after collateral, legal recovery, guarantees, and workout efforts?**
 
 ## The Institutional Reality
 
-At a global bank, [[Loss-Given-Default.md]] is one of the three core credit risk parameters together with [[Probability-of-Default.md]] and [[Exposure-at-Default.md]]. The baseline report defines LGD as the percentage of exposure that is **not recovered** once default has occurred, and notes that Basel treats it as the bank’s best estimate of average percentage loss per defaulted exposure.
+At a global bank, [[Loss-Given-Default]] is one of the three core credit risk parameters together with [[Probability-of-Default]] and [[Exposure-at-Default]]. The baseline report defines LGD as the percentage of exposure that is **not recovered** once default has occurred, and notes that Basel treats it as the bank’s best estimate of average percentage loss per defaulted exposure.
 
 The first red-pill insight is that default does **not** equal full loss. A borrower can default and the bank may still recover cash through collateral liquidation, guarantees, restructuring, bankruptcy proceeds, sponsor support, or post-default collections. So LGD is fundamentally a **recovery problem**, not merely a credit event label. This is why an unsecured corporate term loan, a mortgage backed by real estate, and a project finance facility with hard assets can all have very different LGDs even if the same borrower-level default concept is being used.
 
 The second red-pill insight is that LGD is one of the most cyclically dangerous parameters in the whole stack. In benign environments, recoveries often look healthy because asset prices are elevated, refinancing markets are open, and collateral can be sold at acceptable values. But when the economy turns, exactly when defaults rise, recoveries often deteriorate at the same time. The baseline report highlights this explicitly through the concept of **downturn LGD**, where stressed economic conditions reduce recoveries and raise losses.
 
-That is why Basel capital work under [[Basel-IRB-Framework.md]] tends to be conservative about LGD. Regulators do not want banks using peak-cycle recovery assumptions to calculate through-the-cycle capital. In practice, banks are expected to reflect stressed recovery conditions where necessary, especially when collateral values and liquidation outcomes are materially linked to the cycle. Real estate is the classic example: during a property boom, recovery looks strong; during a property crash, collateral haircuts widen and LGD rises exactly when it matters most.
+That is why Basel capital work under [[Basel-IRB-Framework]] tends to be conservative about LGD. Regulators do not want banks using peak-cycle recovery assumptions to calculate through-the-cycle capital. In practice, banks are expected to reflect stressed recovery conditions where necessary, especially when collateral values and liquidation outcomes are materially linked to the cycle. Real estate is the classic example: during a property boom, recovery looks strong; during a property crash, collateral haircuts widen and LGD rises exactly when it matters most.
 
 Institutionally, LGD sits at the junction of several worlds:
 
-- it feeds [[Expected-vs-Unexpected-Loss.md]] through the canonical loss identity
+- it feeds [[Expected-vs-Unexpected-Loss]] through the canonical loss identity
     
-- it influences tail loss and capital through [[Economic-Capital-Basics.md]] and [[RWA-Risk-Weighted-Assets.md]]
+- it influences tail loss and capital through [[Economic-Capital-Basics]] and [[RWA-Risk-Weighted-Assets]]
     
-- it interacts with accounting reserves under [[IFRS-9-and-ECL.md]]
+- it interacts with accounting reserves under [[IFRS-9-and-ECL]]
     
-- it becomes especially difficult in [[Specialized-Lending-CRE-Project.md]] and [[Low-Default-Portfolios-LDP.md]], where collateral quality, recovery timing, and sparse default history complicate estimation
+- it becomes especially difficult in [[Specialized-Lending-CRE-Project]] and [[Low-Default-Portfolios-LDP]], where collateral quality, recovery timing, and sparse default history complicate estimation
     
 
-This is why strong validators treat LGD as far more than a “plug input.” Under [[SR-11-7-Model-Governance.md]], they challenge recovery data representativeness, collateral valuation practices, cure assumptions, discounting, downturn calibration, segmentation, and the treatment of incomplete workout histories. A weak bank thinks LGD is just “1 minus recovery.” A strong bank knows LGD is where legal process, collateral realism, economics, and model governance all collide.
+This is why strong validators treat LGD as far more than a “plug input.” Under [[SR-11-7-Model-Governance]], they challenge recovery data representativeness, collateral valuation practices, cure assumptions, discounting, downturn calibration, segmentation, and the treatment of incomplete workout histories. A weak bank thinks LGD is just “1 minus recovery.” A strong bank knows LGD is where legal process, collateral realism, economics, and model governance all collide.
 
 ## The Core Math / Code
 
@@ -62,7 +62,7 @@ $$
 EL = PD \times LGD \times EAD  
 $$
 
-This means that, holding [[Probability-of-Default.md]] and [[Exposure-at-Default.md]] constant, higher LGD mechanically increases expected loss. That is why collateral quality matters so much. A safer recovery profile can materially reduce both expected and unexpected loss.
+This means that, holding [[Probability-of-Default]] and [[Exposure-at-Default]] constant, higher LGD mechanically increases expected loss. That is why collateral quality matters so much. A safer recovery profile can materially reduce both expected and unexpected loss.
 
 ### Recovery-Based View
 
@@ -166,7 +166,7 @@ $$
 
 in prudential settings where downturn conditions are materially relevant.
 
-This matters because a bank using benign-cycle recoveries in IRB capital can artificially depress [[RWA-Risk-Weighted-Assets.md]] and understate required capital. That is exactly why validators and supervisors pay so much attention to downturn calibration.
+This matters because a bank using benign-cycle recoveries in IRB capital can artificially depress [[RWA-Risk-Weighted-Assets]] and understate required capital. That is exactly why validators and supervisors pay so much attention to downturn calibration.
 
 ### A Simple LGD Intuition Table
 
@@ -190,7 +190,7 @@ A useful way to organize LGD thinking is:
 |Downturn LGD|Prudential capital conservatism|Reflects stressed recovery conditions|
 |PiT or scenario LGD|Forward-looking accounting or stress work|Adapts to current or forecast conditions|
 
-This mirrors the broader tension also seen in [[Probability-of-Default.md]] between stable prudential calibration and current-condition sensitivity.
+This mirrors the broader tension also seen in [[Probability-of-Default]] between stable prudential calibration and current-condition sensitivity.
 
 ### LGD and Correlation with PD
 
@@ -218,7 +218,7 @@ But in real recessions, both worsen together:
 - refinance exits disappear
     
 
-So the joint stress effect can be brutal. This is why macro downturns amplify both expected and tail loss, linking LGD directly to [[Macro-Stress-Testing.md]] and to the capital intuition in [[Economic-Capital-Basics.md]].
+So the joint stress effect can be brutal. This is why macro downturns amplify both expected and tail loss, linking LGD directly to [[Macro-Stress-Testing]] and to the capital intuition in [[Economic-Capital-Basics]].
 
 ### Workout LGD vs Market LGD
 
@@ -233,7 +233,7 @@ These approaches can differ meaningfully. Workout LGD is often closer to what ba
 
 ### Where LGD Models Commonly Fail
 
-Under [[SR-11-7-Model-Governance.md]], validators usually attack LGD along these lines:
+Under [[SR-11-7-Model-Governance]], validators usually attack LGD along these lines:
 
 - recovery data are too short or too benign
     

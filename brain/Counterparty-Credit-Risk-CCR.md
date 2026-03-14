@@ -15,9 +15,9 @@ That is **Counterparty Credit Risk (CCR)**. It is different from ordinary lendin
 
 ## The Institutional Reality
 
-At a global bank, [[Counterparty-Credit-Risk-CCR.md]] is the framework used to measure the risk that a counterparty in an OTC derivative, repo, securities lending, or similar transaction defaults before the final settlement of cash flows. The baseline report you uploaded frames it exactly this way: CCR is the credit risk arising from derivatives and related trades, and Basel capital treatment explicitly separates the risk of actual default from the risk of mark-to-market deterioration through **Credit Valuation Adjustment (CVA)**.
+At a global bank, [[Counterparty-Credit-Risk-CCR]] is the framework used to measure the risk that a counterparty in an OTC derivative, repo, securities lending, or similar transaction defaults before the final settlement of cash flows. The baseline report you uploaded frames it exactly this way: CCR is the credit risk arising from derivatives and related trades, and Basel capital treatment explicitly separates the risk of actual default from the risk of mark-to-market deterioration through **Credit Valuation Adjustment (CVA)**.
 
-This is the first red-pill distinction: **CCR is not just “another loan PD model.”** In vanilla lending, exposure is often reasonably stable or at least contractually bounded in a familiar way. In derivatives, the bank’s exposure depends on how market variables move after trade inception. An interest rate swap that is worth zero today may be worth a large positive amount to the bank six months later. If the counterparty defaults at that moment, the bank loses the replacement value of the trade, not some fixed principal amount. That is why [[Exposure-at-Default.md]] becomes more complex in CCR: exposure is path-dependent, netting-dependent, and collateral-dependent.
+This is the first red-pill distinction: **CCR is not just “another loan PD model.”** In vanilla lending, exposure is often reasonably stable or at least contractually bounded in a familiar way. In derivatives, the bank’s exposure depends on how market variables move after trade inception. An interest rate swap that is worth zero today may be worth a large positive amount to the bank six months later. If the counterparty defaults at that moment, the bank loses the replacement value of the trade, not some fixed principal amount. That is why [[Exposure-at-Default]] becomes more complex in CCR: exposure is path-dependent, netting-dependent, and collateral-dependent.
 
 The second red-pill distinction is that Basel treats CCR in **two separate capital channels**:
 
@@ -100,7 +100,7 @@ This is why CCR is a hybrid of present-state and future-state risk. It cares abo
 
 CVA is one of the most important ideas in derivatives credit risk because it turns counterparty credit deterioration into a mark-to-market problem. In plain English, if your counterparty becomes riskier, the value of your uncollateralized positive exposure to them falls, because the chance of full future payment has dropped. The baseline report captures this well: CVA risk is the expected loss in value from spread widening or weakening credit quality, and Basel requires a separate capital charge for it.
 
-That means a derivatives desk can lose money from counterparty spread moves even before default. This is the institutional reason why CCR connects not only to [[Probability-of-Default.md]] and [[Exposure-at-Default.md]], but also to [[Market-Risk-and-FRTB.md]]. Counterparty credit quality is a credit phenomenon, but the repricing of that quality is a market phenomenon.
+That means a derivatives desk can lose money from counterparty spread moves even before default. This is the institutional reason why CCR connects not only to [[Probability-of-Default]] and [[Exposure-at-Default]], but also to [[Market-Risk-and-FRTB]]. Counterparty credit quality is a credit phenomenon, but the repricing of that quality is a market phenomenon.
 
 ### Where CCR Sits in the Credit Risk OS
 
@@ -108,17 +108,17 @@ CCR is the bridge between classical banking credit risk and trading-book dynamic
 
 It links directly to:
 
-- [[Exposure-at-Default.md]] because derivative exposure is an advanced form of default-time exposure
+- [[Exposure-at-Default]] because derivative exposure is an advanced form of default-time exposure
     
-- [[Probability-of-Default.md]] because counterparty default likelihood still matters
+- [[Probability-of-Default]] because counterparty default likelihood still matters
     
-- [[Loss-Given-Default.md]] because recoveries on derivative claims and close-out mechanics still affect final loss
+- [[Loss-Given-Default]] because recoveries on derivative claims and close-out mechanics still affect final loss
     
-- [[Basel-IRB-Framework.md]] and [[RWA-Risk-Weighted-Assets.md]] because CCR creates capital requirements
+- [[Basel-IRB-Framework]] and [[RWA-Risk-Weighted-Assets]] because CCR creates capital requirements
     
-- [[Market-Risk-and-FRTB.md]] because counterparty spread moves and valuation changes behave like market risk
+- [[Market-Risk-and-FRTB]] because counterparty spread moves and valuation changes behave like market risk
     
-- [[SR-11-7-Model-Governance.md]] because CCR models are complex, assumption-heavy, and easy to misuse
+- [[SR-11-7-Model-Governance]] because CCR models are complex, assumption-heavy, and easy to misuse
     
 
 That is why strong quant candidates never describe CCR as “just EAD for swaps.” It is a full exposure architecture with legal, market, collateral, and credit dimensions.
@@ -257,7 +257,7 @@ $$
 
 where $EE$ is some suitable measure of expected exposure.
 
-This is the familiar credit-risk structure transplanted into the derivatives world. It is why CCR still connects cleanly to [[Expected-vs-Unexpected-Loss.md]].
+This is the familiar credit-risk structure transplanted into the derivatives world. It is why CCR still connects cleanly to [[Expected-vs-Unexpected-Loss]].
 
 But CVA adds another layer. A high-level conceptual expression is:
 
@@ -297,7 +297,7 @@ The exact implementation can be far more complex, but the intuition is clean:
 |Collateral role|Important but often static|Dynamic and operationally complex|
 |Market-factor dependence|Lower|High|
 |CVA sensitivity|Not central|Core|
-|Core linked notes|[[Probability-of-Default.md]], [[Loss-Given-Default.md]], [[Exposure-at-Default.md]]|[[Exposure-at-Default.md]], [[Market-Risk-and-FRTB.md]], [[SR-11-7-Model-Governance.md]]|
+|Core linked notes|[[Probability-of-Default]], [[Loss-Given-Default]], [[Exposure-at-Default]]|[[Exposure-at-Default]], [[Market-Risk-and-FRTB]], [[SR-11-7-Model-Governance]]|
 
 ### Wrong-Way Risk
 
@@ -328,7 +328,7 @@ This is one reason CCR can be so much nastier than standard corporate lending. T
 
 ### What Validators Attack First
 
-Under [[SR-11-7-Model-Governance.md]], validators usually attack CCR frameworks in these areas:
+Under [[SR-11-7-Model-Governance]], validators usually attack CCR frameworks in these areas:
 
 - legal enforceability of netting assumptions
     

@@ -16,13 +16,13 @@ That is **market risk**. And **FRTB** is the banking rulebook built to measure a
 
 ## The Institutional Reality
 
-At a global bank, [[Market-Risk-and-FRTB.md]] governs the capital treatment of losses arising from movements in market variables such as interest rates, equity prices, foreign exchange rates, credit spreads, and commodity prices. Your baseline report states this directly and also notes the central regulatory shift: under FRTB, the older **Value at Risk (VaR)** framework is largely replaced by **Expected Shortfall (ES)** because ES captures tail losses more comprehensively.
+At a global bank, [[Market-Risk-and-FRTB]] governs the capital treatment of losses arising from movements in market variables such as interest rates, equity prices, foreign exchange rates, credit spreads, and commodity prices. Your baseline report states this directly and also notes the central regulatory shift: under FRTB, the older **Value at Risk (VaR)** framework is largely replaced by **Expected Shortfall (ES)** because ES captures tail losses more comprehensively.
 
 This is the first red-pill truth: **market risk is about repricing, not default**.
 
-That sounds obvious, but it matters deeply when you compare this note with [[Probability-of-Default.md]] or [[Loss-Given-Default.md]]. In credit risk, the core question is whether a borrower fails and how much you lose when they do. In market risk, the position may still be perfectly performing from a legal perspective, yet the bank can still lose money because the market marks that position lower. A bond portfolio can lose value because spreads widen. A swap book can lose value because rates move. An FX desk can lose value because currencies gap.
+That sounds obvious, but it matters deeply when you compare this note with [[Probability-of-Default]] or [[Loss-Given-Default]]. In credit risk, the core question is whether a borrower fails and how much you lose when they do. In market risk, the position may still be perfectly performing from a legal perspective, yet the bank can still lose money because the market marks that position lower. A bond portfolio can lose value because spreads widen. A swap book can lose value because rates move. An FX desk can lose value because currencies gap.
 
-This is why market risk sits next to, but not inside, classical credit risk. It often interacts with [[Counterparty-Credit-Risk-CCR.md]], especially where valuation changes and counterparty spread moves overlap, and it links directly to [[RWA-Risk-Weighted-Assets.md]] because FRTB converts trading-book risk into capital consumption.
+This is why market risk sits next to, but not inside, classical credit risk. It often interacts with [[Counterparty-Credit-Risk-CCR]], especially where valuation changes and counterparty spread moves overlap, and it links directly to [[RWA-Risk-Weighted-Assets]] because FRTB converts trading-book risk into capital consumption.
 
 ### Why FRTB Exists
 
@@ -38,7 +38,7 @@ One of the most important institutional ideas in FRTB is the **boundary between 
 
 That matters because the same broad economic exposure can produce very different capital logic depending on where it sits:
 
-- banking-book exposures connect more naturally to frameworks like [[Basel-IRB-Framework.md]], [[Probability-of-Default.md]], and [[IFRS-9-and-ECL.md]]
+- banking-book exposures connect more naturally to frameworks like [[Basel-IRB-Framework]], [[Probability-of-Default]], and [[IFRS-9-and-ECL]]
     
 - trading-book exposures connect to FRTB capital through sensitivities, stressed market losses, desk models, and modellability tests
     
@@ -54,9 +54,9 @@ Your baseline report also highlights the two major FRTB routes:
 - an **internal models approach (IMA)** that uses expected-shortfall models at trading-desk level, subject to strict approval and model-quality tests
     
 
-This is the fourth red-pill truth: **FRTB does not trust internal models blindly.** A desk cannot simply say, “our quant team built a clever model.” The model has to earn approval. That takes us straight into [[SR-11-7-Model-Governance.md]] because market-risk models, like credit models, must survive validation, backtesting, and challenge.
+This is the fourth red-pill truth: **FRTB does not trust internal models blindly.** A desk cannot simply say, “our quant team built a clever model.” The model has to earn approval. That takes us straight into [[SR-11-7-Model-Governance]] because market-risk models, like credit models, must survive validation, backtesting, and challenge.
 
-FRTB’s internal-model logic is therefore similar in spirit to [[Basel-IRB-Framework.md]]:
+FRTB’s internal-model logic is therefore similar in spirit to [[Basel-IRB-Framework]]:
 
 - both allow internal risk measurement
     
@@ -75,7 +75,7 @@ This is the fifth red-pill truth: **under FRTB, lack of data is itself a capital
 
 That is incredibly important. In ordinary ML culture, sparse data may just mean “try regularization.” In prudential regulation, sparse market evidence means the supervisor may say: “You do not know enough about this factor, so hold more capital.”
 
-That logic should feel familiar from [[Low-Default-Portfolios-LDP.md]]. There too, sparse data do not create comfort; they create conservatism.
+That logic should feel familiar from [[Low-Default-Portfolios-LDP]]. There too, sparse data do not create comfort; they create conservatism.
 
 ## The Core Math / Code
 
@@ -163,14 +163,14 @@ $$
 \text{Market Risk Factors} \rightarrow \text{Desk Loss Distribution} \rightarrow \text{ES / SA Capital} \rightarrow \text{RWA}  
 $$
 
-This makes FRTB the market-risk analogue of how [[Basel-IRB-Framework.md]] turns PD/LGD/EAD into capital for credit risk.
+This makes FRTB the market-risk analogue of how [[Basel-IRB-Framework]] turns PD/LGD/EAD into capital for credit risk.
 
 A high-level comparison is useful:
 
 |Dimension|Credit IRB World|FRTB Market-Risk World|
 |---|---|---|
 |Core risk source|Borrower default and recovery|Market price moves|
-|Main parameters|[[Probability-of-Default.md]], [[Loss-Given-Default.md]], [[Exposure-at-Default.md]]|Sensitivities, desk P&L, risk factors, ES|
+|Main parameters|[[Probability-of-Default]], [[Loss-Given-Default]], [[Exposure-at-Default]]|Sensitivities, desk P&L, risk factors, ES|
 |Tail concept|Unexpected loss capital|Expected shortfall capital|
 |Internal model permission|Yes, under IRB approval|Yes, under IMA approval|
 |Standardized fallback|Standardized credit risk weights|Standardized market-risk approach|
@@ -221,7 +221,7 @@ A strong comparison helps here.
 |Data problem|Sparse defaults in some segments|Sparse or illiquid risk-factor observations|
 |Conservatism response|Floors, downturn LGD, overlays|Non-modellable add-ons, standardized fallback|
 
-This is why [[Market-Risk-and-FRTB.md]] belongs in your Credit Risk OS. It teaches the same deep regulatory principle in another risk class: when data are weak or tails are under-modeled, the supervisor imposes conservatism.
+This is why [[Market-Risk-and-FRTB]] belongs in your Credit Risk OS. It teaches the same deep regulatory principle in another risk class: when data are weak or tails are under-modeled, the supervisor imposes conservatism.
 
 ### Why FRTB Matters to a Credit Quant
 
@@ -231,16 +231,16 @@ A credit quant should care because:
     
 - trading-book credit products live under market-risk capital
     
-- CCR and CVA sit partly at the border between credit and market risk, linking to [[Counterparty-Credit-Risk-CCR.md]]
+- CCR and CVA sit partly at the border between credit and market risk, linking to [[Counterparty-Credit-Risk-CCR]]
     
-- the prudential design logic of FRTB mirrors what you already see in [[Basel-IRB-Framework.md]] and [[RWA-Risk-Weighted-Assets.md]]
+- the prudential design logic of FRTB mirrors what you already see in [[Basel-IRB-Framework]] and [[RWA-Risk-Weighted-Assets]]
     
 
 That is the seventh red-pill truth: **once you understand FRTB, you realize the regulator keeps asking the same question across domains — how do we stop firms from understating tail risk just because the model looked calm in normal times?**
 
 ### What Validators Attack First
 
-Under [[SR-11-7-Model-Governance.md]], validators usually attack FRTB or market-risk frameworks through questions like:
+Under [[SR-11-7-Model-Governance]], validators usually attack FRTB or market-risk frameworks through questions like:
 
 - Is the desk boundary and trading-book scope correct?
     

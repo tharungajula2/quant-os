@@ -15,7 +15,7 @@ That is exactly what makes **Low-Default Portfolios (LDPs)** so dangerous. These
 
 ## The Institutional Reality
 
-At a global bank, [[Low-Default-Portfolios-LDP.md]] refers to segments where observed defaults are too few to support comfortable, purely data-driven estimation of [[Probability-of-Default.md]] and sometimes [[Loss-Given-Default.md]]. Your baseline report states this directly: LDPs typically include highly rated sovereigns, banks, or similar high-quality names, and although Basel does not define them in one rigid formula, it clearly recognizes that some portfolios have very sparse default experience and therefore need supplemented data, long-run views, or conservative benchmarks.
+At a global bank, [[Low-Default-Portfolios-LDP]] refers to segments where observed defaults are too few to support comfortable, purely data-driven estimation of [[Probability-of-Default]] and sometimes [[Loss-Given-Default]]. Your baseline report states this directly: LDPs typically include highly rated sovereigns, banks, or similar high-quality names, and although Basel does not define them in one rigid formula, it clearly recognizes that some portfolios have very sparse default experience and therefore need supplemented data, long-run views, or conservative benchmarks.
 
 This is the first red-pill truth: **LDP is not “low risk” in the simple sense; it is “low information.”** That distinction is huge.
 
@@ -38,7 +38,7 @@ A portfolio can be low-default because:
 
 So when the bank sees zero or very few defaults, the real institutional problem is not comfort. It is **identification**. How do you estimate a one-year or lifetime PD when the direct empirical signal is almost absent?
 
-That is why LDP treatment is not a standard scorecard problem like [[Logistic-Regression-Scorecards.md]]. It is much closer to a **prudential estimation problem under sparse evidence**. Your baseline report says exactly this: banks usually bring in long-run averages, pooled industry data, external benchmarks, supervisory floors, expert overlays, and judgment to prevent underestimation of risk. It also notes that banks may use conservative LGDs or overlays and that supervisors watch closely for complacency when defaults are rare.
+That is why LDP treatment is not a standard scorecard problem like [[Logistic-Regression-Scorecards]]. It is much closer to a **prudential estimation problem under sparse evidence**. Your baseline report says exactly this: banks usually bring in long-run averages, pooled industry data, external benchmarks, supervisory floors, expert overlays, and judgment to prevent underestimation of risk. It also notes that banks may use conservative LGDs or overlays and that supervisors watch closely for complacency when defaults are rare.
 
 ### Why Sovereigns and Banks Sit Here So Often
 
@@ -66,7 +66,7 @@ A sovereign may show almost no recent defaults in the bank’s data window, but 
 - contagion risk
     
 
-Likewise, a bank counterparty may look stable for years and then deteriorate extremely fast under liquidity or market stress. This is why LDP thinking naturally links to [[Counterparty-Credit-Risk-CCR.md]], [[Macro-Stress-Testing.md]], and [[Climate-Risk-Modeling.md]]. The portfolio may not default often, but when the environment shifts, the transition can be violent.
+Likewise, a bank counterparty may look stable for years and then deteriorate extremely fast under liquidity or market stress. This is why LDP thinking naturally links to [[Counterparty-Credit-Risk-CCR]], [[Macro-Stress-Testing]], and [[Climate-Risk-Modeling]]. The portfolio may not default often, but when the environment shifts, the transition can be violent.
 
 ### Why Basel and Regulators Get Nervous Here
 
@@ -102,7 +102,7 @@ That is why LDP frameworks often involve a lot of conservatism by design. In ord
 
 A common beginner mistake is thinking that a low-default portfolio is almost irrelevant for accounting impairment. Wrong.
 
-Your baseline report explicitly notes that even for LDPs, [[IFRS-9-and-ECL.md]] still requires forward-looking PD assessment and scenario thinking.
+Your baseline report explicitly notes that even for LDPs, [[IFRS-9-and-ECL]] still requires forward-looking PD assessment and scenario thinking.
 
 That is the third red-pill truth: **LDPs are not exempt from forward-looking risk.**
 
@@ -141,7 +141,7 @@ That means validators often lean much harder on:
     
 - documentation quality
     
-- governance under [[SR-11-7-Model-Governance.md]]
+- governance under [[SR-11-7-Model-Governance]]
     
 
 In other words, LDP validation is where “effective challenge” becomes truly elite. The validator cannot just say, “Observed bad rate matched predicted PD over 10,000 defaults.” They do not have that luxury.
@@ -154,7 +154,7 @@ $$
 EL = PD \times LGD \times EAD  
 $$
 
-But in an LDP, the hard part is not the formula. The hard part is credible estimation of the components, especially [[Probability-of-Default.md]].
+But in an LDP, the hard part is not the formula. The hard part is credible estimation of the components, especially [[Probability-of-Default]].
 
 ### Why Naive Empirical PD Fails
 
@@ -279,7 +279,7 @@ The point is not that every component must be aggressively overstated. The point
 
 ### Why Stress Testing Matters More Here
 
-Because empirical defaults are scarce, [[Macro-Stress-Testing.md]] becomes especially important. If history does not contain enough stress defaults, the bank must ask forward-looking questions:
+Because empirical defaults are scarce, [[Macro-Stress-Testing]] becomes especially important. If history does not contain enough stress defaults, the bank must ask forward-looking questions:
 
 - what would sovereign risk look like under fiscal crisis?
     
@@ -305,7 +305,7 @@ That is why LDP treatment often requires a blend of:
 
 ### What Validators Attack First
 
-Under [[SR-11-7-Model-Governance.md]], validators usually attack LDP frameworks with questions like:
+Under [[SR-11-7-Model-Governance]], validators usually attack LDP frameworks with questions like:
 
 - Is the portfolio truly low-default, or just under-observed?
     
@@ -321,7 +321,7 @@ Under [[SR-11-7-Model-Governance.md]], validators usually attack LDP frameworks 
     
 - Are sovereign/bank correlations and contagion effects being ignored?
     
-- Does the framework work consistently for both capital and [[IFRS-9-and-ECL.md]] purposes?
+- Does the framework work consistently for both capital and [[IFRS-9-and-ECL]] purposes?
     
 
 This is where elite thinking separates itself from shallow quant comfort. In LDPs, the validator is often testing the **quality of doubt** built into the model.

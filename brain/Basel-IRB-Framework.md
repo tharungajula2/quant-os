@@ -16,16 +16,16 @@ That is the difference between the **Standardized Approach** and the **Internal 
 
 ## The Institutional Reality
 
-At a global bank, the [[Basel-IRB-Framework.md]] is not just a formula set; it is the operating contract between credit risk measurement and prudential capital. The framework translates borrower risk into capital requirements through either:
+At a global bank, the [[Basel-IRB-Framework]] is not just a formula set; it is the operating contract between credit risk measurement and prudential capital. The framework translates borrower risk into capital requirements through either:
 
 - the **Standardized Approach**, where regulators prescribe risk weights or weights are driven by external ratings and regulatory buckets, or
     
-- the **Internal Ratings-Based Approach**, where the bank uses internal estimates of key risk parameters such as [[Probability-of-Default.md]], [[Loss-Given-Default.md]], and [[Exposure-at-Default.md]] to drive capital.
+- the **Internal Ratings-Based Approach**, where the bank uses internal estimates of key risk parameters such as [[Probability-of-Default]], [[Loss-Given-Default]], and [[Exposure-at-Default]] to drive capital.
     
 
-This matters because Basel is not mainly trying to estimate average loss. That job is more closely tied to pricing and provisioning, including [[IFRS-9-and-ECL.md]]. Basel capital is designed to absorb **unexpected loss**, which is why it links directly to [[Expected-vs-Unexpected-Loss.md]], [[Economic-Capital-Basics.md]], and ultimately [[RWA-Risk-Weighted-Assets.md]]. The IRB framework is the regulatory mechanism that turns risk parameters into capital intensity.
+This matters because Basel is not mainly trying to estimate average loss. That job is more closely tied to pricing and provisioning, including [[IFRS-9-and-ECL]]. Basel capital is designed to absorb **unexpected loss**, which is why it links directly to [[Expected-vs-Unexpected-Loss]], [[Economic-Capital-Basics]], and ultimately [[RWA-Risk-Weighted-Assets]]. The IRB framework is the regulatory mechanism that turns risk parameters into capital intensity.
 
-The most important red-pill truth is this: **IRB is not “banks using fancy models because they want to.”** IRB is a supervisory privilege. A bank is allowed to use internal models only if it demonstrates deep data history, rating system integrity, validation discipline, conservative calibration, governance, and actual business use. In other words, IRB is not just a modeling regime; it is a governance regime. That is why it is inseparable from [[SR-11-7-Model-Governance.md]]. A weak model with strong predictive power can still fail IRB if it lacks traceability, override controls, independent validation, or evidence that the model is truly used in underwriting and risk management.
+The most important red-pill truth is this: **IRB is not “banks using fancy models because they want to.”** IRB is a supervisory privilege. A bank is allowed to use internal models only if it demonstrates deep data history, rating system integrity, validation discipline, conservative calibration, governance, and actual business use. In other words, IRB is not just a modeling regime; it is a governance regime. That is why it is inseparable from [[SR-11-7-Model-Governance]]. A weak model with strong predictive power can still fail IRB if it lacks traceability, override controls, independent validation, or evidence that the model is truly used in underwriting and risk management.
 
 Institutionally, the framework is often understood in three layers:
 
@@ -48,11 +48,11 @@ $$
 
 where:
 
-- $PD$ is default probability from [[Probability-of-Default.md]]
+- $PD$ is default probability from [[Probability-of-Default]]
     
-- $LGD$ is severity from [[Loss-Given-Default.md]]
+- $LGD$ is severity from [[Loss-Given-Default]]
     
-- $EAD$ is default exposure from [[Exposure-at-Default.md]]
+- $EAD$ is default exposure from [[Exposure-at-Default]]
     
 - $M$ is effective maturity
     
@@ -92,7 +92,7 @@ where:
 - $MA$ is a maturity adjustment term
     
 
-This expression is not just mathematics for its own sake. It encodes the Basel idea that capital should cover a very high percentile of unexpected loss, not just the average default cost. The subtraction of $PD$ inside the term reflects that expected loss is conceptually separated from the capital charge. That is why this note must always be understood together with [[Expected-vs-Unexpected-Loss.md]] and [[Economic-Capital-Basics.md]].
+This expression is not just mathematics for its own sake. It encodes the Basel idea that capital should cover a very high percentile of unexpected loss, not just the average default cost. The subtraction of $PD$ inside the term reflects that expected loss is conceptually separated from the capital charge. That is why this note must always be understood together with [[Expected-vs-Unexpected-Loss]] and [[Economic-Capital-Basics]].
 
 Once $K$ is determined, Basel translates it into risk-weighted assets as:
 
@@ -100,7 +100,7 @@ $$
 RWA = 12.5 \times K \times EAD  
 $$
 
-The multiplier 12.5 is simply the reciprocal of 8%, converting a capital amount into RWA-equivalent units. This is one of the most important links in all of prudential credit risk because it bridges model output and reported capital consumption. It is the exact pipe through which parameter estimates become balance-sheet constraints. This is why [[RWA-Risk-Weighted-Assets.md]] is not a side topic; it is the output layer of the IRB engine.
+The multiplier 12.5 is simply the reciprocal of 8%, converting a capital amount into RWA-equivalent units. This is one of the most important links in all of prudential credit risk because it bridges model output and reported capital consumption. It is the exact pipe through which parameter estimates become balance-sheet constraints. This is why [[RWA-Risk-Weighted-Assets]] is not a side topic; it is the output layer of the IRB engine.
 
 A useful comparison is below.
 
@@ -155,7 +155,7 @@ That means the internal rating system behind IRB must connect to:
 - monitoring and migration analysis
     
 
-This is why [[Probability-of-Default.md]] and the master rating scale are central. IRB begins with the rating system architecture. If the ratings are weak, the capital engine is downstream of a bad foundation.
+This is why [[Probability-of-Default]] and the master rating scale are central. IRB begins with the rating system architecture. If the ratings are weak, the capital engine is downstream of a bad foundation.
 
 ### Expected Loss Versus Capital
 
@@ -163,11 +163,11 @@ A candidate who understands Basel only superficially will say: “IRB uses PD, L
 
 A stronger candidate says: “IRB transforms PD, LGD, EAD, correlation, and maturity into a high-confidence unexpected-loss capital charge, while expected loss is conceptually handled elsewhere through pricing, provisions, or deduction logic depending on the regulatory treatment.”
 
-That distinction is the heartbeat of Basel. It is also why this note interlocks with [[IFRS-9-and-ECL.md]]. IFRS 9 is asking, “what losses do we expect and need to reserve for?” Basel IRB is asking, “what severe losses beyond expectation could threaten solvency?” Same raw ingredients, very different institutional purposes.
+That distinction is the heartbeat of Basel. It is also why this note interlocks with [[IFRS-9-and-ECL]]. IFRS 9 is asking, “what losses do we expect and need to reserve for?” Basel IRB is asking, “what severe losses beyond expectation could threaten solvency?” Same raw ingredients, very different institutional purposes.
 
 ### Where IRB Becomes Hard in Practice
 
-IRB is hardest where data are weak, defaults are rare, and structures are complex. That is why the toughest portfolios often sit in notes like [[Low-Default-Portfolios-LDP.md]], [[Specialized-Lending-CRE-Project.md]], and [[Counterparty-Credit-Risk-CCR.md]]. In those areas:
+IRB is hardest where data are weak, defaults are rare, and structures are complex. That is why the toughest portfolios often sit in notes like [[Low-Default-Portfolios-LDP]], [[Specialized-Lending-CRE-Project]], and [[Counterparty-Credit-Risk-CCR]]. In those areas:
 
 - default history may be sparse
     

@@ -16,7 +16,7 @@ That is the heart of **specialized lending**. In these deals, repayment depends 
 
 ## The Institutional Reality
 
-At a global bank, [[Specialized-Lending-CRE-Project.md]] covers exposures where classical corporate credit modeling becomes less reliable because repayment is heavily tied to a discrete project, asset pool, or property cash-flow stream. Your baseline report states this directly: **specialized lending** includes areas such as **Project Finance**, **Object Finance**, **Commodities Finance**, **Income-Producing Real Estate (IPRE)**, and **High-Volatility Commercial Real Estate (HVCRE)**, and the defining feature is that repayment depends primarily on project success, asset value, or collateral performance rather than general corporate cash flow.
+At a global bank, [[Specialized-Lending-CRE-Project]] covers exposures where classical corporate credit modeling becomes less reliable because repayment is heavily tied to a discrete project, asset pool, or property cash-flow stream. Your baseline report states this directly: **specialized lending** includes areas such as **Project Finance**, **Object Finance**, **Commodities Finance**, **Income-Producing Real Estate (IPRE)**, and **High-Volatility Commercial Real Estate (HVCRE)**, and the defining feature is that repayment depends primarily on project success, asset value, or collateral performance rather than general corporate cash flow.
 
 This is the first red-pill truth: **specialized lending is not just “corporate lending with bigger numbers.”** It is structurally different because the risk engine changes. In a plain corporate loan, the lender often underwrites enterprise-wide earnings power, management quality, liquidity, and leverage across an operating business. In specialized lending, especially CRE and project finance, the lender often underwrites:
 
@@ -35,7 +35,7 @@ This is the first red-pill truth: **specialized lending is not just “corporate
 - legal and contractual waterfall protections
     
 
-That is why specialized lending sits naturally beside [[Probability-of-Default.md]], [[Loss-Given-Default.md]], and [[Exposure-at-Default.md]], but never fits into them as neatly as vanilla corporate lending does. The cash flow is narrower, the collateral is more central, and the tail risk is often more concentrated.
+That is why specialized lending sits naturally beside [[Probability-of-Default]], [[Loss-Given-Default]], and [[Exposure-at-Default]], but never fits into them as neatly as vanilla corporate lending does. The cash flow is narrower, the collateral is more central, and the tail risk is often more concentrated.
 
 ### Why CRE and Project Finance Are So Different
 
@@ -117,7 +117,7 @@ This is one reason specialized lending teams are usually staffed with sector exp
 
 A plain retail scorecard spreads risk across thousands or millions of small exposures. Specialized lending often does the opposite. One CRE tower, one airport concession, one power plant, one shipping asset, or one port expansion can create a huge single-name exposure. So concentration risk becomes central.
 
-That is why this note links directly to [[Economic-Capital-Basics.md]] and [[Expected-vs-Unexpected-Loss.md]]. Even if expected loss looks manageable, tail loss can be ugly because:
+That is why this note links directly to [[Economic-Capital-Basics]] and [[Expected-vs-Unexpected-Loss]]. Even if expected loss looks manageable, tail loss can be ugly because:
 
 - names are large
     
@@ -130,7 +130,7 @@ That is why this note links directly to [[Economic-Capital-Basics.md]] and [[Exp
 - construction and operating assumptions can fail nonlinearly
     
 
-This is also why specialized lending has strong ties to [[Macro-Stress-Testing.md]] and [[Climate-Risk-Modeling.md]]. A property downturn, energy transition shock, flood event, or infrastructure demand shortfall can hit both cash flow and collateral value at once.
+This is also why specialized lending has strong ties to [[Macro-Stress-Testing]] and [[Climate-Risk-Modeling]]. A property downturn, energy transition shock, flood event, or infrastructure demand shortfall can hit both cash flow and collateral value at once.
 
 ## The Core Math / Code
 
@@ -142,11 +142,11 @@ $$
 
 But the red-pill point is that in specialized lending, each component becomes more structural and less “plain vanilla.”
 
-- [[Probability-of-Default.md]] is driven by project viability, tenant cash flow, or asset economics.
+- [[Probability-of-Default]] is driven by project viability, tenant cash flow, or asset economics.
     
-- [[Loss-Given-Default.md]] is heavily influenced by collateral realization value, legal enforceability, and stressed exit conditions.
+- [[Loss-Given-Default]] is heavily influenced by collateral realization value, legal enforceability, and stressed exit conditions.
     
-- [[Exposure-at-Default.md]] can rise because of delayed completion, capitalized interest, cost overruns, or revolving/project draw structures.
+- [[Exposure-at-Default]] can rise because of delayed completion, capitalized interest, cost overruns, or revolving/project draw structures.
     
 
 ### Core Ratios in CRE
@@ -172,7 +172,7 @@ $$
 LTV = \frac{Loan\ Amount}{Property\ Value}  
 $$
 
-This ratio matters because it is a direct bridge into [[Loss-Given-Default.md]]. If property value falls and LTV was already aggressive, recovery risk becomes much worse.
+This ratio matters because it is a direct bridge into [[Loss-Given-Default]]. If property value falls and LTV was already aggressive, recovery risk becomes much worse.
 
 A simple CRE fragility intuition is:
 
@@ -259,7 +259,7 @@ For example:
 - at the same time, property values decline → recovery falls → LGD rises
     
 
-That is why specialized lending is one of the clearest examples of why [[Loss-Given-Default.md]] cannot be treated as static.
+That is why specialized lending is one of the clearest examples of why [[Loss-Given-Default]] cannot be treated as static.
 
 A stylized stress lens is:
 
@@ -271,7 +271,7 @@ and for specialized lending, that inequality often matters a lot.
 
 ### What Validators Attack First
 
-Under [[SR-11-7-Model-Governance.md]], validators usually attack specialized lending frameworks through these questions:
+Under [[SR-11-7-Model-Governance]], validators usually attack specialized lending frameworks through these questions:
 
 - Is the segmentation between CRE, IPRE, HVCRE, and project finance conceptually clean?
     

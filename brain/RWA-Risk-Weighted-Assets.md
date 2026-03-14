@@ -15,26 +15,26 @@ That is exactly what **Risk-Weighted Assets (RWA)** does inside a bank. A bank m
 
 ## The Institutional Reality
 
-At a global bank, raw exposure numbers are almost never enough to understand solvency pressure. A ₹1,000 crore exposure to a high-quality sovereign, a secured residential mortgage, an investment-grade corporate, and a distressed leveraged borrower are not treated as economically equivalent. Regulators therefore force banks to map exposures into **risk-weighted terms** so that capital requirements are tied to risk rather than just nominal size. This is the essence of [[RWA-Risk-Weighted-Assets.md]].
+At a global bank, raw exposure numbers are almost never enough to understand solvency pressure. A ₹1,000 crore exposure to a high-quality sovereign, a secured residential mortgage, an investment-grade corporate, and a distressed leveraged borrower are not treated as economically equivalent. Regulators therefore force banks to map exposures into **risk-weighted terms** so that capital requirements are tied to risk rather than just nominal size. This is the essence of [[RWA-Risk-Weighted-Assets]].
 
-RWA is the bridge between the risk engine and the capital engine. It sits immediately downstream of [[Basel-IRB-Framework.md]]. Under the **Standardized Approach**, regulators assign prescribed risk weights to categories of exposures or rating buckets. Under **FIRB** and **AIRB**, the bank estimates parameters such as [[Probability-of-Default.md]], [[Loss-Given-Default.md]], and [[Exposure-at-Default.md]], and Basel converts those parameters into a capital requirement rate, which is then scaled into RWA. So RWA is not itself the root model; it is the **translation layer** that turns risk into the regulatory denominator of the capital ratio.
+RWA is the bridge between the risk engine and the capital engine. It sits immediately downstream of [[Basel-IRB-Framework]]. Under the **Standardized Approach**, regulators assign prescribed risk weights to categories of exposures or rating buckets. Under **FIRB** and **AIRB**, the bank estimates parameters such as [[Probability-of-Default]], [[Loss-Given-Default]], and [[Exposure-at-Default]], and Basel converts those parameters into a capital requirement rate, which is then scaled into RWA. So RWA is not itself the root model; it is the **translation layer** that turns risk into the regulatory denominator of the capital ratio.
 
 This is the red-pill insight: banks are not constrained only by losses; they are constrained by **balance-sheet capacity expressed in RWA**. Two business lines may generate the same accounting profit, but the one consuming less RWA is often more attractive because it uses less scarce capital. That is why RWA drives pricing, portfolio optimization, business strategy, and sometimes even internal politics. Senior management does not merely ask, “How much revenue did we earn?” They ask, “How much return did we earn per unit of RWA?”
 
-RWA is also where accounting and regulation begin to visibly separate. [[IFRS-9-and-ECL.md]] asks what losses are expected and should be provisioned. [[RWA-Risk-Weighted-Assets.md]] asks how much risk-weighted balance-sheet footprint the exposure creates for prudential capital purposes. Those numbers influence one another, but they are not the same object. One is an accounting impairment lens; the other is a solvency constraint.
+RWA is also where accounting and regulation begin to visibly separate. [[IFRS-9-and-ECL]] asks what losses are expected and should be provisioned. [[RWA-Risk-Weighted-Assets]] asks how much risk-weighted balance-sheet footprint the exposure creates for prudential capital purposes. Those numbers influence one another, but they are not the same object. One is an accounting impairment lens; the other is a solvency constraint.
 
 At a practical level, global banks manage RWA in multiple dimensions:
 
 - **Credit RWA** from loans, commitments, guarantees, and counterparty exposures
     
-- **Market RWA** from trading book positions under [[Market-Risk-and-FRTB.md]]
+- **Market RWA** from trading book positions under [[Market-Risk-and-FRTB]]
     
 - **Operational RWA** from operational risk frameworks
     
 - sometimes additional overlays or floors driven by regulation
     
 
-For a credit risk specialist, the key is to understand that RWA is the output that makes every upstream modeling choice real. A debate about PD calibration inside [[Probability-of-Default.md]] or downturn recovery severity inside [[Loss-Given-Default.md]] is not just statistical hygiene. Those choices can materially change RWA, which changes capital, which changes pricing, return metrics, and business appetite.
+For a credit risk specialist, the key is to understand that RWA is the output that makes every upstream modeling choice real. A debate about PD calibration inside [[Probability-of-Default]] or downturn recovery severity inside [[Loss-Given-Default]] is not just statistical hygiene. Those choices can materially change RWA, which changes capital, which changes pricing, return metrics, and business appetite.
 
 ## The Core Math / Code
 
@@ -73,7 +73,7 @@ In this simplified example, the bank has the same nominal exposure in each case,
 
 ### IRB Approach
 
-Under [[Basel-IRB-Framework.md]], the logic is more model-driven. The bank estimates internal risk parameters, and the Basel supervisory function turns them into a capital requirement per unit of exposure. A stylized representation is:
+Under [[Basel-IRB-Framework]], the logic is more model-driven. The bank estimates internal risk parameters, and the Basel supervisory function turns them into a capital requirement per unit of exposure. A stylized representation is:
 
 $$  
 {PD,LGD,EAD,M,\rho}\rightarrow K  
@@ -132,7 +132,7 @@ $$
 RORWA=\frac{\text{Net Income}}{\text{RWA}}  
 $$
 
-A more risk-sensitive lens links to [[Economic-Capital-Basics.md]]:
+A more risk-sensitive lens links to [[Economic-Capital-Basics]]:
 
 $$  
 RAROC=\frac{\text{Risk-Adjusted Return}}{\text{Economic Capital}}  
@@ -144,11 +144,11 @@ The first uses regulatory capital pressure indirectly through RWA. The second us
 
 This is where true understanding begins. Two loans with the same notional amount can produce very different RWA because of differences in:
 
-- borrower credit quality via [[Probability-of-Default.md]]
+- borrower credit quality via [[Probability-of-Default]]
     
-- collateral quality and recovery expectations via [[Loss-Given-Default.md]]
+- collateral quality and recovery expectations via [[Loss-Given-Default]]
     
-- undrawn commitment behavior via [[Exposure-at-Default.md]]
+- undrawn commitment behavior via [[Exposure-at-Default]]
     
 - maturity
     
@@ -156,7 +156,7 @@ This is where true understanding begins. Two loans with the same notional amount
     
 - exposure class and regulatory treatment
     
-- whether the bank is on standardized, FIRB, or AIRB treatment under [[Basel-IRB-Framework.md]]
+- whether the bank is on standardized, FIRB, or AIRB treatment under [[Basel-IRB-Framework]]
     
 
 This means RWA is a **summary outcome**, not a primitive input. It is the final expression of many upstream judgments, data choices, and supervisory rules.
@@ -214,7 +214,7 @@ One of the most important advanced ideas is that regulators do not always fully 
 
 This is the deeper institutional truth: **RWA is not just risk measurement; it is risk measurement under supervisory skepticism.** Regulators want risk sensitivity, but not unlimited modeling freedom.
 
-That is why [[SR-11-7-Model-Governance.md]] matters here. Validators and supervisors ask:
+That is why [[SR-11-7-Model-Governance]] matters here. Validators and supervisors ask:
 
 - Are PDs under-calibrated?
     
@@ -233,7 +233,7 @@ So RWA is not merely a formula output. It is a governance battleground.
 
 ### Relationship to Expected and Unexpected Loss
 
-RWA is conceptually linked to capital against unexpected loss, not just the mean of loss. That is why this note must always be understood together with [[Expected-vs-Unexpected-Loss.md]] and [[Economic-Capital-Basics.md]]. If expected loss is the ordinary wear-and-tear of lending, RWA is the regulatory translation of how much extra loss-absorbing strength the bank must maintain for severe outcomes.
+RWA is conceptually linked to capital against unexpected loss, not just the mean of loss. That is why this note must always be understood together with [[Expected-vs-Unexpected-Loss]] and [[Economic-Capital-Basics]]. If expected loss is the ordinary wear-and-tear of lending, RWA is the regulatory translation of how much extra loss-absorbing strength the bank must maintain for severe outcomes.
 
 Very loosely:
 

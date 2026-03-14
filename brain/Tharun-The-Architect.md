@@ -24,9 +24,9 @@ Another way to see it: many people can drive a car, but very few can also explai
 
 ## The Institutional Reality
 
-At a global bank, this profile sits at the intersection of first-line model development, second-line model risk oversight, and enterprise risk transformation. The practical mission is to translate real lending and portfolio behavior into governed models that support pricing, underwriting, provisioning, stress testing, and capital. In that world, the core building blocks are [[Probability-of-Default.md]], [[Loss-Given-Default.md]], and [[Exposure-at-Default.md]], which then feed frameworks such as [[Expected-vs-Unexpected-Loss.md]], [[Economic-Capital-Basics.md]], [[RWA-Risk-Weighted-Assets.md]], and [[IFRS-9-and-ECL.md]].
+At a global bank, this profile sits at the intersection of first-line model development, second-line model risk oversight, and enterprise risk transformation. The practical mission is to translate real lending and portfolio behavior into governed models that support pricing, underwriting, provisioning, stress testing, and capital. In that world, the core building blocks are [[Probability-of-Default]], [[Loss-Given-Default]], and [[Exposure-at-Default]], which then feed frameworks such as [[Expected-vs-Unexpected-Loss]], [[Economic-Capital-Basics]], [[RWA-Risk-Weighted-Assets]], and [[IFRS-9-and-ECL]].
 
-The institutional challenge is that banks do not reward isolated brilliance; they reward controlled usefulness. A strong quant must understand Basel capital logic inside [[Basel-IRB-Framework.md]], model governance under [[SR-11-7-Model-Governance.md]], and production execution through interpretable methods such as [[Logistic-Regression-Scorecards.md]] and more advanced methods in [[Advanced-ML-in-Risk.md]]. In practice, that means building models that are not only predictive, but explainable, monitorable, and defensible to risk committees, internal audit, the RBI context for local prudential expectations, and global regulatory standards shaped by Basel and IFRS 9.
+The institutional challenge is that banks do not reward isolated brilliance; they reward controlled usefulness. A strong quant must understand Basel capital logic inside [[Basel-IRB-Framework]], model governance under [[SR-11-7-Model-Governance]], and production execution through interpretable methods such as [[Logistic-Regression-Scorecards]] and more advanced methods in [[Advanced-ML-in-Risk]]. In practice, that means building models that are not only predictive, but explainable, monitorable, and defensible to risk committees, internal audit, the RBI context for local prudential expectations, and global regulatory standards shaped by Basel and IFRS 9.
 
 So this note is the hub of the entire Credit Risk OS. It defines Tharun not as “someone learning risk,” but as an architect assembling a governed system: foundations in loss theory, regulation as design constraints, quant models as engines, validation as quality control, and Python/ML as execution infrastructure. From this node, the vault expands outward into the full network of expected loss, capital, provisioning, validation, stress testing, explainable ML, and cross-domain risk.
 
@@ -34,15 +34,15 @@ So this note is the hub of the entire Credit Risk OS. It defines Tharun not as �
 
 The simplest way to understand the architecture is as a flow, not a silo:
 
-- Business exposures are measured through [[Probability-of-Default.md]], [[Loss-Given-Default.md]], and [[Exposure-at-Default.md]].
+- Business exposures are measured through [[Probability-of-Default]], [[Loss-Given-Default]], and [[Exposure-at-Default]].
     
-- Those parameters drive loss estimation in [[Expected-vs-Unexpected-Loss.md]] and capital logic in [[Economic-Capital-Basics.md]].
+- Those parameters drive loss estimation in [[Expected-vs-Unexpected-Loss]] and capital logic in [[Economic-Capital-Basics]].
     
-- Regulatory frameworks such as [[Basel-IRB-Framework.md]] and [[IFRS-9-and-ECL.md]] determine how those numbers are used.
+- Regulatory frameworks such as [[Basel-IRB-Framework]] and [[IFRS-9-and-ECL]] determine how those numbers are used.
     
-- Governance standards in [[SR-11-7-Model-Governance.md]] determine whether the models are acceptable.
+- Governance standards in [[SR-11-7-Model-Governance]] determine whether the models are acceptable.
     
-- Execution notes such as [[Weight-of-Evidence-and-IV.md]], [[Logistic-Regression-Scorecards.md]], [[Model-Performance-Metrics.md]], and [[Population-Stability-Index-PSI.md]] determine whether the system is implementable and sustainable.
+- Execution notes such as [[Weight-of-Evidence-and-IV]], [[Logistic-Regression-Scorecards]], [[Model-Performance-Metrics]], and [[Population-Stability-Index-PSI]] determine whether the system is implementable and sustainable.
     
 
 A compact representation of the Credit Risk OS is:
@@ -62,9 +62,9 @@ and then routed into different decision layers:
 $$  
 {PD,LGD,EAD}\rightarrow  
 \begin{cases}  
-\text{Provisioning via }[[IFRS-9-and-ECL.md]]\  
-\text{Capital via }[[Basel-IRB-Framework.md]]\text{ and }[[RWA-Risk-Weighted-Assets.md]]\  
-\text{Monitoring via }[[Model-Performance-Metrics.md]]\text{ and }[[Population-Stability-Index-PSI.md]]  
+\text{Provisioning via }[[IFRS-9-and-ECL]]\  
+\text{Capital via }[[Basel-IRB-Framework]]\text{ and }[[RWA-Risk-Weighted-Assets]]\  
+\text{Monitoring via }[[Model-Performance-Metrics]]\text{ and }[[Population-Stability-Index-PSI]]  
 \end{cases}  
 $$
 

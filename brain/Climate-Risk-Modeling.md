@@ -15,7 +15,7 @@ That is what **climate risk modeling** does in banking. It forces the bank to as
 
 ## The Institutional Reality
 
-At a global bank, [[Climate-Risk-Modeling.md]] is best understood as an **overlay architecture** on top of traditional credit risk rather than a totally standalone model family. Your uploaded baseline report states this directly: climate risk has two main faces, **physical risk** and **transition risk**, and in practice banks overlay climate scenarios onto existing credit models rather than replacing the full credit stack from scratch.
+At a global bank, [[Climate-Risk-Modeling]] is best understood as an **overlay architecture** on top of traditional credit risk rather than a totally standalone model family. Your uploaded baseline report states this directly: climate risk has two main faces, **physical risk** and **transition risk**, and in practice banks overlay climate scenarios onto existing credit models rather than replacing the full credit stack from scratch.
 
 The first red-pill truth is this: **climate risk usually enters credit models indirectly**.
 
@@ -38,7 +38,7 @@ It does not usually appear first as a magical “climate score.” It enters thr
 - lower market liquidity in climate-vulnerable sectors
     
 
-That means climate risk is not replacing [[Probability-of-Default.md]], [[Loss-Given-Default.md]], or [[Exposure-at-Default.md]]. It is **pushing them around**.
+That means climate risk is not replacing [[Probability-of-Default]], [[Loss-Given-Default]], or [[Exposure-at-Default]]. It is **pushing them around**.
 
 A coastal mortgage book may face rising physical risk because flood or sea-level exposure raises borrower stress and property vulnerability. A power, oil, cement, or steel borrower may face transition risk because policy shifts, carbon costs, or collapsing demand for high-emission activities weaken its long-run viability. Your baseline report gives exactly these kinds of examples: coastal mortgages as physical-risk exposures, and oil-company loans as transition-risk exposures with stranded-asset danger.
 
@@ -131,7 +131,7 @@ If a bank asks, “Show me 30 years of default data caused purely by orderly net
 - stress transmission logic
     
 
-That is why this note connects naturally to [[Macro-Stress-Testing.md]], [[IFRS-9-and-ECL.md]], and [[SR-11-7-Model-Governance.md]]. Climate risk is really a forward-looking scenario problem living inside governance constraints.
+That is why this note connects naturally to [[Macro-Stress-Testing]], [[IFRS-9-and-ECL]], and [[SR-11-7-Model-Governance]]. Climate risk is really a forward-looking scenario problem living inside governance constraints.
 
 ### Why Climate Risk Is Not “Just ESG”
 
@@ -147,20 +147,20 @@ That is the institutional lens banks care about.
 
 A bank does not reserve capital because a borrower is morally imperfect. It reserves and provisions because climate developments may create measurable financial deterioration. This is why climate risk must be translated into familiar risk channels:
 
-- [[Probability-of-Default.md]] for deterioration in repayment capacity
+- [[Probability-of-Default]] for deterioration in repayment capacity
     
-- [[Loss-Given-Default.md]] for collateral value damage and recovery stress
+- [[Loss-Given-Default]] for collateral value damage and recovery stress
     
-- [[Exposure-at-Default.md]] for liquidity drawdowns and contingent utilization
+- [[Exposure-at-Default]] for liquidity drawdowns and contingent utilization
     
-- [[Expected-vs-Unexpected-Loss.md]] for average versus tail loss consequences
+- [[Expected-vs-Unexpected-Loss]] for average versus tail loss consequences
     
-- [[Economic-Capital-Basics.md]] and [[RWA-Risk-Weighted-Assets.md]] for capital planning consequences
+- [[Economic-Capital-Basics]] and [[RWA-Risk-Weighted-Assets]] for capital planning consequences
     
 
 ### Why Stress Testing Is the Natural Home
 
-Your baseline report explicitly says climate risk connects strongly to [[Macro-Stress-Testing.md]] and that central banks encourage climate scenario analysis within ICAAP-style processes.
+Your baseline report explicitly says climate risk connects strongly to [[Macro-Stress-Testing]] and that central banks encourage climate scenario analysis within ICAAP-style processes.
 
 This is the fourth red-pill truth: **climate risk is less mature as a static model than as a scenario framework**.
 
@@ -283,7 +283,7 @@ For a mortgage portfolio in flood-prone coastal zones, both effects may matter:
 - the property itself may become less liquid or less valuable
     
 
-This is why climate risk is so closely linked to [[Loss-Given-Default.md]] and especially to sectors like [[Specialized-Lending-CRE-Project.md]].
+This is why climate risk is so closely linked to [[Loss-Given-Default]] and especially to sectors like [[Specialized-Lending-CRE-Project]].
 
 ### Transition Risk Transmission
 
@@ -323,7 +323,7 @@ where:
 - $EL^{(s)}$ is the portfolio loss under scenario $s$
     
 
-This mirrors the multi-scenario logic used in [[IFRS-9-and-ECL.md]] and broader scenario frameworks in [[Macro-Stress-Testing.md]].
+This mirrors the multi-scenario logic used in [[IFRS-9-and-ECL]] and broader scenario frameworks in [[Macro-Stress-Testing]].
 
 ### Short, Medium, and Long Horizon Structure
 
@@ -368,11 +368,11 @@ This is not the final loss model, but it is often the first operational step in 
 
 |Climate Channel|Typical affected parameter|Example|
 |---|---|---|
-|Flood / wildfire / storm damage|[[Loss-Given-Default.md]], sometimes [[Probability-of-Default.md]]|Damaged property lowers collateral recovery and disrupts borrower cash flow|
-|Carbon pricing|[[Probability-of-Default.md]]|Margin compression for carbon-intensive borrowers|
-|Insurance cost spike|[[Probability-of-Default.md]] and [[Loss-Given-Default.md]]|Property owners face weaker affordability and reduced marketability|
-|Stranded assets|[[Loss-Given-Default.md]] and capital planning|Fossil-linked collateral or project value deteriorates|
-|Liquidity draw from adaptation spending|[[Exposure-at-Default.md]]|Borrowers draw committed lines under climate or policy stress|
+|Flood / wildfire / storm damage|[[Loss-Given-Default]], sometimes [[Probability-of-Default]]|Damaged property lowers collateral recovery and disrupts borrower cash flow|
+|Carbon pricing|[[Probability-of-Default]]|Margin compression for carbon-intensive borrowers|
+|Insurance cost spike|[[Probability-of-Default]] and [[Loss-Given-Default]]|Property owners face weaker affordability and reduced marketability|
+|Stranded assets|[[Loss-Given-Default]] and capital planning|Fossil-linked collateral or project value deteriorates|
+|Liquidity draw from adaptation spending|[[Exposure-at-Default]]|Borrowers draw committed lines under climate or policy stress|
 
 This table shows why climate risk is not a new risk parameter. It is a new **driver system** acting through the existing parameters.
 
@@ -459,7 +459,7 @@ This kind of code is not pretending to “solve climate risk.” It is showing t
 
 ### What Validators Attack First
 
-Under [[SR-11-7-Model-Governance.md]], validators usually attack climate frameworks in these places:
+Under [[SR-11-7-Model-Governance]], validators usually attack climate frameworks in these places:
 
 - Are physical and transition channels clearly distinguished?
     

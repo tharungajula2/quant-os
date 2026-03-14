@@ -16,7 +16,7 @@ That is what a **logistic regression scorecard** does in banking. It turns borro
 
 ## The Institutional Reality
 
-At a global bank, [[Logistic-Regression-Scorecards.md]] is the classic engine for translating borrower data into a predicted [[Probability-of-Default.md]]. The baseline report in your uploaded file states this directly: logistic regression is the workhorse behind credit scorecards, modeling the log-odds of default as a linear function of predictors, often with [[Weight-of-Evidence-and-IV.md]] transformations applied first. It also notes that banks commonly discretize variables, convert them to WoE, and then fit a logistic model whose coefficients are later extracted and interpreted for scorecard reporting.
+At a global bank, [[Logistic-Regression-Scorecards]] is the classic engine for translating borrower data into a predicted [[Probability-of-Default]]. The baseline report in your uploaded file states this directly: logistic regression is the workhorse behind credit scorecards, modeling the log-odds of default as a linear function of predictors, often with [[Weight-of-Evidence-and-IV]] transformations applied first. It also notes that banks commonly discretize variables, convert them to WoE, and then fit a logistic model whose coefficients are later extracted and interpreted for scorecard reporting.
 
 This is the first red-pill truth: **banks do not keep logistic scorecards because they are simple; they keep them because they are governable**. A model in banking is not judged only by predictive power. It is judged by whether it can survive model validation, committee challenge, audit review, regulatory scrutiny, production monitoring, and business use. Logistic scorecards are strong on all of those fronts because they are:
 
@@ -30,7 +30,7 @@ This is the first red-pill truth: **banks do not keep logistic scorecards becaus
     
 - easy to benchmark and backtest
     
-- easy to explain under [[SR-11-7-Model-Governance.md]]
+- easy to explain under [[SR-11-7-Model-Governance]]
     
 
 That is why a slightly stronger black-box model may still lose to a slightly weaker but much more governable scorecard in production.
@@ -39,7 +39,7 @@ The second red-pill truth is that a scorecard is **not** just a logistic regress
 
 1. raw borrower data are cleaned and governed
     
-2. variables are binned and transformed, often using [[Weight-of-Evidence-and-IV.md]]
+2. variables are binned and transformed, often using [[Weight-of-Evidence-and-IV]]
     
 3. logistic regression estimates the relationship between those transformed variables and default
     
@@ -48,9 +48,9 @@ The second red-pill truth is that a scorecard is **not** just a logistic regress
 5. the score is mapped into risk grades or PD bands used in underwriting, pricing, monitoring, provisioning, or capital workflows
     
 
-That means scorecards sit in the middle of the Credit Risk OS. Upstream, they depend on feature engineering and data lineage. Downstream, they feed [[Probability-of-Default.md]], support [[IFRS-9-and-ECL.md]] staging or retail ECL engines, and influence validation metrics in [[Model-Performance-Metrics.md]] and drift checks in [[Population-Stability-Index-PSI.md]].
+That means scorecards sit in the middle of the Credit Risk OS. Upstream, they depend on feature engineering and data lineage. Downstream, they feed [[Probability-of-Default]], support [[IFRS-9-and-ECL]] staging or retail ECL engines, and influence validation metrics in [[Model-Performance-Metrics]] and drift checks in [[Population-Stability-Index-PSI]].
 
-A third institutional point matters a lot: scorecards are especially powerful when the bank needs **consistent, explainable, rank-ordering-oriented decisions**. That is why they are heavily used in retail credit, application scoring, behavioral scoring, collections, and some wholesale sub-segments. Even where more advanced models exist, scorecards often remain the benchmark model or challenger because they provide a transparent baseline against which [[Advanced-ML-in-Risk.md]] can be judged. The baseline report explicitly notes that compared with black-box ML, logistic models with WoE inputs score highly on explainability and meet regulatory expectations for transparency and robustness.
+A third institutional point matters a lot: scorecards are especially powerful when the bank needs **consistent, explainable, rank-ordering-oriented decisions**. That is why they are heavily used in retail credit, application scoring, behavioral scoring, collections, and some wholesale sub-segments. Even where more advanced models exist, scorecards often remain the benchmark model or challenger because they provide a transparent baseline against which [[Advanced-ML-in-Risk]] can be judged. The baseline report explicitly notes that compared with black-box ML, logistic models with WoE inputs score highly on explainability and meet regulatory expectations for transparency and robustness.
 
 ## The Core Math / Code
 
@@ -83,7 +83,7 @@ That equation is the heart of the scorecard. Every borrower gets a linear predic
 
 ### Why WoE Fits So Well
 
-The reason [[Weight-of-Evidence-and-IV.md]] fits so naturally into scorecards is that WoE is already a log-ratio style transformation. When you use WoE inputs, each variable’s effect becomes cleaner and often more monotonic.
+The reason [[Weight-of-Evidence-and-IV]] fits so naturally into scorecards is that WoE is already a log-ratio style transformation. When you use WoE inputs, each variable’s effect becomes cleaner and often more monotonic.
 
 Suppose a variable bin has WoE of 0.5 and its logistic coefficient is 2. Then its contribution to log-odds is:
 
@@ -160,13 +160,13 @@ A good bank-grade scorecard development process usually looks like this:
 
 |Stage|What happens|Linked note|
 |---|---|---|
-|Data preparation|Clean, join, and define decision-time inputs|[[SR-11-7-Model-Governance.md]]|
-|Binning|Group raw variables into stable bands|[[Weight-of-Evidence-and-IV.md]]|
-|WoE transformation|Convert bins into evidence values|[[Weight-of-Evidence-and-IV.md]]|
-|Logistic fit|Estimate coefficients and intercept|[[Logistic-Regression-Scorecards.md]]|
-|Calibration|Align predicted PDs to observed default rates|[[Probability-of-Default.md]]|
-|Validation|Test discrimination and calibration|[[Model-Performance-Metrics.md]]|
-|Monitoring|Watch drift, stability, and override trends|[[Population-Stability-Index-PSI.md]]|
+|Data preparation|Clean, join, and define decision-time inputs|[[SR-11-7-Model-Governance]]|
+|Binning|Group raw variables into stable bands|[[Weight-of-Evidence-and-IV]]|
+|WoE transformation|Convert bins into evidence values|[[Weight-of-Evidence-and-IV]]|
+|Logistic fit|Estimate coefficients and intercept|[[Logistic-Regression-Scorecards]]|
+|Calibration|Align predicted PDs to observed default rates|[[Probability-of-Default]]|
+|Validation|Test discrimination and calibration|[[Model-Performance-Metrics]]|
+|Monitoring|Watch drift, stability, and override trends|[[Population-Stability-Index-PSI]]|
 
 This is why a scorecard is a governed pipeline, not just one algorithm.
 
@@ -362,7 +362,7 @@ A more complex model can outperform logistic regression in raw AUC. But the bank
 - Can we defend it to regulators?
     
 
-Logistic scorecards win many of these battles by design. That is why they remain a benchmark against which [[Advanced-ML-in-Risk.md]] must justify its extra complexity.
+Logistic scorecards win many of these battles by design. That is why they remain a benchmark against which [[Advanced-ML-in-Risk]] must justify its extra complexity.
 
 ### Where Scorecards Fail
 
@@ -385,7 +385,7 @@ Scorecards are not magical. They break when:
 - governance is weak
     
 
-That is why logistic scorecards must be read together with [[Model-Performance-Metrics.md]], [[Population-Stability-Index-PSI.md]], and [[SR-11-7-Model-Governance.md]]. The model is only as strong as its monitoring and controls.
+That is why logistic scorecards must be read together with [[Model-Performance-Metrics]], [[Population-Stability-Index-PSI]], and [[SR-11-7-Model-Governance]]. The model is only as strong as its monitoring and controls.
 
 ### Logistic Regression vs Advanced ML
 

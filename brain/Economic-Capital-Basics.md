@@ -15,9 +15,9 @@ That is the cleanest way to understand **economic capital**. It is not the money
 
 ## The Institutional Reality
 
-At a global bank, economic capital is the internal risk language for survivability. It answers one brutal question: **How much capital does the bank need so that extreme but plausible losses do not wipe out equity?** This is why economic capital sits directly on top of [[Expected-vs-Unexpected-Loss.md]]. The bank first estimates ordinary portfolio loss using [[Probability-of-Default.md]], [[Loss-Given-Default.md]], and [[Exposure-at-Default.md]]. That gives the mean credit cost. Then it models the entire loss distribution around that mean. Economic capital is the part of the distribution that lies far into the tail.
+At a global bank, economic capital is the internal risk language for survivability. It answers one brutal question: **How much capital does the bank need so that extreme but plausible losses do not wipe out equity?** This is why economic capital sits directly on top of [[Expected-vs-Unexpected-Loss]]. The bank first estimates ordinary portfolio loss using [[Probability-of-Default]], [[Loss-Given-Default]], and [[Exposure-at-Default]]. That gives the mean credit cost. Then it models the entire loss distribution around that mean. Economic capital is the part of the distribution that lies far into the tail.
 
-This matters because real banking is not run on averages. A portfolio can show modest average expected loss and still be dangerous if defaults are highly correlated, concentrated in one sector, or vulnerable to macro shocks. That is why institutions connect economic capital to [[RWA-Risk-Weighted-Assets.md]], [[Basel-IRB-Framework.md]], and [[Macro-Stress-Testing.md]]. Basel capital formulas are a standardized regulatory approximation of the same core idea: hold enough capital against **unexpected loss**, not just expected loss. Internal economic capital frameworks often go further by modeling name concentration, industry concentration, wrong-way risk, geographic concentration, and correlations across asset classes.
+This matters because real banking is not run on averages. A portfolio can show modest average expected loss and still be dangerous if defaults are highly correlated, concentrated in one sector, or vulnerable to macro shocks. That is why institutions connect economic capital to [[RWA-Risk-Weighted-Assets]], [[Basel-IRB-Framework]], and [[Macro-Stress-Testing]]. Basel capital formulas are a standardized regulatory approximation of the same core idea: hold enough capital against **unexpected loss**, not just expected loss. Internal economic capital frameworks often go further by modeling name concentration, industry concentration, wrong-way risk, geographic concentration, and correlations across asset classes.
 
 In practice, economic capital is also a management tool, not just a regulatory concept. Banks use it for:
 
@@ -36,7 +36,7 @@ In practice, economic capital is also a management tool, not just a regulatory c
 
 That means economic capital sits between theory and decision-making. A bank that understands only expected loss can price the average world. A bank that understands economic capital can survive the world when it stops behaving normally.
 
-This is also why the concept is deeply tied to [[SR-11-7-Model-Governance.md]]. A model risk team will challenge whether the bank’s economic capital framework captures concentration, dependency, downturn behavior, model uncertainty, and diversification correctly. They will ask whether the confidence level is defensible, whether the horizon is consistent, whether the calibration is procyclical, and whether the same risk is being counted twice in provisions, stress loss, and capital. In elite risk work, the real question is never “Did you compute a percentile?” The real question is “Did you build a coherent solvency framework?”
+This is also why the concept is deeply tied to [[SR-11-7-Model-Governance]]. A model risk team will challenge whether the bank’s economic capital framework captures concentration, dependency, downturn behavior, model uncertainty, and diversification correctly. They will ask whether the confidence level is defensible, whether the horizon is consistent, whether the calibration is procyclical, and whether the same risk is being counted twice in provisions, stress loss, and capital. In elite risk work, the real question is never “Did you compute a percentile?” The real question is “Did you build a coherent solvency framework?”
 
 ## The Core Math / Code
 
@@ -69,7 +69,7 @@ $$
 EC=\mathrm{ES}_{\alpha}(L)-\mathbb{E}[L]  
 $$
 
-This is the first red-pill point: **economic capital is not the total tail loss**. It is the tail loss **above** expected loss. The expected piece is supposed to be borne through pricing, spread, and provisioning under concepts linked to [[IFRS-9-and-ECL.md]]. The capital cushion exists for the excess.
+This is the first red-pill point: **economic capital is not the total tail loss**. It is the tail loss **above** expected loss. The expected piece is supposed to be borne through pricing, spread, and provisioning under concepts linked to [[IFRS-9-and-ECL]]. The capital cushion exists for the excess.
 
 At the single-obligor level, the expected loss contribution is still:
 
@@ -118,10 +118,10 @@ A good mental map is below.
 
 |Layer|What it measures|Typical coverage mechanism|Core linked note|
 |---|---|---|---|
-|Expected Loss|Average credit cost|Pricing and provisions|[[Expected-vs-Unexpected-Loss.md]]|
-|Unexpected Loss|Volatility and tail loss beyond average|Capital buffer|[[Economic-Capital-Basics.md]]|
-|Regulatory Capital|Standardized or prescribed capital requirement|Basel ratios and RWA|[[Basel-IRB-Framework.md]]|
-|Accounting Reserve|Forward-looking impairment allowance|IFRS 9 ECL|[[IFRS-9-and-ECL.md]]|
+|Expected Loss|Average credit cost|Pricing and provisions|[[Expected-vs-Unexpected-Loss]]|
+|Unexpected Loss|Volatility and tail loss beyond average|Capital buffer|[[Economic-Capital-Basics]]|
+|Regulatory Capital|Standardized or prescribed capital requirement|Basel ratios and RWA|[[Basel-IRB-Framework]]|
+|Accounting Reserve|Forward-looking impairment allowance|IFRS 9 ECL|[[IFRS-9-and-ECL]]|
 
 A second red-pill distinction is between **economic capital** and **regulatory capital**.
 
@@ -132,7 +132,7 @@ A second red-pill distinction is between **economic capital** and **regulatory c
 |Method|Internal portfolio model|Standardized or Basel-prescribed formulas|
 |Sensitivity|Can capture concentration and diversification more richly|Often constrained by rule design|
 |Use case|Pricing, allocation, strategy, limits|Capital adequacy reporting and compliance|
-|Linkages|[[Macro-Stress-Testing.md]], internal risk appetite|[[RWA-Risk-Weighted-Assets.md]], [[Basel-IRB-Framework.md]]|
+|Linkages|[[Macro-Stress-Testing]], internal risk appetite|[[RWA-Risk-Weighted-Assets]], [[Basel-IRB-Framework]]|
 
 This distinction matters in interviews and in real life. A bank may hold more internal economic capital than the regulatory minimum because management knows the regulatory rule is too blunt for the actual concentration structure of the portfolio.
 
@@ -176,7 +176,7 @@ That means the bank expects to lose 40 million on average, but wants an addition
 
 ### Relationship to Basel IRB
 
-Under [[Basel-IRB-Framework.md]], the IRB framework is built to produce capital for unexpected loss. Very loosely, the Basel capital function transforms PD, LGD, EAD, asset correlation, and maturity into a capital requirement per unit of exposure. This is then converted into [[RWA-Risk-Weighted-Assets.md]] and ultimately multiplied by the minimum capital ratio.
+Under [[Basel-IRB-Framework]], the IRB framework is built to produce capital for unexpected loss. Very loosely, the Basel capital function transforms PD, LGD, EAD, asset correlation, and maturity into a capital requirement per unit of exposure. This is then converted into [[RWA-Risk-Weighted-Assets]] and ultimately multiplied by the minimum capital ratio.
 
 Conceptually:
 
@@ -205,7 +205,7 @@ A beginner often assumes that if portfolio EL is diversified, capital should be 
 - sovereign, bank, and corporate exposures are linked through contagion
     
 
-This is why economic capital must be thought of as a **portfolio problem**, not merely a sum of individual risk metrics. That is also why the concept naturally connects to [[Low-Default-Portfolios-LDP.md]], [[Specialized-Lending-CRE-Project.md]], and [[Counterparty-Credit-Risk-CCR.md]], where concentration and dependency structures can become brutal.
+This is why economic capital must be thought of as a **portfolio problem**, not merely a sum of individual risk metrics. That is also why the concept naturally connects to [[Low-Default-Portfolios-LDP]], [[Specialized-Lending-CRE-Project]], and [[Counterparty-Credit-Risk-CCR]], where concentration and dependency structures can become brutal.
 
 ### Economic Capital and Risk-Adjusted Performance
 
@@ -227,16 +227,16 @@ The deeper answer is: economic capital is an internally modeled solvency lens th
 
 That is the full zero-to-hero lens:
 
-- [[Expected-vs-Unexpected-Loss.md]] tells you what loss is ordinary versus dangerous.
+- [[Expected-vs-Unexpected-Loss]] tells you what loss is ordinary versus dangerous.
     
-- [[Probability-of-Default.md]], [[Loss-Given-Default.md]], and [[Exposure-at-Default.md]] give you the raw ingredients.
+- [[Probability-of-Default]], [[Loss-Given-Default]], and [[Exposure-at-Default]] give you the raw ingredients.
     
-- [[Basel-IRB-Framework.md]] and [[RWA-Risk-Weighted-Assets.md]] translate risk into prudential capital.
+- [[Basel-IRB-Framework]] and [[RWA-Risk-Weighted-Assets]] translate risk into prudential capital.
     
-- [[IFRS-9-and-ECL.md]] handles expected loss through accounting reserves.
+- [[IFRS-9-and-ECL]] handles expected loss through accounting reserves.
     
-- [[Macro-Stress-Testing.md]] asks what happens when the whole environment goes bad at once.
+- [[Macro-Stress-Testing]] asks what happens when the whole environment goes bad at once.
     
-- [[SR-11-7-Model-Governance.md]] asks whether your capital framework is actually credible.
+- [[SR-11-7-Model-Governance]] asks whether your capital framework is actually credible.
     
 

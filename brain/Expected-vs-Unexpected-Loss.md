@@ -15,13 +15,13 @@ Now imagine a citywide blackout, a flood, or a sudden collapse in demand that hi
 
 ## The Institutional Reality
 
-At a global bank, this distinction sits at the heart of the entire credit architecture. The building blocks from [[Probability-of-Default.md]], [[Loss-Given-Default.md]], and [[Exposure-at-Default.md]] are first combined to estimate average credit loss. That average loss is **Expected Loss (EL)**. It is the loss the bank believes will occur over time, on average, across a well-defined horizon. Because it is expected, the bank is supposed to absorb it through pricing, underwriting margins, provisions, and accounting reserves, especially under [[IFRS-9-and-ECL.md]].
+At a global bank, this distinction sits at the heart of the entire credit architecture. The building blocks from [[Probability-of-Default]], [[Loss-Given-Default]], and [[Exposure-at-Default]] are first combined to estimate average credit loss. That average loss is **Expected Loss (EL)**. It is the loss the bank believes will occur over time, on average, across a well-defined horizon. Because it is expected, the bank is supposed to absorb it through pricing, underwriting margins, provisions, and accounting reserves, especially under [[IFRS-9-and-ECL]].
 
-But regulators and risk managers know the real danger is not the average. The real danger is that defaults cluster, recoveries collapse, and drawn exposures surge at the same time. That gap between ordinary loss and stressed tail loss is **Unexpected Loss (UL)**. In the Basel world, especially within [[Basel-IRB-Framework.md]] and [[RWA-Risk-Weighted-Assets.md]], capital is fundamentally designed to absorb unexpected loss rather than expected loss. That is why Basel capital and accounting provisions are related but not identical systems: provisions absorb the “known unknowns,” while capital exists for the “unknown unknowns.”
+But regulators and risk managers know the real danger is not the average. The real danger is that defaults cluster, recoveries collapse, and drawn exposures surge at the same time. That gap between ordinary loss and stressed tail loss is **Unexpected Loss (UL)**. In the Basel world, especially within [[Basel-IRB-Framework]] and [[RWA-Risk-Weighted-Assets]], capital is fundamentally designed to absorb unexpected loss rather than expected loss. That is why Basel capital and accounting provisions are related but not identical systems: provisions absorb the “known unknowns,” while capital exists for the “unknown unknowns.”
 
-This is also why [[Economic-Capital-Basics.md]] exists as a separate concept. Economic capital is the bank’s internal expression of how much cushion it needs against portfolio loss volatility beyond EL. A sophisticated institution will estimate a full loss distribution for a portfolio, identify a very high percentile of that distribution, and then compare that tail loss against the mean. The mean is EL. The excess tail is UL. That difference is what can destroy equity if not capitalized properly.
+This is also why [[Economic-Capital-Basics]] exists as a separate concept. Economic capital is the bank’s internal expression of how much cushion it needs against portfolio loss volatility beyond EL. A sophisticated institution will estimate a full loss distribution for a portfolio, identify a very high percentile of that distribution, and then compare that tail loss against the mean. The mean is EL. The excess tail is UL. That difference is what can destroy equity if not capitalized properly.
 
-From a governance perspective, this distinction is heavily scrutinized under [[SR-11-7-Model-Governance.md]]. Validators ask whether the bank is double counting losses, whether EL is already covered through accounting reserves or margin, whether downturn assumptions are leaking into both provisioning and capital, and whether the portfolio model truly captures correlation, concentration, and cyclicality. A junior candidate usually memorizes “EL equals PD times LGD times EAD.” A serious risk specialist understands that the entire regulatory design of modern banking separates **predictable credit cost** from **capital-threatening loss volatility**.
+From a governance perspective, this distinction is heavily scrutinized under [[SR-11-7-Model-Governance]]. Validators ask whether the bank is double counting losses, whether EL is already covered through accounting reserves or margin, whether downturn assumptions are leaking into both provisioning and capital, and whether the portfolio model truly captures correlation, concentration, and cyclicality. A junior candidate usually memorizes “EL equals PD times LGD times EAD.” A serious risk specialist understands that the entire regulatory design of modern banking separates **predictable credit cost** from **capital-threatening loss volatility**.
 
 ## The Core Math / Code
 
@@ -84,7 +84,7 @@ A useful comparison is below.
 |Economic meaning|Average anticipated credit cost|Volatility or tail shock beyond average loss|
 |Core driver|Mean of loss distribution|Dispersion or high-percentile tail of loss distribution|
 |Main use|Pricing, reserves, portfolio planning|Capital adequacy, solvency protection|
-|Regulatory linkage|Strong link to [[IFRS-9-and-ECL.md]] and provisioning|Strong link to [[Basel-IRB-Framework.md]] and capital|
+|Regulatory linkage|Strong link to [[IFRS-9-and-ECL]] and provisioning|Strong link to [[Basel-IRB-Framework]] and capital|
 |Typical coverage|Margin, spread, provisions|Equity capital, buffers|
 |Time horizon style|Contractual / accounting / expected horizon|Stress or insolvency horizon|
 |Interview trap|Treating EL as “total risk”|Forgetting that UL is what capital is sized against|
@@ -103,7 +103,7 @@ $$
 
 That is portfolio EL.
 
-But the variance depends not only on each obligor’s own default uncertainty, but also on **default correlation** across names. This is where junior understanding usually breaks. If defaults were independent, diversification would kill much of the volatility. But in real recessions, defaults are correlated. Many firms fail together. Recoveries also worsen together. That is why portfolio UL can remain severe even when average EL looks modest. This is the bridge into [[RWA-Risk-Weighted-Assets.md]], where Basel’s asymptotic single-risk-factor logic turns obligor-level risk into capital for systematic portfolio loss.
+But the variance depends not only on each obligor’s own default uncertainty, but also on **default correlation** across names. This is where junior understanding usually breaks. If defaults were independent, diversification would kill much of the volatility. But in real recessions, defaults are correlated. Many firms fail together. Recoveries also worsen together. That is why portfolio UL can remain severe even when average EL looks modest. This is the bridge into [[RWA-Risk-Weighted-Assets]], where Basel’s asymptotic single-risk-factor logic turns obligor-level risk into capital for systematic portfolio loss.
 
 For intuition, a stylized single-exposure variance under a Bernoulli default model is:
 
@@ -121,13 +121,13 @@ That second term is where crises live.
 
 Another critical institutional distinction is how this maps into accounting versus capital:
 
-- Under [[IFRS-9-and-ECL.md]], the bank books expected credit losses through impairment allowances.
+- Under [[IFRS-9-and-ECL]], the bank books expected credit losses through impairment allowances.
     
-- Under [[Basel-IRB-Framework.md]], the bank computes capital requirements to cover unexpected losses.
+- Under [[Basel-IRB-Framework]], the bank computes capital requirements to cover unexpected losses.
     
-- Under [[Economic-Capital-Basics.md]], the bank may use internal portfolio models to estimate the amount of capital needed beyond EL.
+- Under [[Economic-Capital-Basics]], the bank may use internal portfolio models to estimate the amount of capital needed beyond EL.
     
-- Under [[Macro-Stress-Testing.md]], both EL and UL dynamics are shocked by macroeconomic scenarios.
+- Under [[Macro-Stress-Testing]], both EL and UL dynamics are shocked by macroeconomic scenarios.
     
 
 This split explains why the same portfolio can produce both a provision expense and a capital requirement without contradiction. One is absorbing the expected mean loss. The other is defending the institution against severe downside outcomes.
@@ -143,11 +143,11 @@ $$
 
 But in real banking, you need one extra layer of nuance: the boundary between EL and UL is not purely theoretical. It depends on horizon, model calibration, downturn assumptions, and accounting stage. For example:
 
-- PiT deterioration in [[Probability-of-Default.md]] can sharply increase IFRS 9 provisions.
+- PiT deterioration in [[Probability-of-Default]] can sharply increase IFRS 9 provisions.
     
-- Downturn assumptions in [[Loss-Given-Default.md]] can inflate tail severity for capital.
+- Downturn assumptions in [[Loss-Given-Default]] can inflate tail severity for capital.
     
-- Revolver drawdown behavior in [[Exposure-at-Default.md]] can amplify both EL and UL.
+- Revolver drawdown behavior in [[Exposure-at-Default]] can amplify both EL and UL.
     
 - Concentration in sectors or names can magnify UL even if portfolio EL seems stable.
     

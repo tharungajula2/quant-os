@@ -16,9 +16,9 @@ Now imagine the weather changes. During summer vacation, kids are more distracte
 
 ## The Institutional Reality
 
-At a global bank, [[Probability-of-Default.md]] is one of the three foundational credit risk parameters, alongside [[Loss-Given-Default.md]] and [[Exposure-at-Default.md]]. It is the input that measures the likelihood that an obligor defaults over a specified horizon, typically one year for Basel capital architecture and often multi-period or term-structured in accounting and stress testing contexts. The baseline report you uploaded frames PD exactly this way: as the expected frequency of default for an obligor or rating grade, usually expressed on a one-year basis, and tied directly to rating grades and long-run default data.
+At a global bank, [[Probability-of-Default]] is one of the three foundational credit risk parameters, alongside [[Loss-Given-Default]] and [[Exposure-at-Default]]. It is the input that measures the likelihood that an obligor defaults over a specified horizon, typically one year for Basel capital architecture and often multi-period or term-structured in accounting and stress testing contexts. The baseline report you uploaded frames PD exactly this way: as the expected frequency of default for an obligor or rating grade, usually expressed on a one-year basis, and tied directly to rating grades and long-run default data.
 
-The first serious distinction is that **PD belongs to the obligor**, not to the facility in isolation. A company defaults, not a single loan in a vacuum. Different facilities to the same borrower can have different recoveries and exposures, which is why [[Loss-Given-Default.md]] and [[Exposure-at-Default.md]] vary by instrument, collateral, and product structure. But default likelihood is fundamentally an obligor-state concept. This matters because many weak candidates casually mix borrower risk and facility risk. Strong credit risk people separate them cleanly.
+The first serious distinction is that **PD belongs to the obligor**, not to the facility in isolation. A company defaults, not a single loan in a vacuum. Different facilities to the same borrower can have different recoveries and exposures, which is why [[Loss-Given-Default]] and [[Exposure-at-Default]] vary by instrument, collateral, and product structure. But default likelihood is fundamentally an obligor-state concept. This matters because many weak candidates casually mix borrower risk and facility risk. Strong credit risk people separate them cleanly.
 
 ### What “Default” Actually Means
 
@@ -35,7 +35,7 @@ PD is only meaningful if the bank has a clear **default definition**. That defin
 - unlikeliness-to-pay judgment
     
 
-This is why a PD model is never just a statistical exercise. If the default event is inconsistently defined, the entire model becomes conceptually unstable. Under [[Basel-IRB-Framework.md]], default definitions must be documented and consistently applied. Under [[SR-11-7-Model-Governance.md]], validators challenge whether the development target, reference data, overrides, and observed outcomes truly match the approved definition.
+This is why a PD model is never just a statistical exercise. If the default event is inconsistently defined, the entire model becomes conceptually unstable. Under [[Basel-IRB-Framework]], default definitions must be documented and consistently applied. Under [[SR-11-7-Model-Governance]], validators challenge whether the development target, reference data, overrides, and observed outcomes truly match the approved definition.
 
 ### The Real Job of a PD System
 
@@ -75,7 +75,7 @@ This is one of the most interviewable and least deeply understood topics in cred
 
 #### Point-in-Time (PiT)
 
-A **PiT PD** reflects current conditions. It moves with the business cycle, borrower financial deterioration, and current information. In a recession, PiT PDs rise; in a boom, they fall. PiT is more sensitive, more reactive, and generally more appropriate for forward-looking impairment work such as [[IFRS-9-and-ECL.md]], where the institution must recognize deterioration early.
+A **PiT PD** reflects current conditions. It moves with the business cycle, borrower financial deterioration, and current information. In a recession, PiT PDs rise; in a boom, they fall. PiT is more sensitive, more reactive, and generally more appropriate for forward-looking impairment work such as [[IFRS-9-and-ECL]], where the institution must recognize deterioration early.
 
 #### Through-the-Cycle (TtC)
 
@@ -103,11 +103,11 @@ If a bank uses pure PiT PDs for everything, ratings can become violently procycl
 
 So banks often need a balance:
 
-- capital frameworks under [[Basel-IRB-Framework.md]] tend to prefer prudential, long-run grounded PD calibration
+- capital frameworks under [[Basel-IRB-Framework]] tend to prefer prudential, long-run grounded PD calibration
     
-- accounting frameworks under [[IFRS-9-and-ECL.md]] tend to require more forward-looking and macro-sensitive PDs
+- accounting frameworks under [[IFRS-9-and-ECL]] tend to require more forward-looking and macro-sensitive PDs
     
-- stress frameworks under [[Macro-Stress-Testing.md]] explicitly shock PDs under adverse scenarios
+- stress frameworks under [[Macro-Stress-Testing]] explicitly shock PDs under adverse scenarios
     
 
 That means a mature bank does not ask “PiT or TtC?” as if one must win. It asks: **which risk lens is fit for which decision purpose?**
@@ -138,11 +138,11 @@ $$
 
 where:
 
-- [[Probability-of-Default.md]] provides default likelihood
+- [[Probability-of-Default]] provides default likelihood
     
-- [[Loss-Given-Default.md]] provides loss severity conditional on default
+- [[Loss-Given-Default]] provides loss severity conditional on default
     
-- [[Exposure-at-Default.md]] provides the amount exposed at default
+- [[Exposure-at-Default]] provides the amount exposed at default
     
 
 This is why PD is so central. If PD doubles, expected loss doubles, all else equal.
@@ -180,7 +180,7 @@ This matters because one good year or one bad year should not redefine a rating 
 
 ### Logistic Regression View
 
-In execution practice, many wholesale and retail PD models still use logistic regression because it is interpretable and auditable, linking directly to [[Logistic-Regression-Scorecards.md]] and [[Weight-of-Evidence-and-IV.md]].
+In execution practice, many wholesale and retail PD models still use logistic regression because it is interpretable and auditable, linking directly to [[Logistic-Regression-Scorecards]] and [[Weight-of-Evidence-and-IV]].
 
 A standard formulation is:
 
@@ -267,11 +267,11 @@ $$
 
 where $ODR_g$ is the observed default rate for grade $g$.
 
-This is where [[Model-Performance-Metrics.md]] and [[SR-11-7-Model-Governance.md]] enter. Good discrimination without calibration is not enough for provisioning or capital. Good calibration without discrimination is not enough for underwriting or portfolio steering. A bank-grade PD model needs both.
+This is where [[Model-Performance-Metrics]] and [[SR-11-7-Model-Governance]] enter. Good discrimination without calibration is not enough for provisioning or capital. Good calibration without discrimination is not enough for underwriting or portfolio steering. A bank-grade PD model needs both.
 
 ### One-Year PD vs Lifetime PD
 
-Another major beginner mistake is assuming PD is always a one-year number. In capital and rating systems, one-year PD is common. But under [[IFRS-9-and-ECL.md]], banks often need a **term structure of PDs** across multiple future horizons.
+Another major beginner mistake is assuming PD is always a one-year number. In capital and rating systems, one-year PD is common. But under [[IFRS-9-and-ECL]], banks often need a **term structure of PDs** across multiple future horizons.
 
 If $S(t)$ is survival probability up to time $t$, then a cumulative default probability to horizon $T$ can be written as:
 
@@ -295,7 +295,7 @@ You do not always need this machinery in a bank interview, but understanding tha
 
 ### Low-Default Portfolios: Where PD Gets Hard
 
-PD estimation becomes especially difficult in [[Low-Default-Portfolios-LDP.md]], such as sovereigns, banks, and top-rated institutions. The baseline report notes that lack of defaults does not mean lack of risk, and that external benchmarks, floors, or conservative supplements may be needed.
+PD estimation becomes especially difficult in [[Low-Default-Portfolios-LDP]], such as sovereigns, banks, and top-rated institutions. The baseline report notes that lack of defaults does not mean lack of risk, and that external benchmarks, floors, or conservative supplements may be needed.
 
 This is one of the deepest practical issues in wholesale credit risk:
 
@@ -310,7 +310,7 @@ That is why PD modeling is often as much about **prudence under sparse data** as
 
 ### What Validators Attack First
 
-Under [[SR-11-7-Model-Governance.md]], a validator will usually attack a PD system along these lines:
+Under [[SR-11-7-Model-Governance]], a validator will usually attack a PD system along these lines:
 
 - Is the default definition consistent and approved?
     

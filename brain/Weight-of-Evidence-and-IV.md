@@ -16,7 +16,7 @@ Now imagine you want to know which clue is actually useful. Maybe “past late r
 
 ## The Institutional Reality
 
-At a global bank, [[Weight-of-Evidence-and-IV.md]] sits inside the classic credit scorecard pipeline that eventually feeds [[Logistic-Regression-Scorecards.md]]. The baseline report you uploaded defines WoE as a transformation that converts categorical or binned numerical variables into a statistically meaningful measure of how strongly each bin separates non-defaults from defaults, and IV as the summary statistic that ranks a variable’s predictive power.
+At a global bank, [[Weight-of-Evidence-and-IV]] sits inside the classic credit scorecard pipeline that eventually feeds [[Logistic-Regression-Scorecards]]. The baseline report you uploaded defines WoE as a transformation that converts categorical or binned numerical variables into a statistically meaningful measure of how strongly each bin separates non-defaults from defaults, and IV as the summary statistic that ranks a variable’s predictive power.
 
 This matters because banks rarely trust raw variables in their original form. A raw income value, utilization ratio, or age field can be noisy, nonlinear, unstable, and difficult to explain. Regulators and validators usually prefer transformations that are:
 
@@ -31,7 +31,7 @@ This matters because banks rarely trust raw variables in their original form. A 
 - easy to audit and reproduce
     
 
-That is exactly why WoE became so dominant in scorecard modeling. It translates each bin of a variable into a **log-odds style evidence contribution**, which aligns naturally with the linear logit structure of [[Logistic-Regression-Scorecards.md]]. Instead of telling a credit committee that “income interacts nonlinearly with default risk,” you can tell them: “this income band contains relatively more goods than bads, so it gets positive evidence.” That is far easier to explain under [[SR-11-7-Model-Governance.md]] than a black-box feature transformation.
+That is exactly why WoE became so dominant in scorecard modeling. It translates each bin of a variable into a **log-odds style evidence contribution**, which aligns naturally with the linear logit structure of [[Logistic-Regression-Scorecards]]. Instead of telling a credit committee that “income interacts nonlinearly with default risk,” you can tell them: “this income band contains relatively more goods than bads, so it gets positive evidence.” That is far easier to explain under [[SR-11-7-Model-Governance]] than a black-box feature transformation.
 
 ### Why Banks Love WoE Even in the Age of ML
 
@@ -52,7 +52,7 @@ A deep-learning model may discover richer nonlinear patterns, but a scorecard-ba
 - cleaner mapping from raw data to credit decision logic
     
 
-This is why WoE connects directly not only to [[Logistic-Regression-Scorecards.md]], but also to [[Advanced-ML-in-Risk.md]]. Advanced ML can outperform scorecards in some contexts, but the governance cost is much higher. WoE is part of the reason traditional scorecards remain alive in retail banking, collections, application scoring, and some validation-friendly risk environments.
+This is why WoE connects directly not only to [[Logistic-Regression-Scorecards]], but also to [[Advanced-ML-in-Risk]]. Advanced ML can outperform scorecards in some contexts, but the governance cost is much higher. WoE is part of the reason traditional scorecards remain alive in retail banking, collections, application scoring, and some validation-friendly risk environments.
 
 ### The Real Job of WoE
 
@@ -110,7 +110,7 @@ A very high IV may mean the variable is extremely predictive. But it can also si
 - data fields that will not exist at decision time
     
 
-So IV is useful, but never enough by itself. Under [[SR-11-7-Model-Governance.md]], validators will always ask whether a high-IV variable is conceptually legitimate, available at the correct time, and stable in production.
+So IV is useful, but never enough by itself. Under [[SR-11-7-Model-Governance]], validators will always ask whether a high-IV variable is conceptually legitimate, available at the correct time, and stable in production.
 
 ### Why Monotonic Binning Is Such a Big Deal
 
@@ -173,7 +173,7 @@ This is the most important formula in the entire note.
 
 That means WoE is really a bin-level **log evidence ratio**.
 
-This is why it aligns so beautifully with logistic regression. Since [[Logistic-Regression-Scorecards.md]] models the log-odds of default linearly, feeding it WoE-transformed variables makes each feature contribution easier to interpret and often more stable.
+This is why it aligns so beautifully with logistic regression. Since [[Logistic-Regression-Scorecards]] models the log-odds of default linearly, feeding it WoE-transformed variables makes each feature contribution easier to interpret and often more stable.
 
 ### Information Value
 
@@ -297,7 +297,7 @@ That means the scorecard logic becomes beautifully interpretable:
 - the product of coefficient and WoE becomes the variable’s contribution to log-odds
     
 
-This is why the next note, [[Logistic-Regression-Scorecards.md]], is such a natural continuation.
+This is why the next note, [[Logistic-Regression-Scorecards]], is such a natural continuation.
 
 ### A Production-Grade Python Example
 
@@ -391,7 +391,7 @@ This code does four things correctly:
 4. aggregates IV contribution by bin
     
 
-That is the exact kind of utility that later plugs into a scorecard pipeline under [[Logistic-Regression-Scorecards.md]].
+That is the exact kind of utility that later plugs into a scorecard pipeline under [[Logistic-Regression-Scorecards]].
 
 ### WoE Is Powerful, but It Can Be Misused
 
@@ -412,7 +412,7 @@ WoE and IV can go badly wrong when:
 - the modeler optimizes IV at the expense of production stability
     
 
-Under [[SR-11-7-Model-Governance.md]], validators often ask:
+Under [[SR-11-7-Model-Governance]], validators often ask:
 
 - Was the binning logic stable across time?
     
@@ -424,7 +424,7 @@ Under [[SR-11-7-Model-Governance.md]], validators often ask:
     
 - Are there bins with low support and unstable evidence?
     
-- Has the variable drifted in production, linking to [[Population-Stability-Index-PSI.md]]?
+- Has the variable drifted in production, linking to [[Population-Stability-Index-PSI]]?
     
 
 That is why WoE/IV is not just preprocessing. It is regulated feature engineering.
@@ -433,9 +433,9 @@ That is why WoE/IV is not just preprocessing. It is regulated feature engineerin
 
 |Approach|Strength|Weakness|Best linked note|
 |---|---|---|---|
-|Raw features in logistic regression|Simple start|Can miss nonlinearity and be harder to govern|[[Logistic-Regression-Scorecards.md]]|
-|WoE-transformed features|Interpretable, monotonic, governance-friendly|Requires careful binning and stability testing|[[Weight-of-Evidence-and-IV.md]]|
-|Complex engineered features for ML|Potentially higher predictive power|Higher explainability and validation burden|[[Advanced-ML-in-Risk.md]]|
+|Raw features in logistic regression|Simple start|Can miss nonlinearity and be harder to govern|[[Logistic-Regression-Scorecards]]|
+|WoE-transformed features|Interpretable, monotonic, governance-friendly|Requires careful binning and stability testing|[[Weight-of-Evidence-and-IV]]|
+|Complex engineered features for ML|Potentially higher predictive power|Higher explainability and validation burden|[[Advanced-ML-in-Risk]]|
 
 This table captures the strategic truth: WoE exists because banks often value controlled transparency over unconstrained predictive complexity.
 
