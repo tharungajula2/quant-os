@@ -4,6 +4,7 @@ import "./globals.css";
 import { getAllNotes } from "@/lib/markdown";
 import Sidebar from "@/components/Sidebar";
 import MobileHeader from "@/components/MobileHeader";
+import CrosAIChat from "@/components/CrosAIChat";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -52,6 +53,7 @@ export default async function RootLayout({
             </main>
           </div>
         </div>
+        <CrosAIChat />
       </body>
     </html>
   );

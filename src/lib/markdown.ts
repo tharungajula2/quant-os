@@ -54,15 +54,29 @@ export interface BacklinkItem {
 // ─── Wikilink → Markdown link converter ─────────────────────────────
 // Converts [[Some Concept Name]] → [Some Concept Name](/notes/Some-Concept-Name)
 // Also handles [[slug|Display Text]] → [Display Text](/notes/slug)
+// EXCLUDES matches inside inline ($...$) or block ($$...$$) KaTeX math.
 function convertWikilinks(markdown: string): string {
-  return markdown.replace(
-    /\[\[([^\]|]+?)(?:\|([^\]]+?))?\]\]/g,
-    (_match, target: string, display?: string) => {
-      const slug = target.trim().replace(/\s+/g, '-');
-      const label = (display ?? target).trim();
-      return `[${label}](/notes/${slug})`;
+  // Negative lookahead & lookbehind: do not match if we are inside $$...$$ or $...$
+  // A simplistic approach is to split the text by math blocks, process the non-math parts, and rejoin.
+  
+  const mathBlockPattern = /(\$\$[\s\S]*?\$\$|\$[^$]*?\$)/g;
+  const parts = markdown.split(mathBlockPattern);
+
+  for (let i = 0; i < parts.length; i++) {
+    // Math blocks are at odd indices (1, 3, 5...) due to the capturing group in split()
+    if (i % 2 === 0) {
+      parts[i] = parts[i].replace(
+        /\[\[([^\]|]+?)(?:\|([^\]]+?))?\]\]/g,
+        (_match, target: string, display?: string) => {
+          const slug = target.trim().replace(/\s+/g, '-');
+          const label = (display ?? target).trim();
+          return `[${label}](/notes/${slug})`;
+        }
+      );
     }
-  );
+  }
+
+  return parts.join('');
 }
 
 // ─── Public API ─────────────────────────────────────────────────────
