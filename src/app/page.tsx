@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { getAllNotes, getGraphData, getAllProjects } from "@/lib/markdown";
 import HomeDashboard from "@/components/HomeDashboard";
 
@@ -75,7 +76,9 @@ export default async function Home() {
           padding: "1rem",
         }}
       >
-        <HomeDashboard notes={notes} graphData={graphData} projects={projects} />
+        <Suspense fallback={<div style={{ padding: "2rem", color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", textAlign: "center" }}>Initializing neural map...</div>}>
+          <HomeDashboard notes={notes} graphData={graphData} projects={projects} />
+        </Suspense>
       </main>
     </div>
   );
