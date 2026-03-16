@@ -1,4 +1,4 @@
-import { streamText, convertToModelMessages } from 'ai';
+import { createAgentUIStreamResponse, ToolLoopAgent } from 'ai';
 import { google } from '@ai-sdk/google';
 import fs from 'fs';
 import path from 'path';
@@ -38,18 +38,15 @@ export async function POST(req: Request) {
 
     const systemPrompt = `You are CROS AI, the AI assistant for Tharun's Credit Risk OS. You are a highly restricted, zero-hallucination RAG agent. I will provide you with Tharun's personal knowledge base. You must answer the user's questions strictly and exclusively using the information provided in the knowledge base below. If the user asks a question that is not covered in the knowledge base, you must politely reply: 'I am highly restricted to Tharun's Credit Risk OS knowledge base. I cannot answer outside queries.' Do not make up information. Here is the knowledge base:\n\n${ragContext}`;
 
-   // 2. Format messages (with AWAIT)
-    const formattedMessages = await convertToModelMessages(messages);
-
-    // 3. The Stream Call
-    const result = streamText({
+    const crosAgent = new ToolLoopAgent({
       model: google('gemini-2.5-flash-lite'),
-      system: systemPrompt,
-      messages: formattedMessages,
+      instructions: systemPrompt,
     });
 
-    // 4. Return the Stream Response
-    return result.toTextStreamResponse();
+    return createAgentUIStreamResponse({
+      agent: crosAgent,
+      uiMessages: messages,
+    });
 
   } catch (error) {
     console.error("Fatal API Error:", error);

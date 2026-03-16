@@ -192,21 +192,11 @@ export default function GraphView({ graphData }: GraphViewProps) {
       />
 
       {/* ── Zoom Controls (Bottom Right) ── */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: "1.5rem",
-          right: "1.5rem",
-          zIndex: 20,
-          display: "flex",
-          flexDirection: "column",
-          gap: "0.35rem",
-        }}
-      >
+      <div className="absolute bottom-28 right-6 flex flex-col gap-2 z-20">
         {[
+          { icon: <Target size={16} />, fn: resetView, label: "Reset" },
           { icon: <ZoomIn size={16} />, fn: zoomIn, label: "Zoom In" },
           { icon: <ZoomOut size={16} />, fn: zoomOut, label: "Zoom Out" },
-          { icon: <Target size={16} />, fn: resetView, label: "Reset" },
         ].map((btn) => (
           <button
             key={btn.label}
