@@ -3,8 +3,8 @@ import { getAllNotes, getGraphData, getAllProjects } from "@/lib/markdown";
 import HomeDashboard from "@/components/HomeDashboard";
 
 export const metadata = {
-  title: "Quant OS",
-  description: "A Zettelkasten-powered knowledge base for credit risk.",
+  title: "Quant OS | Quantitative Finance Knowledge Graph",
+  description: "An elite, interactive knowledge graph and spatial learning environment for quantitative finance, risk modeling, and algorithmic deployment.",
 };
 
 export default async function Home() {
