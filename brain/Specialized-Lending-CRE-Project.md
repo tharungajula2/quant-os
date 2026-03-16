@@ -1,8 +1,9 @@
 ---
 title: "Specialized Lending (CRE & Project Finance)"
-date: 2026-03-14
+date: 2026-03-19
 tags: [commercial-real-estate, project-finance, IRB]
 cluster: Phase 5. Hard Portfolios & Stress
+progress: 0
 ---
 
 

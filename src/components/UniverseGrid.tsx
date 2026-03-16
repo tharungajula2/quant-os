@@ -10,11 +10,14 @@ interface UniverseGridProps {
 
 /* ── Cluster palette ── */
 const PALETTE: Record<string, { badge: string; glowColor: string }> = {
-  Foundations: { badge: "text-blue-300 bg-blue-500/10 border-blue-400/25",    glowColor: "rgba(59,130,246,0.07)"  },
-  Risk:        { badge: "text-rose-300 bg-rose-500/10 border-rose-400/25",    glowColor: "rgba(244,63,94,0.07)"   },
-  Models:      { badge: "text-violet-300 bg-violet-500/10 border-violet-400/25", glowColor: "rgba(139,92,246,0.07)" },
-  Data:        { badge: "text-emerald-300 bg-emerald-500/10 border-emerald-400/25", glowColor: "rgba(16,185,129,0.07)" },
-  Strategy:    { badge: "text-amber-300 bg-amber-500/10 border-amber-400/25", glowColor: "rgba(245,158,11,0.07)"  },
+  "Phase 1. Bank Loss Engine": { badge: "text-blue-300 bg-blue-500/10 border-blue-400/25", glowColor: "rgba(59,130,246,0.07)" },
+  "Phase 2. Regulatory Skeleton": { badge: "text-violet-300 bg-violet-500/10 border-violet-400/25", glowColor: "rgba(139,92,246,0.07)" },
+  "Phase 3. Core Credit Risk Trinity": { badge: "text-teal-300 bg-teal-500/10 border-teal-400/25", glowColor: "rgba(20,184,166,0.07)" },
+  "Phase 4. Model Build & Validate": { badge: "text-pink-300 bg-pink-500/10 border-pink-400/25", glowColor: "rgba(236,72,153,0.07)" },
+  "Phase 5. Hard Portfolios & Stress": { badge: "text-amber-300 bg-amber-500/10 border-amber-400/25", glowColor: "rgba(245,158,11,0.07)" },
+  "Phase 6. Broader Risk Domains": { badge: "text-emerald-300 bg-emerald-500/10 border-emerald-400/25", glowColor: "rgba(16,185,129,0.07)" },
+  "Phase 7. Sandbox": { badge: "text-gray-300 bg-gray-500/10 border-gray-400/25", glowColor: "rgba(163,163,163,0.07)" },
+  "Others": { badge: "text-gray-300 bg-gray-500/10 border-gray-400/25", glowColor: "rgba(156,163,175,0.07)" },
 };
 const DEFAULT = { badge: "text-indigo-300 bg-indigo-500/10 border-indigo-400/25", glowColor: "rgba(99,102,241,0.07)" };
 
@@ -50,6 +53,21 @@ export default function UniverseGrid({ notes }: UniverseGridProps) {
     );
   }
 
+  const sortedNotes = [...notes].sort((a, b) => {
+    const clusterA = a.frontmatter.cluster || "Others";
+    const clusterB = b.frontmatter.cluster || "Others";
+    
+    if (clusterA !== clusterB) {
+      if (clusterA === "Others") return 1;
+      if (clusterB === "Others") return -1;
+      return clusterA.localeCompare(clusterB);
+    }
+    
+    const titleA = a.frontmatter.title || a.slug;
+    const titleB = b.frontmatter.title || b.slug;
+    return titleA.localeCompare(titleB);
+  });
+
   return (
     <motion.ul
       variants={container}
@@ -65,7 +83,7 @@ export default function UniverseGrid({ notes }: UniverseGridProps) {
         width: "100%",
       }}
     >
-      {notes.map((note) => {
+      {sortedNotes.map((note) => {
         const { badge, glowColor } = palette(note.frontmatter.cluster);
 
         return (
@@ -164,6 +182,25 @@ export default function UniverseGrid({ notes }: UniverseGridProps) {
 
                 {/* ── Spacer: pushes footer to bottom ── */}
                 <div style={{ flex: 1 }} />
+                
+                {/* ── Progress Bar ── */}
+                <div style={{ marginTop: "1rem" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.25rem" }}>
+                    <span style={{ fontSize: "0.6rem", fontWeight: 600, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Reading Sync</span>
+                    <span style={{ fontSize: "0.6rem", fontWeight: 700, color: "rgba(255,255,255,0.7)" }}>{note.frontmatter.progress || 0}%</span>
+                  </div>
+                  <div style={{ height: "4px", width: "100%", background: "rgba(255,255,255,0.05)", borderRadius: "2px", overflow: "hidden" }}>
+                    <div 
+                      style={{ 
+                        height: "100%", 
+                        width: `${note.frontmatter.progress || 0}%`, 
+                        background: "linear-gradient(90deg, rgba(255,255,255,0.2), #fff)", 
+                        boxShadow: "0 0 8px rgba(255,255,255,0.5)",
+                        transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)"
+                      }} 
+                    />
+                  </div>
+                </div>
 
                 {/* ── Footer row ── */}
                 <div

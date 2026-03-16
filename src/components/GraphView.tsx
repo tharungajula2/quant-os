@@ -36,6 +36,7 @@ const CLUSTER_COLORS: Record<string, string> = {
   "Phase 4. Model Build & Validate": "#f472b6",
   "Phase 5. Hard Portfolios & Stress": "#fbbf24",
   "Phase 6. Broader Risk Domains": "#34d399",
+  "Phase 7. Sandbox": "#a3a3a3",
   Others: "#9ca3af",
 };
 

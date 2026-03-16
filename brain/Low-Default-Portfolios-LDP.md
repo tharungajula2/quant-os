@@ -1,8 +1,9 @@
 ---
 title: "Low-Default Portfolios (LDP)"
-date: 2026-03-14
+date: 2026-03-19
 tags: [LDP, sovereign, bank, rating]
 cluster: Phase 5. Hard Portfolios & Stress
+progress: 0
 ---
 
 ---

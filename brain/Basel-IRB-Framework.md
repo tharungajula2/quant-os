@@ -1,8 +1,9 @@
 ---
 title: "Basel IRB Framework"
-date: 2026-03-14
+date: 2026-03-19
 tags: [Basel, credit-risk, IRB, standardized-approach]
 cluster: Phase 2. Regulatory Skeleton
+progress: 0
 ---
 
 

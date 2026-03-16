@@ -1,8 +1,9 @@
 ---
 title: "Economic Capital Basics"
-date: 2026-03-14
+date: 2026-03-19
 tags: [credit-risk, capital, Basel, unexpected-loss]
 cluster: Phase 1. Bank Loss Engine
+progress: 0
 ---
 
 ---

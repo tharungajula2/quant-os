@@ -1,8 +1,9 @@
 ---
 title: "Climate Risk Modeling"
-date: 2026-03-14
+date: 2026-03-19
 tags: [climate-risk, physical-risk, transition-risk, stress-test]
 cluster: Phase 5. Hard Portfolios & Stress
+progress: 0
 ---
 
 ---

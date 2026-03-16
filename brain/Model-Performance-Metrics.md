@@ -1,8 +1,9 @@
 ---
 title: "Model Performance Metrics"
-date: 2026-03-14
+date: 2026-03-19
 tags: [Gini, AUC, KS, ROC]
 cluster: Phase 4. Model Build & Validate
+progress: 0
 ---
 
 ---

@@ -59,9 +59,58 @@ export default function HomeDashboard({
               lineHeight: 1.1,
               color: "#fff",
               margin: 0,
+              display: "flex",
+              alignItems: "center",
+              gap: "1rem",
             }}
           >
             Credit Risk OS
+            
+            {/* ── OS Sync Mastery Pill ── */}
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                padding: "0.25rem 0.75rem",
+                borderRadius: "99px",
+                background: "rgba(16, 185, 129, 0.1)",
+                border: "1px solid rgba(16, 185, 129, 0.2)",
+                boxShadow: "0 0 12px rgba(16, 185, 129, 0.15)",
+                transform: "translateY(-2px)",
+              }}
+            >
+              {/* Pulsing Dot */}
+              <div
+                style={{
+                  width: "6px",
+                  height: "6px",
+                  borderRadius: "50%",
+                  background: "#34d399",
+                  boxShadow: "0 0 8px #34d399",
+                  animation: "pulse-green 2s infinite ease-in-out",
+                }}
+              />
+              <style>{`
+                @keyframes pulse-green {
+                  0%   { opacity: 0.5; transform: scale(0.9); }
+                  50%  { opacity: 1; transform: scale(1.2); }
+                  100% { opacity: 0.5; transform: scale(0.9); }
+                }
+              `}</style>
+              
+              <span
+                style={{
+                  fontSize: "0.75rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  color: "#34d399",
+                  textTransform: "uppercase",
+                }}
+              >
+                OS Sync: {notes.length > 0 ? Math.round(notes.reduce((acc, n) => acc + (n.frontmatter.progress || 0), 0) / notes.length) : 0}%
+              </span>
+            </div>
           </h1>
           <p
             style={{

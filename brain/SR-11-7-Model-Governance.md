@@ -1,8 +1,9 @@
 ---
 title: "SR 11-7 Model Governance"
-date: 2026-03-14
+date: 2026-03-19
 tags: [model-risk, validation, governance, Basel]
 cluster: Phase 2. Regulatory Skeleton
+progress: 0
 ---
 
 ---

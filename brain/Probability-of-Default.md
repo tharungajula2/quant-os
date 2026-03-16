@@ -1,8 +1,9 @@
 ---
 title: "Probability of Default (PD)"
-date: 2026-03-14
+date: 2026-03-19
 tags: [PD, credit-risk, rating, IRB]
 cluster: Phase 3. Core Credit Risk Trinity
+progress: 0
 ---
 
 

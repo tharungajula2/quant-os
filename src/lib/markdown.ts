@@ -10,6 +10,7 @@ export interface NoteFrontmatter {
   title: string;
   date: string;
   cluster: string;
+  progress?: number;
   tags?: string[];
   [key: string]: unknown;
 }

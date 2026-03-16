@@ -1,8 +1,9 @@
 ---
 title: "Exposure at Default (EAD)"
-date: 2026-03-14
+date: 2026-03-19
 tags: [EAD, credit-risk, commitments]
 cluster: Phase 3. Core Credit Risk Trinity
+progress: 0
 ---
 
 ---

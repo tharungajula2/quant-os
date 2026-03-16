@@ -1,8 +1,9 @@
 ---
 title: "Weight of Evidence (WOE) and Information Value (IV)"
-date: 2026-03-14
+date: 2026-03-19
 tags: [feature-engineering, WOE, IV, scorecard]
 cluster: Phase 4. Model Build & Validate
+progress: 0
 ---
 
 

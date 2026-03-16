@@ -1,8 +1,9 @@
 ---
 title: "Expected vs Unexpected Loss"
-date: 2026-03-14
+date: 2026-03-19
 tags: [credit-risk, EL, UL, Basel, capital]
 cluster: Phase 1. Bank Loss Engine
+progress: 0
 ---
 
 ---

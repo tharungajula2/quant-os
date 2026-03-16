@@ -1,8 +1,9 @@
 ---
 title: "Loss Given Default (LGD)"
-date: 2026-03-14
+date: 2026-03-19
 tags: [LGD, credit-risk, collateral]
 cluster: Phase 3. Core Credit Risk Trinity
+progress: 0
 ---
 
 ---

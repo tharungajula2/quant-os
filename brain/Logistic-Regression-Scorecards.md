@@ -1,8 +1,9 @@
 ---
 title: "Logistic Regression and Scorecards"
-date: 2026-03-14
+date: 2026-03-19
 tags: [logistic-regression, scorecards, python]
 cluster: Phase 4. Model Build & Validate
+progress: 0
 ---
 
 

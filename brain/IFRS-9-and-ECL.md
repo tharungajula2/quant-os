@@ -1,12 +1,13 @@
 ---
 title: IFRS 9 and Expected Credit Loss (ECL)
-date: 2026-03-14
+date: 2026-03-19
 tags:
   - IFRS9
   - ECL
   - accounting
   - provisioning
 cluster: Phase 2. Regulatory Skeleton
+progress: 0
 ---
 
 

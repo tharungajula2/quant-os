@@ -1,8 +1,9 @@
 ---
 title: "Market Risk and FRTB"
-date: 2026-03-14
+date: 2026-03-19
 tags: [market-risk, FRTB, VaR, expected-shortfall]
 cluster: Phase 6. Broader Risk Domains
+progress: 0
 ---
 
 

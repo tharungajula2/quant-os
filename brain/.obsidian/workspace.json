@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Probability-of-Default.md",
+                "file": "Sandbox-Experiment-1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Probability-of-Default"
+              "title": "Sandbox-Experiment-1"
             }
           }
         ]
@@ -183,31 +183,31 @@
   "active": "dc2a3913dec81182",
   "lastOpenFiles": [
     "Tharun-Kumar-Gajula.md",
+    "Population-Stability-Index-PSI.md",
+    "Loss-Given-Default.md",
+    "Counterparty-Credit-Risk-CCR.md",
+    "Exposure-at-Default.md",
+    "Sandbox-Experiment-2.md",
+    "Sandbox-Experiment-1.md",
+    "Climate-Risk-Modeling.md",
+    "RWA-Risk-Weighted-Assets.md",
     "Macro-Stress-Testing.md",
-    "Tharun-Gajula-Quant-Risk-Professional.md",
     "Basel-IRB-Framework.md",
+    "Probability-of-Default.md",
+    "Model-Performance-Metrics.md",
+    "Logistic-Regression-Scorecards.md",
+    "Tharun-Gajula-Quant-Risk-Professional.md",
     "Market-Risk-and-FRTB.md",
     "Low-Default-Portfolios-LDP.md",
     "Weight-of-Evidence-and-IV.md",
-    "Population-Stability-Index-PSI.md",
-    "Model-Performance-Metrics.md",
     "IFRS-9-and-ECL.md",
     "Economic-Capital-Basics.md",
-    "Counterparty-Credit-Risk-CCR.md",
-    "Logistic-Regression-Scorecards.md",
-    "Climate-Risk-Modeling.md",
     "0_Reading order.md",
     "Expected-vs-Unexpected-Loss.md",
     "SR-11-7-Model-Governance.md",
-    "Exposure-at-Default.md",
     "Advanced-ML-in-Risk.md",
     "portfolio/IRB-Credit-Scorecard.md",
     "Tharun-Quant-Risk_Professional.md",
-    "Tharun-Quant Analyst.md",
-    "portfolio/Unstructured-Text-Pipeline.md",
-    "portfolio/Socio-Economic-Classifier.md",
-    "portfolio/HR-Attrition-Modeling.md",
-    "portfolio/ANN-Customer-Churn.md",
     "portfolio",
     "_deep-research-report.bak",
     "Unconfirmed 185175.crdownload"

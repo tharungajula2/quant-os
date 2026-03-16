@@ -86,6 +86,39 @@ export default async function NotePage({ params }: NotePageProps) {
             backdropFilter: "blur(12px)",
           }}
         >
+          {/* ── Individual Mastery Progress Bar ── */}
+          <div style={{ marginBottom: "2rem" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "0.5rem" }}>
+              <span style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.15em", fontWeight: 600 }}>
+                Reading Sync
+              </span>
+              <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.9)", fontWeight: 700, letterSpacing: "0.05em" }}>
+                {frontmatter.progress || 0}%
+              </span>
+            </div>
+            <div
+              style={{
+                width: "100%",
+                height: "6px",
+                background: "rgba(255,255,255,0.06)",
+                borderRadius: "999px",
+                overflow: "hidden",
+                border: "1px solid rgba(255,255,255,0.04)"
+              }}
+            >
+              <div
+                style={{
+                  height: "100%",
+                  width: `${frontmatter.progress || 0}%`,
+                  background: "linear-gradient(90deg, #3b82f6, #60a5fa, #fff)",
+                  boxShadow: "0 0 12px rgba(96, 165, 250, 0.6)",
+                  transition: "width 1s cubic-bezier(0.16, 1, 0.3, 1)",
+                  borderRadius: "999px",
+                }}
+              />
+            </div>
+          </div>
+
           {/* Title */}
           <h1
             style={{

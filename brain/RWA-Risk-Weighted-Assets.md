@@ -1,8 +1,9 @@
 ---
 title: "RWA (Risk-Weighted Assets)"
-date: 2026-03-14
+date: 2026-03-19
 tags: [Basel, RWA, capital, standardized-approach]
 cluster: Phase 2. Regulatory Skeleton
+progress: 0
 ---
 
 ---
