@@ -6,17 +6,11 @@ tags:
   - ECL
   - accounting
   - provisioning
-cluster: The Regulatory Straightjacket
+cluster: Phase 2. Regulatory Skeleton
 ---
 
 
 ---
-
-## The Feynman Hook
-
-Imagine you lend your cousin a bicycle for a year. The old way of thinking is: “I’ll only worry if he actually breaks it.” The smarter way is: “Even if it’s still fine today, I should already think about how likely it is to come back damaged, based on how he rides, where he goes, and whether the roads ahead look dangerous.”
-
-That is the spirit of **IFRS 9 Expected Credit Loss (ECL)**. It forces banks to stop pretending that losses matter only after something has already gone wrong. Instead, banks must recognize credit deterioration early, using today’s facts plus a forward-looking view of the future.
 
 ## The Institutional Reality
 

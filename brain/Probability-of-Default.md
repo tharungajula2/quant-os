@@ -2,17 +2,11 @@
 title: "Probability of Default (PD)"
 date: 2026-03-14
 tags: [PD, credit-risk, rating, IRB]
-cluster: The Quant Trinity
+cluster: Phase 3. Core Credit Risk Trinity
 ---
 
 
 ---
-
-## The Feynman Hook
-
-Imagine you lend cricket bats to kids in your neighborhood. Some are super careful, some are a little careless, and some are always losing or breaking things. **Probability of Default (PD)** is your estimate of the chance that a specific kid will fail to return the bat over a chosen time window. It is not a guess about how much you lose if they fail, and it is not about how many bats they borrowed. It is only the chance that they “break the promise.”
-
-Now imagine the weather changes. During summer vacation, kids are more distracted and accidents are more common, so your estimate may rise. But if you want a long-term view of who is generally responsible, you might smooth out those seasonal swings. That is the core tension in banking between **Point-in-Time (PiT)** and **Through-the-Cycle (TtC)** PD: one reacts to current conditions, the other tries to describe deeper structural credit quality.
 
 ## The Institutional Reality
 

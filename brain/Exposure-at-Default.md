@@ -2,16 +2,10 @@
 title: "Exposure at Default (EAD)"
 date: 2026-03-14
 tags: [EAD, credit-risk, commitments]
-cluster: The Quant Trinity
+cluster: Phase 3. Core Credit Risk Trinity
 ---
 
 ---
-
-## The Feynman Hook
-
-Imagine you let a friend borrow from your snack cupboard whenever he wants. Today he has taken only 2 packets, but he still has permission to take 8 more before the week ends. If he disappears tomorrow without paying you back, your real loss is not just the 2 packets already gone. It is whatever he has taken **by the exact moment he vanishes**.
-
-That is **Exposure at Default (EAD)**. It is not the same as the current balance, and it is not the same as the total credit limit. It is the amount the bank expects to be owed **at the moment default happens**. That distinction becomes viciously important for revolving products, commitments, and off-balance-sheet facilities, because borrowers often draw more right before they fail.
 
 ## The Institutional Reality
 

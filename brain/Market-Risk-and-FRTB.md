@@ -2,17 +2,11 @@
 title: "Market Risk and FRTB"
 date: 2026-03-14
 tags: [market-risk, FRTB, VaR, expected-shortfall]
-cluster: Cross-Domain Risk
+cluster: Phase 6. Broader Risk Domains
 ---
 
 
 ---
-
-## The Feynman Hook
-
-Imagine you run a shop where the prices of everything in your store change every minute. One hour your inventory is worth a lot, the next hour it drops because interest rates move, the stock market falls, or currencies swing. That danger is not about borrowers failing to pay you back. It is about **market prices themselves** attacking the value of what you hold.
-
-That is **market risk**. And **FRTB** is the banking rulebook built to measure and capitalize that danger more harshly after regulators realized that older methods could underestimate extreme trading losses. The goal is not just to ask, “What do we usually lose on a bad day?” but, “What happens when the market becomes violent in the tail?”
 
 ## The Institutional Reality
 

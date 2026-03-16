@@ -2,17 +2,11 @@
 title: "Macro Stress Testing (CCAR/ICAAP)"
 date: 2026-03-14
 tags: [stress-testing, CCAR, ICAAP, scenarios]
-cluster: Specialized Portfolios & Stress
+cluster: Phase 5. Hard Portfolios & Stress
 ---
 
 
 ---
-
-## The Feynman Hook
-
-Imagine you own a ship, and the sea is calm today. Looking at the calm water tells you almost nothing about whether the ship will survive a storm. So before sailing far, you run a brutal simulation: giant waves, engine trouble, heavy wind, and damaged navigation. You are not trying to predict the exact next storm. You are trying to answer a harder question: **if the world turns ugly, does the ship still stay alive?**
-
-That is what **macro stress testing** does for a bank. It does not ask only what losses are likely in an average year. It asks what happens to profits, provisions, capital, liquidity, and solvency when the economy gets hit by a severe but plausible shock. Your uploaded baseline report frames it exactly this way: stress testing applies extreme macro scenarios such as deep recession, market crashes, unemployment spikes, and interest-rate shocks to assess whether the bank can withstand major losses and still maintain adequate capital.
 
 ## The Institutional Reality
 

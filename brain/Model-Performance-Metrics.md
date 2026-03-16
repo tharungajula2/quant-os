@@ -2,16 +2,10 @@
 title: "Model Performance Metrics"
 date: 2026-03-14
 tags: [Gini, AUC, KS, ROC]
-cluster: Execution, Validation & ML
+cluster: Phase 4. Model Build & Validate
 ---
 
 ---
-
-## The Feynman Hook
-
-Imagine two teachers ranking students by who is most likely to fail the final exam. A good teacher does not need to guess the exact mark for every student on day one. But they should at least put the truly struggling students near the top of the risk list and the strong students near the bottom. That sorting ability is what model performance metrics first try to measure.
-
-Now imagine the teacher gets the ranking mostly right, but says every risky student has a 90% chance of failing when only 20% actually fail. The ranking may still be decent, but the probabilities are badly off. That is the deepest lesson in model validation: a credit model can be good at **ranking** and still be bad at **calibration**. Metrics exist to separate those two ideas so the bank does not confuse “good ordering” with “good truth.” The baseline report you uploaded highlights AUC, Gini, and KS exactly as the core discrimination measures used in credit validation.
 
 ## The Institutional Reality
 

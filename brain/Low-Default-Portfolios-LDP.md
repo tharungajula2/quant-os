@@ -2,16 +2,10 @@
 title: "Low-Default Portfolios (LDP)"
 date: 2026-03-14
 tags: [LDP, sovereign, bank, rating]
-cluster: Specialized Portfolios & Stress
+cluster: Phase 5. Hard Portfolios & Stress
 ---
 
 ---
-
-## The Feynman Hook
-
-Imagine you are judging whether a very disciplined student is likely to ever miss school. For ten years, they never missed a day. A lazy thinker would say, “Then the chance must be zero.” But that is not how the real world works. It only means that in your tiny window of history, you did not **observe** failure. It does **not** mean failure is impossible.
-
-That is exactly what makes **Low-Default Portfolios (LDPs)** so dangerous. These are portfolios where defaults are rare, such as highly rated sovereigns, banks, and very strong corporates. The trap is psychological as much as statistical: because you do not see many defaults, the data start whispering a lie — that risk is almost gone. In elite credit risk, one of the first rules is: **absence of observed default is not evidence of zero credit risk**.
 
 ## The Institutional Reality
 

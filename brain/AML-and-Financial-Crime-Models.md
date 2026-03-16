@@ -2,17 +2,11 @@
 title: "AML and Financial Crime Models"
 date: 2026-03-14
 tags: [AML, anomaly-detection, compliance]
-cluster: Cross-Domain Risk
+cluster: Phase 6. Broader Risk Domains
 ---
 
 
 ---
-
-## The Feynman Hook
-
-Imagine you are the head teacher watching thousands of students move through a huge school every day. Most behavior is normal: students go to class, eat lunch, and head home. But once in a while, something looks strange — one student suddenly runs through five classrooms, swaps bags with three people, and vanishes before attendance. You do not immediately know that a crime happened, but you know the pattern is weird enough to investigate.
-
-That is what **AML and financial-crime models** do inside a bank. They are not trying to predict who will default like [[Probability-of-Default]]. They are trying to detect behavior that looks suspicious, hidden, layered, or inconsistent with what is normal for that customer, account, network, or geography. In other words, this is less about credit loss and more about **pattern recognition under uncertainty**.
 
 ## The Institutional Reality
 

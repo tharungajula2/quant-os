@@ -30,16 +30,17 @@ const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), {
 
 // ── Premium cluster color palette ──
 const CLUSTER_COLORS: Record<string, string> = {
-  "Profile & Foundations": "#60a5fa",
-  "The Regulatory Straightjacket": "#a78bfa",
-  "The Quant Trinity": "#2dd4bf",
-  "Execution, Validation & ML": "#f472b6",
-  "Specialized Portfolios & Stress": "#fbbf24",
-  "Cross-Domain Risk": "#34d399",
-  Uncategorized: "#9ca3af",
+  "Phase 1. Bank Loss Engine": "#60a5fa",
+  "Phase 2. Regulatory Skeleton": "#a78bfa",
+  "Phase 3. Core Credit Risk Trinity": "#2dd4bf",
+  "Phase 4. Model Build & Validate": "#f472b6",
+  "Phase 5. Hard Portfolios & Stress": "#fbbf24",
+  "Phase 6. Broader Risk Domains": "#34d399",
+  Others: "#9ca3af",
 };
 
-function getColor(group: string): string {
+function getColor(group: string, id: string): string {
+  if (id === "Tharun-Kumar-Gajula") return "#ffffff"; // Distinct white color for profile
   return CLUSTER_COLORS[group] ?? "#9ca3af";
 }
 
@@ -122,15 +123,28 @@ export default function GraphView({ graphData }: GraphViewProps) {
             group: string;
             x?: number;
             y?: number;
+            fx?: number;
+            fy?: number;
           };
+
+          // Fix the central node strictly to the center of the universe
+          if (n.id === "Tharun-Kumar-Gajula") {
+            n.fx = 0;
+            n.fy = 0;
+          }
+
           const x = n.x ?? 0;
           const y = n.y ?? 0;
-          const color = getColor(n.group);
+          const color = getColor(n.group, n.id);
           const isHovered = hoveredNode === n.id;
-          const radius = isHovered ? 7 : 4.5;
+          const isCentralNode = n.id === "Tharun-Kumar-Gajula";
+          
+          const baseRadius = isCentralNode ? 8 : 4.5;
+          const hoverRadius = isCentralNode ? 10 : 7;
+          const radius = isHovered ? hoverRadius : baseRadius;
 
           // Outer glow
-          const glowRadius = isHovered ? 18 : 10;
+          const glowRadius = isHovered ? (isCentralNode ? 24 : 18) : (isCentralNode ? 16 : 10);
           const grad = ctx.createRadialGradient(x, y, 0, x, y, glowRadius);
           grad.addColorStop(0, hexToRgba(color, isHovered ? 0.35 : 0.12));
           grad.addColorStop(1, hexToRgba(color, 0));
@@ -240,12 +254,12 @@ export default function GraphView({ graphData }: GraphViewProps) {
           display: "flex",
           flexWrap: "wrap",
           gap: "0.5rem 1rem",
-          maxWidth: "380px",
+          maxWidth: "700px",
           pointerEvents: "none",
         }}
       >
         {Object.entries(CLUSTER_COLORS)
-          .filter(([k]) => k !== "Uncategorized")
+          .filter(([k]) => k !== "Others")
           .map(([name, color]) => (
             <div
               key={name}

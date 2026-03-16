@@ -2,16 +2,10 @@
 title: "RWA (Risk-Weighted Assets)"
 date: 2026-03-14
 tags: [Basel, RWA, capital, standardized-approach]
-cluster: The Regulatory Straightjacket
+cluster: Phase 2. Regulatory Skeleton
 ---
 
 ---
-
-## The Feynman Hook
-
-Imagine two friends each lend you ₹100. One lends it to a very responsible classmate who always pays back on time. The other lends it to a person who often disappears and breaks promises. On paper, both friends “lent ₹100,” but everyone knows those two bets are not equally dangerous. The second friend should keep a bigger safety cushion in case the money never comes back.
-
-That is exactly what **Risk-Weighted Assets (RWA)** does inside a bank. A bank may hold the same raw amount of exposure across different borrowers, but Basel does not care only about the size of the exposure. It cares about how risky that exposure is. RWA is the machine that converts raw balance-sheet size into **risk-adjusted capital consumption**.
 
 ## The Institutional Reality
 

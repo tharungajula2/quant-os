@@ -2,17 +2,11 @@
 title: "Basel IRB Framework"
 date: 2026-03-14
 tags: [Basel, credit-risk, IRB, standardized-approach]
-cluster: The Regulatory Straightjacket
+cluster: Phase 2. Regulatory Skeleton
 ---
 
 
 ---
-
-## The Feynman Hook
-
-Imagine a school where every student must carry a backpack, but the school wants the backpack weight to match how risky the journey home is. One method is simple: every student in the same street gets the same standard backpack, whether they are careful or careless. The other method is smarter but harder: the school studies each student more deeply and gives a custom backpack weight based on how likely they are to trip, how badly they would get hurt, and how much stuff they are carrying.
-
-That is the difference between the **Standardized Approach** and the **Internal Ratings-Based (IRB) Approach** in banking. Basel is trying to answer one core question: how much capital should a bank hold against its credit exposures so that unexpected losses do not push it toward insolvency? The standardized route uses rulebook weights. The IRB route lets the bank use internal risk estimates—but only if the bank can prove those estimates are robust, governed, and deeply embedded in decision-making.
 
 ## The Institutional Reality
 

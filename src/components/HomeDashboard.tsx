@@ -172,7 +172,7 @@ export default function HomeDashboard({
           <div style={{ width: "1px", background: "rgba(255,255,255,0.1)", margin: "0.25rem", alignSelf: "stretch" }} />
 
           <Link
-            href="/notes/Tharun-Gajula-Quant-Risk-Professional"
+            href="/notes/Tharun-Kumar-Gajula"
             style={{
               display: "flex",
               alignItems: "center",

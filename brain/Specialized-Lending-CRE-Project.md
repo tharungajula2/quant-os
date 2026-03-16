@@ -2,17 +2,11 @@
 title: "Specialized Lending (CRE & Project Finance)"
 date: 2026-03-14
 tags: [commercial-real-estate, project-finance, IRB]
-cluster: Specialized Portfolios & Stress
+cluster: Phase 5. Hard Portfolios & Stress
 ---
 
 
 ---
-
-## The Feynman Hook
-
-Imagine you are lending money to build a cinema, and the only way you get paid back is if people actually come buy tickets for years. Or imagine you lend against a shopping mall, and your repayment depends mainly on rent collections and the property’s value. That is very different from lending to a normal company with many business lines, old profits, and a broad balance sheet.
-
-That is the heart of **specialized lending**. In these deals, repayment depends much more on a specific asset, project, or ring-fenced cash-flow stream than on the borrower’s broad corporate strength. In other words, the bank is not just lending to a company; it is lending to the economics of one concentrated thing.
 
 ## The Institutional Reality
 

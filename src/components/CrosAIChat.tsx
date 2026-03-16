@@ -109,9 +109,9 @@ export default function CrosAIChat() {
                     <div
                       key={m.id}
                       className={isUser
-                          ? 'text-sm whitespace-pre-wrap bg-blue-600 text-white px-5 py-3 rounded-2xl rounded-tr-sm w-fit max-w-[85%] ml-auto shadow-md leading-relaxed'
-                          : 'text-sm whitespace-pre-wrap bg-[#1a1a24] text-gray-200 px-5 py-3 rounded-2xl rounded-tl-sm w-fit max-w-[85%] mr-auto border border-white/5 shadow-sm leading-relaxed'
-                        }
+                        ? 'text-sm whitespace-pre-wrap bg-blue-600 text-white px-5 py-3 rounded-2xl rounded-tr-sm w-fit max-w-[85%] ml-auto shadow-md leading-relaxed'
+                        : 'text-sm whitespace-pre-wrap bg-[#1a1a24] text-gray-200 px-5 py-3 rounded-2xl rounded-tl-sm w-fit max-w-[85%] mr-auto border border-white/5 shadow-sm leading-relaxed'
+                      }
                     >
                       {m.parts
                         ? m.parts.map((p: any, i: number) => (p.type === 'text' ? <span key={i}>{p.text}</span> : null))

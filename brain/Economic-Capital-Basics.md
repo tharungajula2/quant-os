@@ -2,16 +2,10 @@
 title: "Economic Capital Basics"
 date: 2026-03-14
 tags: [credit-risk, capital, Basel, unexpected-loss]
-cluster: Profile & Foundations
+cluster: Phase 1. Bank Loss Engine
 ---
 
 ---
-
-## The Feynman Hook
-
-Imagine you own a neighborhood grocery store. You already budget for normal things: a few fruits going bad, some customers paying late, and occasional waste. But you also keep an emergency reserve in case the freezer breaks during a heatwave, several customers stop paying at once, or a nearby road closure crushes your sales. That emergency reserve is not for everyday costs; it is for survival when several bad things happen together.
-
-That is the cleanest way to understand **economic capital**. It is not the money set aside for ordinary credit losses you already expect. It is the cushion a bank needs so that when reality turns ugly—defaults cluster, recoveries collapse, and exposures jump—the institution still remains solvent and credible.
 
 ## The Institutional Reality
 

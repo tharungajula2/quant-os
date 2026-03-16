@@ -17,9 +17,12 @@ Credit Risk OS operates essentially as a headless knowledge-graph interface buil
 
 ### 1. The Brain (Database)
 The `brain/` directory acts as the sole database. Every `.md` file represents a node in the knowledge graph. These files contain:
-- Standard YAML Frontmatter (`title`, `date`, `tags`, `cluster`).
-- Raw markdown content encompassing text, MathJax equations, code blocks, and standard tables.
-- `[[Wikilinks]]` pointing to other notes within the vault.
+- Standard YAML Frontmatter (`title`, `date`, `tags`, `cluster` mapped to Phase 1-6 categories).
+- Raw markdown content encompassing text, MathJax equations, code blocks, and standard tables (purged of any narrative hooks to maintain academic purity).
+- `[[Wikilinks]]` pointing to other notes within the vault. The markdown parser natively strips `.md` extensions for graph resilience.
+
+### 1.5 The Shelf (Workspace Utilities)
+The `shelf/temp_files/` directory acts as an explicit quarantine zone for auxiliary scripts (Node.js parsers, link fixers, AI hydration scripts). This guarantees the root directory remains strictly focused on Next.js (`package.json`, `next.config.ts`, `app/`).
 
 ### 2. The Local Knowledge Engine (`lib/markdown.ts`)
 This subsystem is the backbone of the OS, responsible for translating static files into a relational database:

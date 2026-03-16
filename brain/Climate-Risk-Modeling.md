@@ -2,16 +2,10 @@
 title: "Climate Risk Modeling"
 date: 2026-03-14
 tags: [climate-risk, physical-risk, transition-risk, stress-test]
-cluster: Specialized Portfolios & Stress
+cluster: Phase 5. Hard Portfolios & Stress
 ---
 
 ---
-
-## The Feynman Hook
-
-Imagine you lend money to two lemonade stands. One is built right next to a river that floods every year. The other sells only plastic straws just when the whole town decides to ban plastic. Neither stand may look risky **today** if you look only at last year’s numbers. But both are exposed to a future that can quietly turn against them.
-
-That is what **climate risk modeling** does in banking. It forces the bank to ask not just, “Who looks risky now?” but, “How does a warming planet, tougher climate policy, and changing asset values slowly reshape credit risk over time?” In other words, climate risk is not a separate universe; it is a new set of stress forces acting on the same old credit engine.
 
 ## The Institutional Reality
 

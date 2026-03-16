@@ -2,16 +2,10 @@
 title: "Loss Given Default (LGD)"
 date: 2026-03-14
 tags: [LGD, credit-risk, collateral]
-cluster: The Quant Trinity
+cluster: Phase 3. Core Credit Risk Trinity
 ---
 
 ---
-
-## The Feynman Hook
-
-Imagine you lend your friend a new bicycle worth ₹10,000. If he completely disappears, you do not always lose the full ₹10,000. Maybe you recover the lock, maybe his parents return part of the money, or maybe you sell the bicycle’s spare parts. **Loss Given Default (LGD)** is the share you still lose **after** default happens and **after** all recoveries are counted.
-
-That is why LGD is not about whether default happens. That job belongs to [[Probability-of-Default]]. LGD asks a different and more brutal question: **once the borrower has already failed, how much pain is left for the bank after collateral, legal recovery, guarantees, and workout efforts?**
 
 ## The Institutional Reality
 

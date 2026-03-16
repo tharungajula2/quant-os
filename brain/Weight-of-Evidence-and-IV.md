@@ -2,17 +2,11 @@
 title: "Weight of Evidence (WOE) and Information Value (IV)"
 date: 2026-03-14
 tags: [feature-engineering, WOE, IV, scorecard]
-cluster: Execution, Validation & ML
+cluster: Phase 4. Model Build & Validate
 ---
 
 
 ---
-
-## The Feynman Hook
-
-Imagine you are a school detective trying to guess which students are likely to return library books late. You look at clues like age, number of past late returns, and whether they live far away. But instead of keeping those clues messy and raw, you turn each clue into a clean “evidence score” that tells you whether it points toward a reliable student or a risky one. That is what **Weight of Evidence (WoE)** does.
-
-Now imagine you want to know which clue is actually useful. Maybe “past late returns” is very powerful, while “favorite color” tells you almost nothing. **Information Value (IV)** is the quick screening tool that tells you how strong each variable is at separating good borrowers from bad borrowers. In credit risk, WoE is the language that converts messy raw variables into disciplined evidence, and IV is the first filter that tells you whether a variable deserves a seat at the table.
 
 ## The Institutional Reality
 

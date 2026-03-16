@@ -2,16 +2,10 @@
 title: "Counterparty Credit Risk (CCR) and CVA"
 date: 2026-03-14
 tags: [CCR, CVA, derivatives, Basel]
-cluster: The Quant Trinity
+cluster: Phase 3. Core Credit Risk Trinity
 ---
 
 ---
-
-## The Feynman Hook
-
-Imagine you and a friend make a strange deal: every month, depending on the weather, one of you pays the other some money. Today the deal might be worth nothing, next month it could be worth a lot to you, and the month after that it could flip the other way. The danger is not just that your friend owes you money today. The danger is that the deal could become valuable to you in the future, and then your friend might fail right when you need them to pay.
-
-That is **Counterparty Credit Risk (CCR)**. It is different from ordinary lending because the exposure is not always fixed up front. In a loan, you usually know the principal and then worry about default. In derivatives, repos, and securities financing trades, the exposure itself moves with markets. So CCR is a hybrid creature: part credit risk, part market risk, and part legal-structural risk.
 
 ## The Institutional Reality
 

@@ -117,7 +117,7 @@ export default function Sidebar({ notes }: SidebarProps) {
                 fontWeight: 600,
               }}
             >
-              Architected by
+              By
             </p>
             <p
               style={{
@@ -139,7 +139,7 @@ export default function Sidebar({ notes }: SidebarProps) {
                 opacity: 0.9,
               }}
             >
-              AI & Risk Quant
+              Risk Quant
             </p>
           </div>
         </div>

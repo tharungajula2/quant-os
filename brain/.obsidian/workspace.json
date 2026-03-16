@@ -8,35 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "17e349648547c87c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tharun-Gajula-Quant-Risk-Professional.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Tharun-Gajula-Quant-Risk-Professional"
-            }
-          },
-          {
             "id": "dc2a3913dec81182",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0_Reading order.md",
+                "file": "Probability-of-Default.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "0_Reading order"
+              "title": "Probability-of-Default"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -197,10 +182,22 @@
   },
   "active": "dc2a3913dec81182",
   "lastOpenFiles": [
-    "IFRS-9-and-ECL.md",
-    "Expected-vs-Unexpected-Loss.md",
-    "0_Reading order.md",
+    "Tharun-Kumar-Gajula.md",
+    "Macro-Stress-Testing.md",
     "Tharun-Gajula-Quant-Risk-Professional.md",
+    "Basel-IRB-Framework.md",
+    "Market-Risk-and-FRTB.md",
+    "Low-Default-Portfolios-LDP.md",
+    "Weight-of-Evidence-and-IV.md",
+    "Population-Stability-Index-PSI.md",
+    "Model-Performance-Metrics.md",
+    "IFRS-9-and-ECL.md",
+    "Economic-Capital-Basics.md",
+    "Counterparty-Credit-Risk-CCR.md",
+    "Logistic-Regression-Scorecards.md",
+    "Climate-Risk-Modeling.md",
+    "0_Reading order.md",
+    "Expected-vs-Unexpected-Loss.md",
     "SR-11-7-Model-Governance.md",
     "Exposure-at-Default.md",
     "Advanced-ML-in-Risk.md",
@@ -211,19 +208,7 @@
     "portfolio/Socio-Economic-Classifier.md",
     "portfolio/HR-Attrition-Modeling.md",
     "portfolio/ANN-Customer-Churn.md",
-    "portfolio/1_credit_risk_modelling.md",
     "portfolio",
-    "AML-and-Financial-Crime-Models.md",
-    "Market-Risk-and-FRTB.md",
-    "Climate-Risk-Modeling.md",
-    "Macro-Stress-Testing.md",
-    "Low-Default-Portfolios-LDP.md",
-    "Specialized-Lending-CRE-Project.md",
-    "Population-Stability-Index-PSI.md",
-    "Model-Performance-Metrics.md",
-    "Tharun-The-Architect.md",
-    "Logistic-Regression-Scorecards.md",
-    "Weight-of-Evidence-and-IV.md",
     "_deep-research-report.bak",
     "Unconfirmed 185175.crdownload"
   ]

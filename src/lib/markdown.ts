@@ -68,8 +68,9 @@ function convertWikilinks(markdown: string): string {
       parts[i] = parts[i].replace(
         /\[\[([^\]|]+?)(?:\|([^\]]+?))?\]\]/g,
         (_match, target: string, display?: string) => {
-          const slug = target.trim().replace(/\s+/g, '-');
-          const label = (display ?? target).trim();
+          const cleanTarget = target.trim().replace(/\.md$/i, '');
+          const slug = cleanTarget.replace(/\s+/g, '-');
+          const label = (display ?? cleanTarget).trim();
           return `[${label}](/notes/${slug})`;
         }
       );
@@ -165,8 +166,8 @@ export async function getBacklinks(currentSlug: string): Promise<BacklinkItem[]>
 
     // Check if the raw content contains any [[target]] wikilink pointing to us
     const hasBacklink = Array.from(targets).some((t) => {
-      // Case-insensitive check for [[target]]
-      const re = new RegExp(`\\[\\[${escapeRegex(t)}(\\|[^\\]]*)?\\]\\]`, 'i');
+      // Case-insensitive check for [[target]] or [[target.md]]
+      const re = new RegExp(`\\[\\[${escapeRegex(t)}(?:\\.md)?(?:\\|[^\\]]*)?\\]\\]`, 'i');
       return re.test(content);
     });
 
@@ -240,7 +241,7 @@ export async function getGraphData(): Promise<GraphData> {
 
     const seen = new Set<string>(); // dedupe links within same file
     while ((m = wikiRe.exec(content)) !== null) {
-      const targetSlug = m[1].trim().replace(/\s+/g, '-');
+      const targetSlug = m[1].trim().replace(/\.md$/i, '').replace(/\s+/g, '-');
       // Only create link if target exists and isn't self
       if (targetSlug !== sourceSlug && slugSet.has(targetSlug) && !seen.has(targetSlug)) {
         seen.add(targetSlug);

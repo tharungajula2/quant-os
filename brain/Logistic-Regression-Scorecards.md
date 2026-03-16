@@ -2,17 +2,11 @@
 title: "Logistic Regression and Scorecards"
 date: 2026-03-14
 tags: [logistic-regression, scorecards, python]
-cluster: Execution, Validation & ML
+cluster: Phase 4. Model Build & Validate
 ---
 
 
 ---
-
-## The Feynman Hook
-
-Imagine a strict school principal who gives every student a behavior score. Coming late might subtract points. Finishing homework might add points. Fighting in class subtracts even more. At the end, the principal does not use magic to decide who is risky; they use a transparent points system where every rule has a clear effect.
-
-That is what a **logistic regression scorecard** does in banking. It turns borrower traits into a structured score where each feature contributes a known amount to risk. Instead of saying “the model feels this borrower is dangerous,” the bank can say, “high utilization, weak repayment history, and low income stability pushed the score down.” That transparency is why scorecards still survive in elite banking environments even after the rise of more complex ML.
 
 ## The Institutional Reality
 

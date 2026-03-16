@@ -2,17 +2,11 @@
 title: "Population Stability Index (PSI)"
 date: 2026-03-14
 tags: [PSI, model-monitoring, drift]
-cluster: Execution, Validation & ML
+cluster: Phase 4. Model Build & Validate
 ---
 
 
 ---
-
-## The Feynman Hook
-
-Imagine you trained a school principal’s rulebook on last year’s students, but this year the school suddenly has very different students: different study habits, different attendance patterns, different family situations. Even if the rulebook was smart before, it may start making weaker decisions now because the world it learned from has changed.
-
-That is what **Population Stability Index (PSI)** is trying to detect. It does not ask whether the model is mathematically elegant. It asks a harsher question: **is the population the model is seeing today still similar enough to the population it was built on?** If the answer is no, even a beautiful model can quietly decay in production. The baseline report frames PSI exactly this way: as a measure of how much the score or variable distribution in the current population has shifted away from the reference or development population.
 
 ## The Institutional Reality
 

@@ -2,17 +2,11 @@
 title: "Advanced Machine Learning in Risk"
 date: 2026-03-14
 tags: [machine-learning, xgboost, ann, shap, ai]
-cluster: Execution, Validation & ML
+cluster: Phase 4. Model Build & Validate
 ---
 
 
 ---
-
-## The Feynman Hook
-
-Imagine you are trying to predict which students might fail an exam. A simple teacher might use only a few clear rules: missed classes, low homework scores, and poor quizzes. But a more advanced system notices hidden patterns: students who study late, struggle in one subject, and suddenly stop participating often fail together. That smarter system can catch patterns the simple one misses.
-
-That is what **advanced machine learning** does in risk. Traditional scorecards and logistic models are like clean rulebooks. Advanced ML models such as XGBoost and neural networks are like pattern-hunting machines: they can discover nonlinear relationships, interactions, and subtle combinations of variables that classical models may miss.
 
 ## The Institutional Reality
 

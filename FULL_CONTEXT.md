@@ -6,38 +6,57 @@ Credit Risk OS is an advanced spatial learning environment and professional quan
 - **Tailwind CSS v4 & @tailwindcss/typography**: Used for all baseline styling and precise typography overrides, creating the dark void layout and rendering markdown content akin to Obsidian.
 - **Framer Motion**: Powers the hardware-accelerated stagger animations, layout transitions, and fluid card interactions across the grid views.
 - **react-force-graph-2d**: A client-side canvas renderer that transforms markdown internal links into a visually interactive 2D neural network physics map.
-- **gray-matter**: Parses frontmatter (YAML) from local `.md` files to extract metadata like title, date, summary, tags, and cluster classifications.
-- **next-mdx-remote**: The rendering engine converting raw markdown body content into safe, styled React Server Components dynamically.
+- **Vercel AI SDK (v6)**: Powers the `CrosAIChat` component, utilizing `ToolLoopAgent` and `createAgentUIStreamResponse` for an integrated, context-aware AI chatbot assistant running on Google's `gemini-2.5-flash-lite`.
+- **gray-matter**: Parses frontmatter (YAML) from local `.md` files to extract metadata.
+- **next-mdx-remote**: The rendering engine converting raw markdown body content into styled React Server Components dynamically.
 - **Remark & Rehype Ecosystem (`remark-gfm`, `remark-math`, `rehype-katex`, `rehype-pretty-code`)**: A suite of markdown plugins crucial for parsing complex mathematical LaTeX equations, GitHub-flavored tables, and syntax-highlighted code blocks natively.
 
 ## 2. Directory Structure & Data Flow
 The system operates completely file-based without an external database, reading from local Markdown structures:
-- `brain/`: Contains the core Zettelkasten knowledge notes (e.g., Credit Risk concepts, probability models). Files here populate the Universe Grid and the active 2D Physics Graph.
-- `brain/portfolio/`: Strictly separated from the core graph. Contains structured project summaries (exported from Jupyter Notebooks) defining the user's professional portfolio to be rendered exclusively in the Projects view.
-- `src/lib/markdown.ts`: The absolute data layer of the app. It specifically exports separate logical getters (`getAllNotes()` vs `getAllProjects()`) ensuring standard notes and portfolio cases never bleed into each other. It also handles the complex `convertWikilinks` logic to map `[[Target]]` syntax into structural HTML routing while protecting mathematical equations.
-- `src/app/notes/[slug]/page.tsx` & `src/app/portfolio/[slug]/page.tsx`: Dynamic server routes that fetch and render the specific markdown payload alongside localized metadata and backlinks.
+- `brain/`: Contains the core Zettelkasten knowledge notes (e.g., Credit Risk concepts, probability models). Files here populate the Universe Grid and the active 2D Physics Graph. (The Feynman Hook narrative layer was manually purged from all 21 files to leave pure academic content).
+- `brain/portfolio/`: Strictly separated from the core graph. Contains structured project summaries defining the user's professional portfolio to be rendered exclusively in the Projects view.
+- `shelf/temp_files/`: A newly designated workspace folder added to `.gitignore`. It contains all legacy auxiliary data processing scripts (e.g., Markdown parsers, AI ingestion scripts, fix links, vault hydration) to keep the root directory pristine.
+- `src/lib/markdown.ts`: The absolute data layer of the app. It specifically exports separate logical getters (`getAllNotes()` vs `getAllProjects()`) ensuring standard notes and portfolio cases never bleed into each other. It handles the complex `convertWikilinks` logic.
+- `src/app/notes/[slug]/page.tsx` & `src/app/portfolio/[slug]/page.tsx`: Dynamic server routes that fetch and render the specific markdown payload.
 
 ## 3. Core Features & UI/UX Guidelines
-- **"Liquid Glass" Aesthetic**: The application follows a strict premium dark "void" constraint (`#050505` background). Interactions rely on `backdropFilter: "blur(24px)"`, translucent surface whites (`rgba(255,255,255,0.03)`), ambient node glows, and specular highlights rather than flat colored boxes to achieve a high-end AI dashboard feel.
-- **Navigation Architecture**: The `Sidebar` component acts as a `sticky` desktop navigation column and gracefully collapses into a bottom `MobileHeader` drawer on smaller visports to maximize reading real-estate.
-- **The Triptych View System**: `HomeDashboard.tsx` employs a 3-way React state toggle (managed via URL query parameters for history sync) allowing the user to seamlessly pivot between:
-  1. *Graph*: The 2D force-directed node map.
-  2. *Grid*: A glass-card index of all theoretical notes categorized by cluster.
-  3. *Projects*: The discrete, chronological portfolio timeline.
-- **Typography Overrides**: The `@tailwindcss/typography` plugin in `globals.css` is heavily mutated to override margin collapses and strict spacing constraints so that Next.js rendering perfectly mirrors the reading experience of raw Obsidian markdown.
+- **"Liquid Glass" Aesthetic**: The application follows a strict premium dark "void" constraint (`#050505` background). Interactions rely on deep Gaussian blurs (`backdropFilter: "blur(24px)"`), translucent surface whites (`rgba(255,255,255,0.03)`), ambient node glows, and specular highlights.
+- **CROS AI Terminal**: A fully functional, password-protected (code: *del26*, case-insensitive) RAG Chat terminal floating in the UI. It features a stunning mobile-responsive 'Liquid Glass' chat interface with pixel-perfect padding (`px-5 py-3`), shadow-mapped user/AI bubbles, and a unified pill-shaped input form (`bg-[#111116] border-white/10`).
+- **Navigation Architecture**: The `Sidebar` component acts as a `sticky` desktop navigation column and gracefully collapses into a bottom `MobileHeader` drawer on smaller viewports.
+- **The Triptych View System**: `HomeDashboard.tsx` employs a 3-way React state toggle (managed via URL query parameters) allowing seamless pivoting between: Graph, Grid, and Projects.
+- **Graph Control Synergy**: The Graph view's zoom and reset controls are carefully layered (`z-20`, `bottom-28`) avoiding collision with the floating CROS AI chat toggle dot.
 
 ## 4. Strict Engineering Constraints (For Future AI Agents)
 - **DO NOT** alter the markdown parsing logic (`lib/markdown.ts`) without explicit permission.
-- **DO NOT** use absolute positioning for main layout containers; rely on Flexbox/Grid to prevent overlaps.
+- **DO NOT** use absolute positioning for main layout containers; rely on Flexbox/Grid to prevent overlaps (Exception: The floating Chat UI and Graph Controls are absolutely positioned with strict spacing rules to avoid collision).
 - **DO NOT** change the Tailwind v4 base configuration.
-- **MARKDOWN RULE**: All tables, code blocks, and math equations (`$$`) in the `.md` files must have a blank line above and below them to render correctly via `remark-gfm` and `remark-math`.
+- **MARKDOWN RULE**: All tables, code blocks, and math equations (`$$`) in the `.md` files must have a blank line above and below them to render correctly.
 
-## 5. Current State & Next Steps
-The core engine, dynamic routing payloads, mathematical interpreters, and user interface are fully stable and performant. The current focus is exclusively restricted to populating the `brain/` and `brain/portfolio/` directories with high-quality markdown content.
+## 5. Recent Architectural Victories (March Hand-off)
+- **Knowledge Base Refinement & Purge**: The 21+ node Zettelkasten was manually purged of extraneous narrative elements ("The Feynman Hook") to maintain a highly professional, academic tone strictly aligned with quantitative risk management.
+- **Root Directory Cleanliness**: All legacy `.js` and `.bat` utility scripts were explicitly quarantined into a git-ignored `/shelf/temp_files/` directory, leaving the root perfectly clean with only Next.js execution logic.
+- **Graph Link Resilience**: Upgraded the internal markdown parser (`src/lib/markdown.ts`). It now transparently strips `.md` extensions from internal `[[wikilinks]]`. This means if the user accidentally links `[[Probability-of-Default.md]]`, the graph engine will seamlessly clean the slug and maintain the physical 3D node connection without dropping it.
+- **The Graph's Gravitational Center**: The profile node `Tharun-Kumar-Gajula.md` has been programmatically pinned to the exact mathematical center of the ForceGraph (`x: 0, y: 0`) and rendered entirely white, serving as the permanent anchoring star for the entire portfolio.
+- **The 6-Phase Knowledge Journey**: The `cluster` YAML frontmatter properties across all 21 notes were updated to cleanly categorize the grid and color-code the 3D map into a structured 6-phase journey:
+  1. Phase 1. Bank Loss Engine
+  2. Phase 2. Regulatory Skeleton
+  3. Phase 3. Core Credit Risk Trinity
+  4. Phase 4. Model Build & Validate
+  5. Phase 5. Hard Portfolios & Stress
+  6. Phase 6. Broader Risk Domains
+  7. Others
 
-## 6. Known Issues & Paused Features
-**CROS AI (RAG Chatbot) SDK Constraints**: The local RAG chatbot feature using `ai` and `@ai-sdk/react` is currently **paused** due to complex API versioning conflicts.
-- **The Core Issue**: Upgrading to `ai` v5/v6 to support new model providers (like `gemini-2.5-flash`) resulted in breaking type API changes in `@ai-sdk/react` v3.0+. 
-- **Hook Changes**: The `useChat` hook no longer exports internal `input`, `handleInputChange`, or `handleSubmit` bindings, forcing manual React state management.
-- **Model Spec Errors**: Attempting to use newer Google generative models (v3 specification) on older `ai` SDK cores (v4) throws `AI_UnsupportedModelVersionError`.
-- **Future Re-entry**: Any future attempt to rebuild the CROS AI pipeline must ensure strict parity between `ai` (v6+), `@ai-sdk/react`, and `@ai-sdk/google`. The UI (`CrosAIChat.tsx`) must manually handle its input refs, and the backend (`api/chat/route.ts`) must properly run `convertToModelMessages()` on incoming payloads.
+## 6. Critical Active Blocker: Vercel AI SDK v6 vs TypeScript (Chat UI)
+**Current Status**: The `CrosAIChat.tsx` frontend UI is currently broken and failing the Next.js production build (`npm run build`). The chat UI is temporarily paused.
+
+**The Problem**:
+We recently migrated the backend `src/app/api/chat/route.ts` to utilize the brand new Vercel AI SDK **v6** features (`createAgentUIStreamResponse`, `ToolLoopAgent`). The backend successfully compiles and returns a 200 OK. 
+However, the frontend `useChat()` hook from the older version of the `@ai-sdk/react` library is catastrophically clashing with the new v6 types.
+
+**Specifically**:
+`Type error: Property 'append' does not exist on type 'UseChatHelpers<UIMessage<unknown, UIDataTypes, UITools>>'`
+
+This indicates a severe mismatch between how `ai` (the v6 backend package) defines messages vs how `@ai-sdk/react` (the frontend package) expects to consume them. 
+
+**Next Chat Action Item**:
+When resuming, the very first task MUST BE to definitively resolve the Vercel AI SDK v6 type mismatch in `CrosAIChat.tsx`. Do not attempt to style or polish the chat UI until `useChat()` is cleanly importing and mapping messages according to the strict v6 standard, without TypeScript throwing `append` or `m.parts` errors.

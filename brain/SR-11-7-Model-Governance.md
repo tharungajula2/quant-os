@@ -2,16 +2,10 @@
 title: "SR 11-7 Model Governance"
 date: 2026-03-14
 tags: [model-risk, validation, governance, Basel]
-cluster: The Regulatory Straightjacket
+cluster: Phase 2. Regulatory Skeleton
 ---
 
 ---
-
-## The Feynman Hook
-
-Imagine a pilot says, “Trust me, the plane will fly,” but no one checks the engine, the instruments, the fuel gauge, or the emergency systems. You would never board that plane. In banking, a model is like that aircraft: it may look mathematically impressive, but if nobody independently checks whether it is built correctly, used correctly, and monitored correctly, it can crash the institution quietly and expensively.
-
-That is the real purpose of **model governance**. It exists because even a clever model can be dangerous if its data are wrong, its assumptions are unrealistic, its users misunderstand it, or management relies on it too heavily. SR 11-7 is the rulebook that says models are not just tools; they are a source of risk that must be governed like credit risk, market risk, or operational risk.
 
 ## The Institutional Reality
 

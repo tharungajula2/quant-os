@@ -2,16 +2,10 @@
 title: "Expected vs Unexpected Loss"
 date: 2026-03-14
 tags: [credit-risk, EL, UL, Basel, capital]
-cluster: Profile & Foundations
+cluster: Phase 1. Bank Loss Engine
 ---
 
 ---
-
-## The Feynman Hook
-
-Imagine you run a grocery store. Every month, you already know a small number of bananas will spoil, a few customers may never pay, and some inventory will get damaged. Those are not shocking losses; they are part of doing business. You plan for them, price for them, and survive because they are ordinary.
-
-Now imagine a citywide blackout, a flood, or a sudden collapse in demand that hits many customers at once. That is different. It is not the normal “cost of doing business”; it is a rare, painful shock that can threaten the survival of the store itself. In banking, that distinction is everything: **expected loss** is the normal, statistically anticipated credit cost of a portfolio, while **unexpected loss** is the dangerous volatility around that average that capital is meant to absorb.
 
 ## The Institutional Reality
 
