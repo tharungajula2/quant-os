@@ -1,6 +1,6 @@
 ---
 title: "NLP Pipeline & Twitter Sentiment Analysis"
-date: "2026-03-15"
+date: "2026-03-19"
 summary: "Engineered a Natural Language Processing pipeline (77% acc) demonstrating foundational text classification techniques used in adverse media screening."
 tags: ["Python", "SpaCy", "TF-IDF", "Random Forest", "NLP", "AML"]
 ---
