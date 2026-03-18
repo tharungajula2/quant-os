@@ -34,6 +34,7 @@ const CLUSTER_COLORS: Record<string, string> = {
   "01 — Foundations": "#8b5cf6", // violet-500
   "02 — End-to-End Credit Risk Modeling": "#10b981", // emerald-500
   "03 — Applied Machine Learning Projects": "#f59e0b", // amber-500
+  "04 — Sandbox": "#06b6d4", // cyan-500
   "Isolated Nodes": "#9ca3af",
   Others: "#9ca3af",
 };

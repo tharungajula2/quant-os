@@ -20,6 +20,7 @@ links:
   - "[[6_employee_retention_tree_models_masterclass]]"
   - "[[7_socio_economic_household_classification_masterclass]]"
   - "[[8_twitter_sentiment_nlp_masterclass]]"
+  - "[[9_regulatory_foundations_masterclass]]"
   - "[[2_regression_analysis_masterclass]]"
   - "[[3_machine_learning_masterclass]]"
   - "[[4_python_data_analytics_master_cheatsheet]]"
@@ -149,11 +150,18 @@ This cluster matters because it helps me step back from individual projects and 
 - ensembles and tuning
 - Python, Pandas, visualization, and workflow basics
 
+### Cluster 4 — Sandbox
+
+This is the regulatory and governance sandbox where I map out the compliance environment that banking analytics operates within:
+
+- [[9_regulatory_foundations_masterclass]]
+
 So the vault now has a cleaner structure:
 
 - **one risk master note**
 - **four applied projects**
 - **three foundational concept notes**
+- **one sandbox note**
 
 That gives me both depth and breadth.
 
@@ -177,6 +185,9 @@ That gives me both depth and breadth.
                ├── [2_regression_analysis_masterclass]
                ├── [3_machine_learning_masterclass]
                └── [4_python_data_analytics_master_cheatsheet]
+        │
+        └── Sandbox
+               └── [9_regulatory_foundations_masterclass]
 ```
 
 The logic of this structure is simple:

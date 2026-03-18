@@ -15,6 +15,7 @@ const PALETTE: Record<string, { badge: string; glowColor: string }> = {
   "01 — Foundations": { badge: "text-violet-300 bg-violet-500/10 border-violet-400/25", glowColor: "rgba(139,92,246,0.07)" },
   "02 — End-to-End Credit Risk Modeling": { badge: "text-emerald-300 bg-emerald-500/10 border-emerald-400/25", glowColor: "rgba(16,185,129,0.07)" },
   "03 — Applied Machine Learning Projects": { badge: "text-amber-300 bg-amber-500/10 border-amber-400/25", glowColor: "rgba(245,158,11,0.07)" },
+  "04 — Sandbox": { badge: "text-cyan-300 bg-cyan-500/10 border-cyan-400/25", glowColor: "rgba(6,182,212,0.07)" },
   "Others": { badge: "text-gray-300 bg-gray-500/10 border-gray-400/25", glowColor: "rgba(156,163,175,0.07)" },
 };
 const DEFAULT = { badge: "text-indigo-300 bg-indigo-500/10 border-indigo-400/25", glowColor: "rgba(99,102,241,0.07)" };

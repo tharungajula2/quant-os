@@ -4,7 +4,6 @@ import matter from 'gray-matter';
 
 // brain/ lives at the project root, one level above src/
 const BRAIN_DIR = path.join(process.cwd(), 'brain');
-const PORTFOLIO_DIR = path.join(process.cwd(), 'brain', 'portfolio');
 
 export interface NoteFrontmatter {
   title: string;
@@ -29,24 +28,7 @@ export interface NoteDetail {
   rawContent: string;     // original content (for backlink scanning)
 }
 
-export interface ProjectFrontmatter {
-  title: string;
-  date: string;
-  summary: string;
-  tags?: string[];
-  [key: string]: unknown;
-}
 
-export interface ProjectListItem {
-  slug: string;
-  frontmatter: ProjectFrontmatter;
-}
-
-export interface ProjectDetail {
-  slug: string;
-  frontmatter: ProjectFrontmatter;
-  content: string;
-}
 
 export interface BacklinkItem {
   slug: string;
@@ -269,55 +251,4 @@ function escapeRegex(str: string): string {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-// ─── Portfolio Data Fetching ────────────────────────────────────────
 
-/**
- * Scans brain/portfolio/ and returns an array of { slug, frontmatter } for every .md file.
- * Specific for distinct Project representations.
- */
-export async function getAllProjects(): Promise<ProjectListItem[]> {
-  if (!fs.existsSync(PORTFOLIO_DIR)) {
-    console.warn(`[markdown] Portfolio directory not found at: ${PORTFOLIO_DIR}`);
-    return [];
-  }
-
-  const files = fs.readdirSync(PORTFOLIO_DIR).filter((f) => f.endsWith('.md'));
-
-  if (files.length === 0) {
-    console.warn('[markdown] Portfolio directory exists but contains no .md files.');
-    return [];
-  }
-
-  return files.map((filename) => {
-    const slug = filename.replace(/\.md$/, '');
-    const raw = fs.readFileSync(path.join(PORTFOLIO_DIR, filename), 'utf-8');
-    const { data } = matter(raw);
-
-    return {
-      slug,
-      frontmatter: data as ProjectFrontmatter,
-    };
-  });
-}
-
-/**
- * Reads a single .md file from the portfolio directory by slug.
- * Used for dynamic routing rendering the Projects view pages.
- */
-export async function getProjectBySlug(slug: string): Promise<ProjectDetail | null> {
-  const filePath = path.join(PORTFOLIO_DIR, `${slug}.md`);
-
-  if (!fs.existsSync(filePath)) {
-    console.warn(`[markdown] Portfolio file not found: ${filePath}`);
-    return null;
-  }
-
-  const raw = fs.readFileSync(filePath, 'utf-8');
-  const { data, content } = matter(raw);
-
-  return {
-    slug,
-    frontmatter: data as ProjectFrontmatter,
-    content: convertWikilinks(content),
-  };
-}

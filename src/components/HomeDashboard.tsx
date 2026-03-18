@@ -6,29 +6,24 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import UniverseGrid from "@/components/UniverseGrid";
 import GraphView from "@/components/GraphView";
-import ProjectsView from "@/components/ProjectsView";
-import type { NoteListItem, GraphData, ProjectListItem } from "@/lib/markdown";
+import type { NoteListItem, GraphData } from "@/lib/markdown";
 
 interface HomeDashboardProps {
   notes: NoteListItem[];
   graphData: GraphData;
-  projects: ProjectListItem[];
 }
 
 export default function HomeDashboard({
   notes,
   graphData,
-  projects,
 }: HomeDashboardProps) {
-  const [view, setView] = useState<"grid" | "graph" | "projects">("graph");
+  const [view, setView] = useState<"grid" | "graph">("graph");
   const searchParams = useSearchParams();
 
   // ── Sync View State from URL Query ──
   useEffect(() => {
     const urlView = searchParams.get("view");
-    if (urlView === "projects") {
-      setView("projects");
-    }
+
   }, [searchParams]);
 
   return (
@@ -191,32 +186,7 @@ export default function HomeDashboard({
             <Network size={14} />
             Graph
           </button>
-          <button
-            onClick={() => setView("projects")}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.4rem",
-              padding: "0.45rem 0.85rem",
-              borderRadius: "0.55rem",
-              fontSize: "0.75rem",
-              fontWeight: 600,
-              border: "none",
-              cursor: "pointer",
-              transition: "all 0.2s ease",
-              background:
-                view === "projects"
-                  ? "rgba(255,255,255,0.1)"
-                  : "transparent",
-              color:
-                view === "projects"
-                  ? "#fff"
-                  : "rgba(255,255,255,0.3)",
-            }}
-          >
-            <Briefcase size={14} />
-            Projects
-          </button>
+
 
           <div style={{ width: "1px", background: "rgba(255,255,255,0.1)", margin: "0.25rem", alignSelf: "stretch" }} />
 
@@ -268,12 +238,10 @@ export default function HomeDashboard({
           >
             <UniverseGrid notes={notes} />
           </div>
-        ) : view === "graph" ? (
+        ) : (
           <div style={{ height: "75vh", width: "100%" }}>
             <GraphView graphData={graphData} />
           </div>
-        ) : (
-          <ProjectsView projects={projects} />
         )}
       </div>
     </div>

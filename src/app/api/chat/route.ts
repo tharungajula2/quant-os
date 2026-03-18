@@ -38,16 +38,7 @@ export async function POST(req: Request) {
         }
       }
 
-      const portfolioDir = path.join(process.cwd(), 'brain', 'portfolio');
-      if (fs.existsSync(portfolioDir)) {
-        const portFiles = fs.readdirSync(portfolioDir);
-        for (const file of portFiles) {
-          if (file.endsWith('.md')) {
-            const content = fs.readFileSync(path.join(portfolioDir, file), 'utf-8');
-            ragContext += `\n--- Portfolio: ${file} ---\n${content}\n`;
-          }
-        }
-      }
+
     } catch (readError) {
       console.error("Failed to read brain folder:", readError);
       ragContext = "Knowledge base currently unavailable.";
