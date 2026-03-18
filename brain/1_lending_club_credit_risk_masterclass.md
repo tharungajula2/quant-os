@@ -22,10 +22,12 @@ tags:
   - data-science
   - beginner-friendly
 cluster: "02 — End-to-End Credit Risk Modeling"
+progress: 0
 links:
   - "[[Tharun-Kumar-Gajula]]"
   - "[[2_regression_analysis_masterclass]]"
   - "[[3_machine_learning_masterclass]]"
+  - "[[4_python_data_analytics_master_cheatsheet]]"
   - "[[5_bank_churn_neural_networks_masterclass]]"
   - "[[6_employee_retention_tree_models_masterclass]]"
   - "[[7_socio_economic_household_classification_masterclass]]"

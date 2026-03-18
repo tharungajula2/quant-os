@@ -1,4 +1,3 @@
-
 ---
 title: "Regression Analysis Masterclass — From Linear Regression to Logistic Regression and Statistical Testing"
 date: 2026-03-19
@@ -158,9 +157,9 @@ That matters because regression is not just a formula. It is one step inside a f
 
 The model is:
 
-\[
+$$
 y = \beta_0 + \beta_1 x + \varepsilon
-\]
+$$
 
 Where:
 
@@ -210,21 +209,21 @@ Simple linear regression usually estimates coefficients using **Ordinary Least S
 
 For every observation, the model makes a prediction:
 
-\[
+$$
 \hat{y}_i = \beta_0 + \beta_1 x_i
-\]
+$$
 
 The difference between the actual value and the predicted value is the **residual**:
 
-\[
+$$
 e_i = y_i - \hat{y}_i
-\]
+$$
 
 OLS chooses the line that minimizes the **sum of squared residuals**:
 
-\[
+$$
 SSR = \sum_{i=1}^{n}(y_i - \hat{y}_i)^2
-\]
+$$
 
 Why square them?
 
@@ -242,9 +241,9 @@ OLS is finding the line that leaves the smallest overall squared prediction erro
 
 A **residual** is the observed error in my sample:
 
-\[
+$$
 \text{Residual} = \text{Actual} - \text{Predicted}
-\]
+$$
 
 Residuals matter because they help me check whether the model is behaving properly.
 
@@ -308,9 +307,9 @@ For example, salary may depend on:
 
 That leads to **Multiple Linear Regression (MLR)**:
 
-\[
+$$
 y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_p x_p + \varepsilon
-\]
+$$
 
 Now each coefficient measures the effect of one predictor **while holding the others constant**.
 
@@ -322,9 +321,9 @@ That phrase matters a lot.
 
 Suppose:
 
-\[
+$$
 \text{Salary} = \beta_0 + \beta_1(\text{Experience}) + \beta_2(\text{Education Years}) + \varepsilon
-\]
+$$
 
 Then:
 
@@ -379,9 +378,9 @@ the effect of experience on salary may differ by industry.
 
 Then I can create an interaction:
 
-\[
+$$
 x_1 \times x_2
-\]
+$$
 
 This lets the model say:
 
@@ -419,9 +418,9 @@ This concept matters a lot in structured tabular modeling.
 
 ## 4.1 R-squared
 
-\[
+$$
 R^2 = 1 - \frac{SS_{res}}{SS_{tot}}
-\]
+$$
 
 Where:
 
@@ -671,15 +670,15 @@ So I need a model that keeps outputs between 0 and 1.
 
 Logistic regression maps any real-valued score into a probability using the sigmoid function:
 
-\[
+$$
 p = \frac{1}{1 + e^{-z}}
-\]
+$$
 
 Where:
 
-\[
+$$
 z = \beta_0 + \beta_1 x_1 + \cdots + \beta_p x_p
-\]
+$$
 
 This creates an S-shaped curve.
 
@@ -691,9 +690,9 @@ That is why logistic regression can model probabilities.
 
 Instead of modeling probability directly as a straight line, logistic regression models the **log-odds**:
 
-\[
+$$
 \log\left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 x_1 + \cdots + \beta_p x_p
-\]
+$$
 
 This is called the **logit link**.
 
@@ -743,30 +742,30 @@ This matrix is the base for classification metrics.
 ### Precision
 Out of the cases I predicted as positive, how many were truly positive?
 
-\[
+$$
 \text{Precision} = \frac{TP}{TP + FP}
-\]
+$$
 
 ### Recall
 Out of the actual positive cases, how many did I catch?
 
-\[
+$$
 \text{Recall} = \frac{TP}{TP + FN}
-\]
+$$
 
 ### Accuracy
 Out of all cases, how many did I classify correctly?
 
-\[
+$$
 \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
-\]
+$$
 
 ### F1 score
 The harmonic mean of precision and recall:
 
-\[
+$$
 F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
-\]
+$$
 
 This matters when I want a balance between precision and recall.
 

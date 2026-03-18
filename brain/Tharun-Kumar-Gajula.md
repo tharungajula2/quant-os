@@ -22,6 +22,7 @@ links:
   - "[[8_twitter_sentiment_nlp_masterclass]]"
   - "[[2_regression_analysis_masterclass]]"
   - "[[3_machine_learning_masterclass]]"
+  - "[[4_python_data_analytics_master_cheatsheet]]"
 ---
 
 ---
