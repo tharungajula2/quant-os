@@ -44,7 +44,7 @@ export default function HomeDashboard({
               marginBottom: "0.4rem",
             }}
           >
-            Risk · Quant · Frameworks
+            Risk · Quant · Notes
           </p>
           <h1
             style={{
