@@ -1,6 +1,6 @@
 ---
 title: "Tharun Kumar Gajula"
-date: 2026-03-17
+date: 2026-03-18
 tags:
   - profile
   - MOC
@@ -25,24 +25,22 @@ links:
   - "[[4_python_data_analytics_master_cheatsheet]]"
 ---
 
----
-
 # Tharun Kumar Gajula
 
-> This note is the master map of my note system. It explains who I am, what I am building, how the eight core notes connect, and how my background in banking, risk analytics, business analysis, and machine learning comes together as one coherent direction.
+> This note is the master map of my note system. It explains who I am, what I am building, how the current notes connect, and how my background in banking, risk analytics, business analysis, and data science comes together as one coherent direction.
 >
-> I use this vault as both a learning system and a professional system. It helps me understand concepts from first principles, connect them to project work, and keep the big picture clear: how data becomes a model, how a model becomes a business decision, and how that decision must be monitored, validated, and governed.
+> I use this vault as both a learning system and a professional system. It helps me understand concepts from first principles, connect them to project work, and keep the big picture clear: how raw data becomes a model, how a model becomes a business decision, and how that decision must be validated, monitored, interpreted, and improved.
 
 ---
 
 ## My Direction in One View
 
-I work at the intersection of **credit risk**, **quantitative analytics**, **model development**, **model validation**, and **practical banking workflows**.
+I work at the intersection of **credit risk**, **quantitative analytics**, **model development**, **model validation**, **data science foundations**, and **practical banking workflows**.
 
-My background is not limited to one narrow lane. It sits across three layers that matter a lot in real institutions:
+My background is not limited to one narrow lane. It sits across three layers that matter in real institutions:
 
-1. **Banking and risk context** — understanding lending portfolios, default risk, monitoring, provisioning logic, and the way risk decisions are actually used.
-2. **Analytical and modeling depth** — using Python, SQL, statistics, machine learning, and model-evaluation methods to convert raw data into measurable risk insight.
+1. **Banking and risk context** — understanding lending portfolios, default risk, loss estimation, monitoring, provisioning logic, and how risk decisions are actually used.
+2. **Analytical and modeling depth** — using Python, SQL, statistics, machine learning, and model-evaluation methods to convert raw data into measurable insight.
 3. **Business and implementation thinking** — documenting workflows, translating requirements, validating systems, and making sure solutions work inside real operational environments.
 
 That combination comes from the way my experience has evolved:
@@ -50,9 +48,9 @@ That combination comes from the way my experience has evolved:
 - At **Jana Small Finance Bank**, I worked close to credit-risk analytics, portfolio monitoring, reporting, and model-oriented thinking across lending portfolios.
 - At **Lentra AI**, I worked on lending-system workflows, BRDs/FRDs, UAT, API validation, and the translation layer between business requirements and technical implementation.
 - Through my academic path in **banking and finance** at NIBM and later **deep learning** at IISc, I built a stronger quantitative layer on top of that practical foundation.
-- Through these notes and projects, I am turning that combined base into a more complete system for **credit risk modeling, validation, governance, and broader quantitative problem solving**.
+- Through these notes and projects, I am turning that combined base into a more complete system for **credit risk modeling, validation, governance, and broader data-science problem solving**.
 
-This vault is the place where all of those threads are tied together.
+This vault is where all of those threads are tied together.
 
 ---
 
@@ -62,11 +60,11 @@ The note system is not separate from my skill set. It reflects the tools and met
 
 - **Python** for data cleaning, modeling, validation, automation, and analytical storytelling
 - **SQL** for extraction, portfolio analysis, reporting logic, and data validation
-- **Statistical and ML methods** such as logistic regression, scorecards, random forests, XGBoost, neural networks, and NLP pipelines
-- **Risk metrics and validation tools** such as KS, AUC, Gini, PSI, cut-off analysis, and stability interpretation
+- **Statistics and machine learning** such as linear regression, logistic regression, scorecards, random forests, XGBoost, neural networks, clustering, and NLP pipelines
+- **Risk metrics and validation tools** such as confusion matrix logic, precision, recall, F1, KS, AUC, Gini, PSI, cut-off analysis, and stability interpretation
 - **Documentation and workflow thinking** through BRDs, FRDs, testing, process mapping, and handoff between business and technical teams
 
-That combination is important to me because I do not want to be strong in only one layer of the work. I want to be able to move from raw data and process understanding all the way to model design, monitoring, and business interpretation.
+That combination matters to me because I do not want to be strong in only one layer of the work. I want to be able to move from raw data and process understanding all the way to model design, monitoring, governance, and business interpretation.
 
 ---
 
@@ -77,7 +75,7 @@ This is not just a collection of isolated notes.
 I built it to connect six things properly:
 
 - **credit-risk fundamentals**
-- **data science foundations**
+- **data-science foundations**
 - **math and coding behind models**
 - **model development and evaluation**
 - **monitoring, validation, and governance**
@@ -85,7 +83,7 @@ I built it to connect six things properly:
 
 A very important personal goal sits underneath all of this: I want to understand every major concept through projects, not as disconnected textbook fragments.
 
-That means even when a concept is broader than a specific project, I still want to anchor it back to a project and ask:
+That means even when a concept is broader than a specific project, I still want to anchor it back to project work and ask:
 
 - what the concept means
 - why it matters
@@ -100,30 +98,64 @@ That is why these notes are written the way they are. They are intentionally det
 
 ## The Architecture of My Brain Notes
 
-The eight core notes form two broad clusters.
+The current system is easiest to understand as **three connected clusters**.
 
-### Cluster 1 — Credit Risk, Loss Modeling, Monitoring, and Governance
+### Cluster 1 — Credit Risk Core
 
-These notes are the core of my professional direction in risk analytics and model validation:
+This is the professional spine of the vault.
 
-- [[1_lending_club_credit_risk_masterclass|1_full_pd_model]]
-- [[1_lending_club_credit_risk_masterclass|2_monitoring_model]]
-- [[1_lending_club_credit_risk_masterclass|3_lgd_ead_model_rewritten]]
-- [[1_lending_club_credit_risk_masterclass|4_ecl_cecl_stress_testing_rewritten]]
+- [[1_lending_club_credit_risk_masterclass]]
 
-### Cluster 2 — Applied Machine Learning Foundations Through Projects
+This one master note now brings together the full Lending Club flow in one connected story:
 
-These notes expand my data-science depth across tabular classification, tree models, neural networks, and NLP:
+- target definition and bad-rate logic
+- preprocessing and feature engineering
+- missing-value treatment
+- WoE and IV
+- logistic regression scorecard building
+- validation metrics
+- monitoring and drift
+- LGD and EAD
+- expected loss
+- CECL and stress-testing extensions
+
+This note is the anchor of the whole system because it connects statistics, modeling, monitoring, and credit-risk interpretation into one workflow.
+
+### Cluster 2 — Applied Machine Learning Through Projects
+
+These notes broaden my modeling range across different business problems and data types:
 
 - [[5_bank_churn_neural_networks_masterclass]]
 - [[6_employee_retention_tree_models_masterclass]]
 - [[7_socio_economic_household_classification_masterclass]]
 - [[8_twitter_sentiment_nlp_masterclass]]
 
-Together they form one connected system.
+Together these notes help me internalize classification, tree models, boosting, neural networks, imbalance handling, feature engineering, and NLP through concrete projects.
 
-The first cluster gives me the **risk-specific spine**.
-The second cluster gives me the **broader machine-learning range**.
+### Cluster 3 — Data Science Foundations and Toolkit
+
+These notes give me the concept-level base that supports both the risk work and the project work:
+
+- [[2_regression_analysis_masterclass]]
+- [[3_machine_learning_masterclass]]
+- [[4_python_data_analytics_master_cheatsheet]]
+
+This cluster matters because it helps me step back from individual projects and understand the deeper foundations:
+
+- regression analysis
+- statistical assumptions
+- logistic regression and classification
+- supervised and unsupervised learning
+- ensembles and tuning
+- Python, Pandas, visualization, and workflow basics
+
+So the vault now has a cleaner structure:
+
+- **one risk master note**
+- **four applied projects**
+- **three foundational concept notes**
+
+That gives me both depth and breadth.
 
 ---
 
@@ -133,43 +165,44 @@ The second cluster gives me the **broader machine-learning range**.
 [Tharun-Kumar-Gajula]
         │
         ├── Credit Risk Core
-        │      ├── [1_full_pd_model]
-        │      ├── [2_monitoring_model]
-        │      ├── [3_lgd_ead_model_rewritten]
-        │      └── [4_ecl_cecl_stress_testing_rewritten]
+        │      └── [1_lending_club_credit_risk_masterclass]
         │
-        └── Applied Machine Learning Foundation
-               ├── [5_bank_churn_neural_networks_masterclass]
-               ├── [6_employee_retention_tree_models_masterclass]
-               ├── [7_socio_economic_household_classification_masterclass]
-               └── [8_twitter_sentiment_nlp_masterclass]
+        ├── Applied Machine Learning Projects
+        │      ├── [5_bank_churn_neural_networks_masterclass]
+        │      ├── [6_employee_retention_tree_models_masterclass]
+        │      ├── [7_socio_economic_household_classification_masterclass]
+        │      └── [8_twitter_sentiment_nlp_masterclass]
+        │
+        └── Data Science Foundations
+               ├── [2_regression_analysis_masterclass]
+               ├── [3_machine_learning_masterclass]
+               └── [4_python_data_analytics_master_cheatsheet]
 ```
 
 The logic of this structure is simple:
 
-- the **credit-risk notes** show how a lending model is built, interpreted, monitored, and extended into loss estimation
-- the **project notes** help me internalize the data-science concepts that appear across many domains, not only credit risk
-- the profile note sits above both and explains the big picture
+- the **credit-risk master note** gives me the domain spine
+- the **applied project notes** help me internalize data-science methods through hands-on work
+- the **foundation notes** give me the language, math, and toolkit that make the projects easier to understand and explain
+- the profile note sits above all of them and explains the big picture
 
 ---
 
-## How the Credit-Risk Core Fits Together
+## How the Credit-Risk Core Fits Into Everything Else
 
-### [[1_lending_club_credit_risk_masterclass|1_full_pd_model]] — The Core Modeling Engine
+### [[1_lending_club_credit_risk_masterclass]] — The Core Risk Modeling Engine
 
 This is the technical anchor of the whole system.
 
-It covers the end-to-end build of a **Probability of Default (PD)** model using Lending Club data, including:
+It covers the end-to-end build of a credit-risk modeling workflow using Lending Club data, including:
 
-- target definition
-- good/bad labeling
-- missing-data treatment
-- feature engineering
-- Weight of Evidence (WoE)
-- Information Value (IV)
-- logistic regression
-- validation metrics such as KS, AUROC, and Gini
-- scorecard scaling and cut-off logic
+- Probability of Default (PD)
+- scorecard logic
+- validation metrics such as confusion matrix, recall, precision, F1, AUROC, KS, and Gini
+- monitoring through PSI and CSI-style logic
+- LGD and EAD
+- expected loss
+- CECL and stress-testing extensions
 
 This note matters because it ties together many of the most important ideas in risk modeling:
 
@@ -177,89 +210,16 @@ This note matters because it ties together many of the most important ideas in r
 - why preprocessing decisions change model behavior
 - how linear models become probability models through the logistic function
 - why scorecards remain important in regulated lending environments
-- how interpretability and control matter as much as prediction
+- how monitoring changes the model lifecycle
+- why PD alone is not enough unless it is connected to LGD, EAD, and expected loss
 
 This note is where I connect statistics, business logic, and model building most directly.
 
 ---
 
-### [[1_lending_club_credit_risk_masterclass|2_monitoring_model]] — The Governance and Production Layer
-
-A model is not finished when it is trained.
-
-This note captures the second half of the model lifecycle:
-
-- frozen preprocessing pipelines
-- model deployment integrity
-- Population Stability Index (PSI)
-- Characteristic Stability Index (CSI)
-- population drift versus concept drift
-- recalibration versus redevelopment
-- post-deployment control thinking
-
-This note matters because many people understand model building, but fewer understand what makes a model defensible after deployment.
-
-This is the bridge between analytics and model governance.
-
-It also maps very naturally to the kind of thinking needed in real institutions:
-
-- is the pipeline consistent?
-- has the incoming population changed?
-- is the model still ranking risk properly?
-- is the issue only calibration, or has the underlying relationship changed?
-- does the model still deserve to be used?
-
----
-
-### [[1_lending_club_credit_risk_masterclass|3_lgd_ead_model_rewritten]] — Loss Severity and Exposure Thinking
-
-Once PD is understood, the next question is not only *whether* default happens, but *how much money is lost if it happens*.
-
-This note extends the risk framework into:
-
-- **LGD** — Loss Given Default
-- **EAD** — Exposure at Default
-- recovery modeling
-- two-stage LGD logic
-- exposure severity logic
-- practical limitations of installment-loan data
-
-This note matters because it completes the move from **default probability** to **loss economics**.
-
-It also helps me think more clearly about the fact that two borrowers with the same PD do not necessarily create the same loss.
-
-That is a very important conceptual shift in credit risk.
-
----
-
-### [[1_lending_club_credit_risk_masterclass|4_ecl_cecl_stress_testing_rewritten]] — Portfolio Loss, Provisioning, and Stress Thinking
-
-This note brings the three risk parameters together:
-
-- **PD**
-- **LGD**
-- **EAD**
-
-and connects them into:
-
-- **Expected Loss (EL)**
-- **Unexpected Loss (UL)**
-- portfolio aggregation
-- CECL-style lifetime loss thinking
-- macro-scenario extensions
-- stress-testing logic
-
-This is where individual-loan modeling becomes **portfolio-level financial impact**.
-
-This note matters because it brings model outputs closer to the language of provisions, reserves, capital pressure, and scenario analysis.
-
-In other words, this is where statistical modeling becomes balance-sheet relevant.
-
----
-
 ## How the Applied Machine-Learning Notes Fit In
 
-These project notes are not side projects in a random sense. I use them to strengthen the general data-science foundation that supports the risk work.
+These project notes are not random side projects. I use them to strengthen the broader analytical foundation that supports the risk work.
 
 ### [[5_bank_churn_neural_networks_masterclass]] — Neural Networks, Classification, and Imbalance
 
@@ -269,7 +229,6 @@ This note teaches me:
 - feature preparation
 - scaling and encoding
 - neural-network basics
-- loss functions and optimization
 - class imbalance
 - threshold tuning
 - precision versus recall trade-offs
@@ -277,14 +236,10 @@ This note teaches me:
 Even though the project is framed as churn, the transferable lessons are broader:
 
 - early-warning systems
-- retention-risk logic
+- intervention strategy
+- recall-oriented modeling
 - probability scoring
-- decision thresholds
-- recall-oriented intervention models
-
-It gives me a practical base for understanding when and why a neural network is useful, and when a simpler model may still be preferable.
-
----
+- threshold choice
 
 ### [[6_employee_retention_tree_models_masterclass]] — Logistic Regression, Trees, and Random Forests
 
@@ -300,15 +255,6 @@ This note helps me understand:
 
 This is a very useful bridge note because it places **logistic regression** and **tree-based models** side by side.
 
-That comparison is extremely valuable in interviews because many real questions are really about model trade-offs:
-
-- interpretability versus flexibility
-- bias versus variance
-- simple baseline versus complex model
-- probability calibration versus raw predictive strength
-
----
-
 ### [[7_socio_economic_household_classification_masterclass]] — Large-Scale Tabular Modeling and XGBoost
 
 This note strengthens my understanding of:
@@ -317,16 +263,12 @@ This note strengthens my understanding of:
 - missing values and sentinel values
 - categorical encoding
 - outlier handling
-- dimensionality reduction with PCA
+- dimensionality reduction
 - class imbalance
-- XGBoost and boosted ensembles
+- boosted ensembles
 - model comparison on larger feature spaces
 
 This project matters because it pushes me toward more realistic data complexity.
-
-It is the note where I get more comfortable with the idea that not every dataset is clean, tidy, or well-structured, and that strong modeling often depends as much on data handling as on the model itself.
-
----
 
 ### [[8_twitter_sentiment_nlp_masterclass]] — NLP, Feature Extraction, and Unstructured Data
 
@@ -341,20 +283,66 @@ It covers:
 - TF-IDF
 - multi-class classification
 - feature extraction from raw text
-- model evaluation in imbalanced text settings
+- model evaluation in text settings
 
-This note matters because real institutions do not only work with structured tables.
+This note matters because real institutions do not only work with structured tables. They also work with complaint narratives, customer feedback, notes, and other unstructured signals.
 
-There are also:
+---
 
-- complaint narratives
-- call-center notes
-- customer feedback
-- collections remarks
-- adverse media signals
-- policy and regulatory text
+## How the Foundation Notes Strengthen the Whole System
 
-So this note helps me think about how unstructured data can enter an analytics workflow.
+### [[2_regression_analysis_masterclass]] — Statistics, Regression, and the Language of Relationships
+
+This note gives me the conceptual base for:
+
+- simple and multiple linear regression
+- OLS and residuals
+- regression assumptions
+- interaction terms
+- multicollinearity and VIF
+- \(R^2\), adjusted \(R^2\), and overfitting
+- regularization
+- ANOVA and hypothesis-testing toolkit
+- logistic regression and classification metrics
+
+This note is important because it helps me understand **why** models behave the way they do, not only how to code them.
+
+### [[3_machine_learning_masterclass]] — The Broad Machine-Learning Landscape
+
+This note acts as the big ML map.
+
+It covers:
+
+- supervised and unsupervised learning
+- class imbalance
+- feature selection, extraction, and transformation
+- Naive Bayes
+- K-Means clustering
+- decision trees
+- random forest
+- boosting and XGBoost
+- hyperparameter tuning
+- cross-validation
+- feature importance
+- model ethics and explainability
+
+This note matters because it helps me compare models as a system instead of memorizing isolated algorithms.
+
+### [[4_python_data_analytics_master_cheatsheet]] — The Working Toolkit
+
+This note is the practical quick-reference layer of the vault.
+
+It covers:
+
+- core Python syntax and data structures
+- functions, loops, comprehensions, and lambda
+- Pandas loading, filtering, cleaning, grouping, and merging
+- date handling and missing values
+- Matplotlib and Seaborn basics
+- Conda environments
+- Git and GitHub workflow
+
+This note matters because strong analytics depends not only on theory, but also on daily fluency with the actual tools.
 
 ---
 
@@ -394,16 +382,19 @@ The notes also connect back to core quantitative ideas:
 
 This layer matters because good modeling is not just coding. It is applied statistical reasoning.
 
-### 3. Supervised Learning
+### 3. Supervised and Unsupervised Learning
 
-The projects collectively cover multiple model families:
+The system collectively covers multiple model families:
 
+- linear regression
 - logistic regression
 - scorecards
 - decision trees
 - random forests
 - XGBoost
 - neural networks
+- clustering
+- Naive Bayes
 - NLP classification pipelines
 
 That breadth is useful because it helps me compare models rather than memorizing one favorite model.
@@ -446,7 +437,7 @@ This is one of the clearest ways this vault reflects my model-validation and ris
 
 ### 6. Credit-Risk and Banking Context
 
-The risk-specific notes keep the banking context explicit:
+The risk-specific note keeps the banking context explicit:
 
 - PD, LGD, EAD
 - expected loss
@@ -467,7 +458,7 @@ This is the layer that keeps the entire system anchored to my domain rather than
 
 My work in credit-risk analytics gave me direct exposure to the way risk is measured and monitored across lending portfolios.
 
-That background is why the first four notes feel natural and central in this system. They match the way I think about real portfolio questions:
+That background is why the Lending Club master note sits at the center of this system. It matches the way I think about real portfolio questions:
 
 - what is default risk?
 - how should it be measured?
@@ -503,7 +494,7 @@ It allows me to move from:
 - comparing algorithms
 - thinking about validation and remediation
 
-This is the layer that connects the broader machine-learning projects back to the risk notes.
+This is the layer that connects the broader machine-learning projects and concept notes back to the risk work.
 
 ---
 
@@ -523,13 +514,13 @@ I do not want to stop at training a model. I want to understand preprocessing, v
 
 I prefer to understand math and code through projects rather than through disconnected definitions.
 
-### 4. I am comfortable working across both structured and unstructured problems.
+### 4. I am building both domain depth and data-science breadth.
 
-The vault now includes scorecards, tree models, neural networks, ensemble methods, and NLP pipelines.
+The vault now includes one integrated credit-risk master note, multiple applied ML projects, and dedicated foundation notes for regression, machine learning, and Python analytics.
 
 ### 5. My direction is toward stronger quantitative risk and model-validation capability.
 
-The core note system is increasingly shaped around defensible models, practical controls, and institution-grade analytical thinking.
+The system is increasingly shaped around defensible models, practical controls, and institution-grade analytical thinking.
 
 ---
 
@@ -548,8 +539,9 @@ It gives me a way to move from a project to the bigger conceptual question behin
 For example:
 
 - a churn project becomes a discussion about classification, thresholding, and intervention strategy
-- a PD scorecard becomes a discussion about default definition, WoE, logistic regression, validation, and interpretability
-- a monitoring note becomes a discussion about drift, governance, recalibration, and model controls
+- the Lending Club note becomes a discussion about target definition, bad-rate logic, WoE, logistic regression, validation, monitoring, and expected loss
+- a regression note becomes a discussion about assumptions, residuals, and why model diagnostics matter
+- the Python cheat sheet becomes a rapid revision layer before interviews or project work
 
 ### As a long-term professional system
 
@@ -561,16 +553,29 @@ It helps me organize my direction clearly: credit risk, quantitative analytics, 
 
 When I want the most coherent path through the system, the cleanest sequence is:
 
-1. [[1_lending_club_credit_risk_masterclass|1_full_pd_model]]
-2. [[1_lending_club_credit_risk_masterclass|2_monitoring_model]]
-3. [[1_lending_club_credit_risk_masterclass|3_lgd_ead_model_rewritten]]
-4. [[1_lending_club_credit_risk_masterclass|4_ecl_cecl_stress_testing_rewritten]]
+### Path 1 — Interview-first path
+
+1. [[1_lending_club_credit_risk_masterclass]]
+2. [[6_employee_retention_tree_models_masterclass]]
+3. [[5_bank_churn_neural_networks_masterclass]]
+4. [[7_socio_economic_household_classification_masterclass]]
+5. [[8_twitter_sentiment_nlp_masterclass]]
+6. [[2_regression_analysis_masterclass]]
+7. [[3_machine_learning_masterclass]]
+8. [[4_python_data_analytics_master_cheatsheet]]
+
+### Path 2 — Foundation-first path
+
+1. [[4_python_data_analytics_master_cheatsheet]]
+2. [[2_regression_analysis_masterclass]]
+3. [[3_machine_learning_masterclass]]
+4. [[1_lending_club_credit_risk_masterclass]]
 5. [[6_employee_retention_tree_models_masterclass]]
 6. [[5_bank_churn_neural_networks_masterclass]]
 7. [[7_socio_economic_household_classification_masterclass]]
 8. [[8_twitter_sentiment_nlp_masterclass]]
 
-That order keeps the credit-risk spine first, then broadens into the wider machine-learning foundation.
+That gives me two different ways to use the same system depending on whether I want revision speed or deeper conceptual buildup.
 
 ---
 
@@ -584,6 +589,7 @@ Together, they represent how I think about my professional direction:
 
 - grounded in banking and credit risk
 - strengthened by quantitative and machine-learning depth
+- supported by strong Python and data-analysis foundations
 - aware of implementation reality
 - focused on model quality, monitoring, and governance
 - built as a connected system rather than a loose collection of projects
