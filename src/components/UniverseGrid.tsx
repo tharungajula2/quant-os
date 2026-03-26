@@ -9,16 +9,29 @@ interface UniverseGridProps {
   notes: NoteListItem[];
 }
 
-/* ── Cluster palette ── */
+/* ── Cluster palette: Distinct Clinical Spectrum ── */
 const PALETTE: Record<string, { badge: string; glowColor: string }> = {
-  "00 — System Atlas": { badge: "text-blue-300 bg-blue-500/10 border-blue-400/25", glowColor: "rgba(59,130,246,0.07)" },
-  "01 — Foundations": { badge: "text-violet-300 bg-violet-500/10 border-violet-400/25", glowColor: "rgba(139,92,246,0.07)" },
-  "02 — End-to-End Credit Risk Modeling": { badge: "text-emerald-300 bg-emerald-500/10 border-emerald-400/25", glowColor: "rgba(16,185,129,0.07)" },
-  "03 — Applied Machine Learning Projects": { badge: "text-amber-300 bg-amber-500/10 border-amber-400/25", glowColor: "rgba(245,158,11,0.07)" },
-  "04 — Sandbox": { badge: "text-cyan-300 bg-cyan-500/10 border-cyan-400/25", glowColor: "rgba(6,182,212,0.07)" },
-  "Others": { badge: "text-gray-300 bg-gray-500/10 border-gray-400/25", glowColor: "rgba(156,163,175,0.07)" },
+  "01 — Profile": { 
+    badge: "text-white bg-white/10 border-white/20", 
+    glowColor: "rgba(255, 255, 255, 0.1)" 
+  },
+  "02 — Foundations": { 
+    badge: "text-orange-300 bg-orange-500/10 border-orange-400/25", 
+    glowColor: "rgba(249, 115, 22, 0.1)" 
+  },
+  "03 — Portfolio Projects": { 
+    badge: "text-cyan-300 bg-cyan-500/10 border-cyan-400/25", 
+    glowColor: "rgba(34, 211, 238, 0.1)" 
+  },
+  "Others": { 
+    badge: "text-slate-400 bg-slate-500/10 border-slate-400/20", 
+    glowColor: "rgba(148, 163, 184, 0.05)" 
+  },
 };
-const DEFAULT = { badge: "text-indigo-300 bg-indigo-500/10 border-indigo-400/25", glowColor: "rgba(99,102,241,0.07)" };
+const DEFAULT = { 
+  badge: "text-cyan-300/80 bg-cyan-500/5 border-cyan-400/20", 
+  glowColor: "rgba(34, 211, 238, 0.05)" 
+};
 
 function palette(cluster?: string) {
   if (!cluster) return DEFAULT;
@@ -94,7 +107,7 @@ export default function UniverseGrid({ notes }: UniverseGridProps) {
 
               {/* ── Glass Card ── */}
               <div
-                className="group"
+                className="group glass-card"
                 style={{
                   position: "relative",
                   display: "flex",
@@ -102,29 +115,25 @@ export default function UniverseGrid({ notes }: UniverseGridProps) {
                   minHeight: "190px",
                   height: "100%",
                   padding: "1.5rem",
-                  borderRadius: "1.5rem",
+                  borderRadius: "1rem",
                   overflow: "hidden",
-                  /* Glass material */
-                  backdropFilter: "blur(24px)",
-                  WebkitBackdropFilter: "blur(24px)",
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07)",
-                  transition: "background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease",
                   cursor: "pointer",
                   opacity: 1,
+                  background: "rgba(2, 4, 12, 0.8)", /* Darker, more consistent with void */
+                  border: "1px solid rgba(34, 211, 238, 0.05)",
+                  transition: "all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)",
                 }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget;
-                  el.style.background = "rgba(255,255,255,0.055)";
-                  el.style.borderColor = "rgba(255,255,255,0.14)";
-                  el.style.boxShadow = "0 12px 48px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.12), 0 0 40px rgba(255,255,255,0.04)";
+                  el.style.background = "rgba(34, 211, 238, 0.05)";
+                  el.style.borderColor = "rgba(34, 211, 238, 0.3)";
+                  el.style.transform = "translateY(-4px)";
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget;
-                  el.style.background = "rgba(255,255,255,0.03)";
-                  el.style.borderColor = "rgba(255,255,255,0.08)";
-                  el.style.boxShadow = "0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07)";
+                  el.style.background = "rgba(2, 4, 12, 0.8)";
+                  el.style.borderColor = "rgba(34, 211, 238, 0.05)";
+                  el.style.transform = "translateY(0)";
                 }}
               >
                 {/* Cluster-tinted glow inside card */}
@@ -191,13 +200,13 @@ export default function UniverseGrid({ notes }: UniverseGridProps) {
                     <span style={{ fontSize: "0.6rem", fontWeight: 600, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Reading Sync</span>
                     <span style={{ fontSize: "0.6rem", fontWeight: 700, color: "rgba(255,255,255,0.7)" }}>{note.frontmatter.progress || 0}%</span>
                   </div>
-                  <div style={{ height: "4px", width: "100%", background: "rgba(255,255,255,0.05)", borderRadius: "2px", overflow: "hidden" }}>
+                  <div style={{ height: "4px", width: "100%", background: "rgba(34, 211, 238, 0.05)", borderRadius: "2px", overflow: "hidden" }}>
                     <div 
                       style={{ 
                         height: "100%", 
                         width: `${note.frontmatter.progress || 0}%`, 
-                        background: "linear-gradient(90deg, rgba(255,255,255,0.2), #fff)", 
-                        boxShadow: "0 0 8px rgba(255,255,255,0.5)",
+                        background: "linear-gradient(90deg, rgba(34, 211, 238, 0.3), var(--accent))", 
+                        boxShadow: "0 0 12px var(--accent-glow)",
                         transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)"
                       }} 
                     />

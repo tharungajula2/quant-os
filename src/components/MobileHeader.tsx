@@ -22,10 +22,10 @@ export default function MobileHeader() {
     <header
       className="lg:hidden sticky top-0 z-40 flex items-center h-16 px-4 transition-all duration-300"
       style={{
-        background: scrolled ? "rgba(5,5,5,0.9)" : "rgba(5,5,5,0.7)",
+        background: scrolled ? "rgba(2, 4, 10, 0.9)" : "rgba(2, 4, 10, 0.7)",
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
-        borderBottom: "1px solid rgba(255,255,255,0.08)",
+        borderBottom: "1px solid var(--border)",
       }}
     >
       <button
@@ -35,10 +35,9 @@ export default function MobileHeader() {
       >
         <Menu size={24} />
       </button>
-
       <div className="absolute left-1/2 -translate-x-1/2">
         <Link href="/" className="no-underline">
-          <span className="text-sm font-bold tracking-[0.1em] uppercase text-white/90">
+          <span className="text-sm font-bold tracking-[0.1em] uppercase heading-gradient">
             Quant OS
           </span>
         </Link>

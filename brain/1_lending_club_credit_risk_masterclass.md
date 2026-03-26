@@ -21,7 +21,7 @@ tags:
   - banking
   - data-science
   - beginner-friendly
-cluster: "02 — End-to-End Credit Risk Modeling"
+cluster: "03 — Portfolio Projects"
 progress: 0
 links:
   - "[[Tharun-Kumar-Gajula]]"

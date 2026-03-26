@@ -15,7 +15,7 @@ tags:
   - visualization
   - cheat-sheet
   - beginner-friendly
-cluster: "01 — Foundations"
+cluster: "02 — Foundations"
 progress: 0
 links:
   - "[[Tharun-Kumar-Gajula]]"

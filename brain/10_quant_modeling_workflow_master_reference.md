@@ -15,7 +15,7 @@ tags:
   - master-reference
   - cheat-sheet
   - beginner-friendly
-cluster: "10 — Standalone Master Reference"
+cluster: "02 — Foundations"
 graph_exclude: true
 progress: 0
 ---

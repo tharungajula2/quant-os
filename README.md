@@ -1,39 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Quant OS — Professional Knowledge Graph & Spatial OS
 
-## Getting Started
+> **The Clinical-Grade Learning Environment for Quantitative Risk and Financial Engineering.**
 
-First, run the development server:
+Quant OS is a premium, [Next.js 16](https://nextjs.org)-powered spatial knowledge environment designed to map complex quantitative concepts into a beautiful, interactive void. It transforms a local Markdown-driven Obsidian vault into a high-performance **Knowledge Graph** and **Universe Grid**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![Quant OS UI Showcase](public/ui-showcase.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌌 The Design: "Tharun Learning Lab" Aesthetic
+Quant OS is built with a "Deep Void" philosophy, prioritizing visual silence, intense focus, and clinical precision:
+- **The Void**: A dual-layer Cyber-Grid background (`#02040c`) with macro and micro textures.
+- **Electric Accents**: A high-contrast palette featuring **Brilliant White** (Profile), **Design Cyan-Blue** (Portfolio), and **Complementary Orange** (Foundations).
+- **Liquid Glass**: Premium glassmorphism with deep Gaussian blurs and specular borders.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
+- **Framework**: Next.js 16 (React Server Components, App Router)
+- **Styling**: Tailwind CSS v4 + Vanilla CSS Design Tokens
+- **Graph Engine**: `react-force-graph-2d` (Physics-based Knowledge Map)
+- **Content**: Local Markdown (Zettelkasten) + `next-mdx-remote`
+- **AI Integration**: Vian AI (Google Gemini 2.5 Flash Lite)
+- **Animations**: Framer Motion + CSS Transitions
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Project Structure
+- `brain/`: The raw markdown engine (Foundations, Projects, Profile).
+- `src/components/`: Premium UI components (GraphView, UniverseGrid, VianAI).
+- `src/lib/markdown.ts`: The core relationship parser (Wikilinks, Backlinks).
+- `shelf/`: Auxiliary automation and link-fixing utilities.
 
-## Learn More
+## 🚀 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Configure Environment**:
+   Create a `.env.local` and add your `GOOGLE_GENERATIVE_AI_API_KEY`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Run Development Server**:
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
+4. **Access the OS**:
+   Open [http://localhost:3000](http://localhost:3000).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🦾 Architecture Ground Truth
+For a deep dive into the system logic, markdown parsing rules, and design constraints, refer to:
+- [FULL_CONTEXT.md](./FULL_CONTEXT.md)
+- [QUANT-ARCHITECTURE.md](./QUANT-ARCHITECTURE.md)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-
-Updated on 17 March 2026 - ai working finally
+---
+*Built for the Tharun Learning Lab Ecosystem — March 2026*

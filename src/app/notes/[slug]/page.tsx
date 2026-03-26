@@ -30,19 +30,22 @@ export default async function NotePage({ params }: NotePageProps) {
   const { frontmatter, content } = note;
   const tags: string[] = Array.isArray(frontmatter.tags) ? frontmatter.tags : [];
 
-  // ── Safeguard MDX compilation ──
-  // MDX will crash if it sees "<0", "<1", etc. because it tries to parse a JSX tag.
-  // We globally replace "< followed by a digit" with "< space digit".
-  const safeContent = content.replace(/<(\d)/g, '< $1');
+  // ── Safeguard MDX compilation & Clean Redundant Title ──
+  // 1. Remove the first "# Title" from the MDX content to prevent double titles.
+  // We use a non-global replace to ensure only the first H1 is removed.
+  const contentWithoutHeader = content.replace(/#\s+[^\n]+/, "");
+  
+  // 2. MDX will crash if it sees "<0", "<1", etc. (treats as JSX)
+  const safeContent = contentWithoutHeader.replace(/<(\d)/g, '< $1');
 
   return (
     <div
-      className="selection:bg-blue-500/30"
-      style={{ color: "#d1d5db" }}
+      className="selection:bg-cyan-500/30"
+      style={{ color: "var(--text-primary)" }}
     >
       <div
         style={{
-          maxWidth: "56rem",  /* Expanded reading width (max-w-4xl roughly matches Obsidian) */
+          maxWidth: "56rem",  /* Expanded reading width */
           margin: "0 auto",
           padding: "3rem 1.5rem",
           width: "100%",
@@ -51,20 +54,14 @@ export default async function NotePage({ params }: NotePageProps) {
         {/* ── Back link ── */}
         <Link
           href="/"
-          className="group"
+          className="group inline-flex items-center gap-[0.4rem] mb-12 text-[0.8rem] font-medium tracking-[0.03em] no-underline transition-all duration-200"
           style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.4rem",
-            marginBottom: "3rem",
-            fontSize: "0.8rem",
-            fontWeight: 500,
-            letterSpacing: "0.03em",
-            color: "rgba(255,255,255,0.4)",
-            textDecoration: "none",
-            transition: "color 0.2s ease",
+            color: "rgba(34, 211, 238, 0.4)",
           }}
         >
+          <style>{`
+            .group:hover { color: var(--accent) !important; }
+          `}</style>
           <ArrowLeft
             size={14}
             style={{ transition: "transform 0.2s ease" }}
@@ -77,19 +74,19 @@ export default async function NotePage({ params }: NotePageProps) {
             PROPERTIES PANEL — Obsidian-style metadata block
             ══════════════════════════════════════════════════════════════ */}
         <div
+          className="glass-card"
           style={{
             marginBottom: "2.5rem",
-            padding: "1.5rem",
+            padding: "2rem",
             borderRadius: "1rem",
-            background: "rgba(255,255,255,0.025)",
-            border: "1px solid rgba(255,255,255,0.07)",
-            backdropFilter: "blur(12px)",
+            background: "rgba(2, 4, 12, 0.8)", /* Much darker void background */
+            borderColor: "rgba(34, 211, 238, 0.1)",
           }}
         >
           {/* ── Individual Mastery Progress Bar ── */}
           <div style={{ marginBottom: "2rem" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "0.5rem" }}>
-              <span style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: "0.15em", fontWeight: 600 }}>
+              <span style={{ fontSize: "0.7rem", color: "rgba(34, 211, 238, 0.4)", textTransform: "uppercase", letterSpacing: "0.15em", fontWeight: 600 }}>
                 Reading Sync
               </span>
               <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.9)", fontWeight: 700, letterSpacing: "0.05em" }}>
@@ -100,18 +97,18 @@ export default async function NotePage({ params }: NotePageProps) {
               style={{
                 width: "100%",
                 height: "6px",
-                background: "rgba(255,255,255,0.06)",
+                background: "rgba(34, 211, 238, 0.05)",
                 borderRadius: "999px",
                 overflow: "hidden",
                 border: "1px solid rgba(255,255,255,0.04)"
               }}
             >
-              <div
+                <div
                 style={{
                   height: "100%",
                   width: `${frontmatter.progress || 0}%`,
-                  background: "linear-gradient(90deg, #3b82f6, #60a5fa, #fff)",
-                  boxShadow: "0 0 12px rgba(96, 165, 250, 0.6)",
+                  background: "linear-gradient(90deg, rgba(34, 211, 238, 0.4), var(--accent), #fff)",
+                  boxShadow: "0 0 12px var(--accent-glow)",
                   transition: "width 1s cubic-bezier(0.16, 1, 0.3, 1)",
                   borderRadius: "999px",
                 }}
@@ -121,12 +118,12 @@ export default async function NotePage({ params }: NotePageProps) {
 
           {/* Title */}
           <h1
+            className="heading-gradient"
             style={{
-              fontSize: "clamp(1.8rem, 5vw, 2.8rem)",
+              fontSize: "clamp(1.8rem, 5vw, 2.4rem)",
               fontWeight: 700,
               letterSpacing: "-0.02em",
               lineHeight: 1.15,
-              color: "#ffffff",
               margin: 0,
             }}
           >
@@ -153,13 +150,29 @@ export default async function NotePage({ params }: NotePageProps) {
                     display: "inline-block",
                     padding: "0.15rem 0.6rem",
                     borderRadius: "999px",
-                    border: "1px solid rgba(59,130,246,0.25)",
+                    border: `1px solid ${
+                      frontmatter.cluster === "03 — Portfolio Projects" 
+                        ? "rgba(34, 211, 238, 0.25)" 
+                        : frontmatter.cluster === "01 — Profile"
+                        ? "rgba(255, 255, 255, 0.25)"
+                        : "rgba(249, 115, 22, 0.25)"
+                    }`,
                     fontSize: "0.68rem",
                     fontWeight: 600,
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
-                    color: "#93c5fd",
-                    background: "rgba(59,130,246,0.08)",
+                    color: 
+                      frontmatter.cluster === "03 — Portfolio Projects" 
+                        ? "#22d3ee" 
+                        : frontmatter.cluster === "01 — Profile"
+                        ? "#ffffff"
+                        : "#f97316",
+                    background: 
+                      frontmatter.cluster === "03 — Portfolio Projects" 
+                        ? "rgba(34, 211, 238, 0.08)" 
+                        : frontmatter.cluster === "01 — Profile"
+                        ? "rgba(255, 255, 255, 0.08)"
+                        : "rgba(249, 115, 22, 0.08)",
                   }}
                 >
                   {frontmatter.cluster}
@@ -235,12 +248,12 @@ export default async function NotePage({ params }: NotePageProps) {
             "prose-headings:text-white prose-headings:font-bold",
             "prose-h1:text-4xl",
             "prose-h2:text-2xl prose-h2:mt-12 prose-h2:border-b prose-h2:border-white/10 prose-h2:pb-2",
-            "prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline",
+            "prose-a:text-cyan-400 prose-a:no-underline hover:prose-a:underline",
             "prose-strong:text-white",
-            "prose-code:before:hidden prose-code:after:hidden prose-code:bg-white/10 prose-code:text-blue-300 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:font-normal",
-            "prose-pre:bg-[#0d1117] prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-pre:p-4 prose-pre:w-full prose-pre:overflow-x-auto",
+            "prose-code:before:hidden prose-code:after:hidden prose-code:bg-cyan-500/10 prose-code:text-cyan-300 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:font-normal",
+            "prose-pre:bg-[#020617] prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-pre:p-4 prose-pre:w-full prose-pre:overflow-x-auto",
             "prose-th:text-white prose-td:text-gray-300",
-            "prose-blockquote:border-l-blue-500/40 prose-blockquote:text-gray-400",
+            "prose-blockquote:border-l-cyan-500/40 prose-blockquote:text-gray-400",
             "prose-hr:border-white/10",
             "prose-ul:list-disc",
             "prose-li:text-gray-300",
@@ -307,21 +320,23 @@ export default async function NotePage({ params }: NotePageProps) {
                 <Link
                   key={bl.slug}
                   href={`/notes/${bl.slug}`}
+                  className="group glass-card block p-4 rounded-xl transition-all duration-300 no-underline"
                   style={{
-                    textDecoration: "none",
-                    display: "block",
-                    padding: "0.875rem 1rem",
-                    borderRadius: "0.875rem",
-                    background: "rgba(255,255,255,0.025)",
-                    border: "1px solid rgba(255,255,255,0.06)",
-                    transition: "background 0.25s ease, border-color 0.25s ease",
+                    background: "rgba(2, 4, 12, 0.4)",
+                    border: "1px solid rgba(255, 255, 255, 0.03)",
                   }}
                 >
+                  <style>{`
+                    .group:hover { 
+                      border-color: var(--accent) !important;
+                      background: rgba(34, 211, 238, 0.05) !important;
+                    }
+                  `}</style>
                   <p
                     style={{
                       fontSize: "0.82rem",
-                      fontWeight: 600,
-                      color: "rgba(255,255,255,0.78)",
+                      fontWeight: 700,
+                      color: "var(--text-primary)",
                       margin: 0,
                       lineHeight: 1.35,
                     }}
@@ -335,7 +350,13 @@ export default async function NotePage({ params }: NotePageProps) {
                         fontWeight: 600,
                         textTransform: "uppercase",
                         letterSpacing: "0.18em",
-                        color: "rgba(99,130,246,0.6)",
+                        color: 
+                          bl.cluster === "03 — Portfolio Projects" 
+                            ? "#22d3ee" 
+                            : bl.cluster === "01 — Profile"
+                            ? "#ffffff"
+                            : "#f97316",
+                        opacity: 0.8,
                         marginTop: "0.4rem",
                       }}
                     >

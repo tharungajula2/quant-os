@@ -24,7 +24,7 @@ tags:
   - ofac
   - banking
   - credit-risk
-cluster: "04 — Sandbox"
+cluster: "02 — Foundations"
 progress: 0
 links:
   - "[[Tharun-Kumar-Gajula]]"

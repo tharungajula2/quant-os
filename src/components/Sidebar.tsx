@@ -81,11 +81,17 @@ export default function Sidebar({ notes }: SidebarProps) {
             e.currentTarget.style.background = "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%)";
           }}
         >
-        <div 
+        <div
+          className="glass-card"
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "0.75rem",
+            gap: "0.85rem",
+            padding: "0.75rem",
+            background: "rgba(2, 4, 12, 0.4)",
+            border: "1px solid rgba(255, 255, 255, 0.03)",
+            borderRadius: "0.75rem",
+            marginBottom: "0.5rem",
           }}
         >
           {/* Avatar / Initial */}
@@ -93,16 +99,17 @@ export default function Sidebar({ notes }: SidebarProps) {
             style={{
               width: "2.5rem",
               height: "2.5rem",
-              borderRadius: "0.6rem",
-              background: "linear-gradient(135deg, rgba(96,165,250,0.2), rgba(96,165,250,0.05))",
-              border: "1px solid rgba(96,165,250,0.3)",
+              borderRadius: "0.5rem",
+              background: "linear-gradient(135deg, rgba(34,211,238,0.25), rgba(34,211,238,0.05))",
+              border: "1px solid rgba(34,211,238,0.4)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               flexShrink: 0,
+              boxShadow: "0 0 10px rgba(34, 211, 238, 0.1)",
             }}
           >
-            <span style={{ fontSize: "1.1rem", fontWeight: 700, color: "#60a5fa" }}>T</span>
+            <span style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--accent)" }}>T</span>
           </div>
           
           {/* Details */}
@@ -111,13 +118,13 @@ export default function Sidebar({ notes }: SidebarProps) {
               style={{
                 margin: 0,
                 fontSize: "0.6rem",
-                color: "rgba(255,255,255,0.4)",
-                letterSpacing: "0.06em",
+                color: "var(--text-muted)",
+                letterSpacing: "0.08em",
                 textTransform: "uppercase",
                 fontWeight: 600,
               }}
             >
-              By
+              Author
             </p>
             <p
               style={{
@@ -135,7 +142,7 @@ export default function Sidebar({ notes }: SidebarProps) {
                 margin: "0.1rem 0 0",
                 fontSize: "0.65rem",
                 fontWeight: 500,
-                color: "#60a5fa",
+                color: "var(--accent)",
                 opacity: 0.9,
               }}
             >
@@ -272,10 +279,10 @@ export default function Sidebar({ notes }: SidebarProps) {
                         ? "rgba(255,255,255,0.95)"
                         : "rgba(255,255,255,0.38)",
                       background: isActive
-                        ? "rgba(96,165,250,0.1)"
+                        ? "rgba(34, 211, 238, 0.1)"
                         : "transparent",
                       borderLeft: isActive
-                        ? "2px solid rgba(96,165,250,0.6)"
+                        ? "2px solid var(--accent)"
                         : "2px solid transparent",
                       transition: "all 0.15s ease",
                       lineHeight: 1.35,

@@ -3,40 +3,52 @@
 
 /* ─── Design Tokens ──────────────────────────────────── */
 :root {
-  --void:          #050505;
-  --surface:       rgba(255, 255, 255, 0.03);
-  --border:        rgba(255, 255, 255, 0.08);
-  --text-primary:  #f0f0f5;
-  --text-muted:    rgba(240, 240, 245, 0.4);
-}
-
-/* ─── Reset + Void ───────────────────────────────────── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  /* Prevent horizontal scroll caused by absolutely-positioned orbs */
-  overflow-x: hidden;
-  width: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --void:          #02040c; /* Deepest blue-black */
+  --surface:       rgba(2, 4, 12, 0.7); /* Deep glass surface (merges with void) */
+  --border:        rgba(34, 211, 238, 0.08); /* Subtle cyan glint */
+  --text-primary:  #f8fafc;
+  --text-muted:    #64748b;
+  --accent:        #22d3ee; /* Electric Cyan */
+  --accent-glow:   rgba(34, 211, 238, 0.15);
 }
 
 body {
   background-color: var(--void);
-  /* Center radial glow to provide ambient light for glass */
-  background-image: radial-gradient(
-    ellipse 100% 70% at 50% -10%,
-    rgba(30, 30, 60, 0.9) 0%,
-    var(--void) 65%
-  );
+  /* Premium Dual-Layer Cyber Grid + Dynamic Glow */
+  background-image: 
+    linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(34, 211, 238, 0.01) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.01) 1px, transparent 1px),
+    radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.5) 0%, var(--void) 75%);
+  background-size: 64px 64px, 64px 64px, 16px 16px, 16px 16px, 100% 100%;
   background-attachment: fixed;
   color: var(--text-primary);
   min-height: 100dvh;
 }
+
+/* ─── Typography Utils ──────────────────────────────── */
+.heading-gradient {
+  background: linear-gradient(to right, #ffffff, var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.glass-card {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
+}
+
+.glass-card:hover {
+  border-color: rgba(34, 211, 238, 0.3);
+  box-shadow: 0 0 20px -5px rgba(34, 211, 238, 0.1);
+}
+
 
 /* ─── Scrollbar ──────────────────────────────────────── */
 ::-webkit-scrollbar { width: 5px; }

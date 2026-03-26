@@ -1,0 +1,989 @@
+---
+title: "CartPole Reinforcement Learning Masterclass — REINFORCE, Custom Rewards, PPO, DQN, Actor-Critic, SAC, and Twin-Q"
+date: 2026-03-26
+tags:
+  - reinforcement-learning
+  - cartpole
+  - policy-gradient
+  - reinforce
+  - ppo
+  - dqn
+  - actor-critic
+  - sac
+  - deep-learning
+  - control
+  - portfolio-project
+  - beginner-friendly
+cluster: "03 — Portfolio Projects"
+progress: 0
+---
+
+# CartPole Reinforcement Learning Masterclass — REINFORCE, Custom Rewards, PPO, DQN, Actor-Critic, SAC, and Twin-Q
+
+> This note converts my CartPole reinforcement learning project into a cleaner personal master note.
+> The story starts with a plain policy-gradient baseline, improves it through baseline subtraction, hyperparameter tuning, and reward shaping, and then compares it against PPO, DQN, VPG, Actor-Critic, SAC, and Twin-Q.
+>
+> The point is not just to remember which algorithm won.
+> The point is to understand what was actually done, why the reward design mattered so much, and how to think about RL experiments in a more structured way.
+
+---
+
+## Related notes
+
+- [[3_machine_learning_masterclass]]
+- [[4_python_data_analytics_master_cheatsheet]]
+- [[10_quant_modeling_workflow_master_reference]]
+
+---
+
+## The Big Picture
+
+This project follows a simple but important RL story:
+
+```text
+Understand the CartPole environment
+→ start with a plain policy-gradient baseline
+→ inspect the observation space and behavior patterns
+→ reduce variance with a baseline
+→ shape the reward to match the task better
+→ tune hyperparameters
+→ compare against stronger policy-based, value-based, and hybrid algorithms
+→ test on CartPole-v0 and the harder CartPole-v1
+→ summarize which methods converged faster and more stably
+```
+
+The biggest practical lesson from this project is that **reward design mattered a lot**.
+The report shows that custom reward shaping improved convergence across all tested algorithms, while baseline subtraction helped more modestly and noise imputation mainly improved exploration rather than convergence speed.
+
+---
+
+## 1) What this project is really about
+
+At first glance, CartPole looks like a toy problem.
+But it is a very useful RL benchmark because it forces me to think clearly about:
+
+- what a state is
+- how actions change the state
+- how rewards drive learning
+- why policy-gradient methods can have high variance
+- why value-based methods need replay and target stabilization
+- why reward shaping can drastically change training behavior
+- how different RL families behave on the same control task
+
+So this project is not only about balancing a pole.
+It is really about building intuition for **policy learning, exploration, stability, variance reduction, and algorithm comparison**.
+
+---
+
+## 2) Problem setup and environment
+
+The environment is the classic **CartPole** control problem.
+The agent must keep a pole upright by moving the cart left or right.
+
+### State / observation space
+
+At each timestep, the observation includes four variables:
+
+- `hor_pos` = cart position
+- `velocity` = cart velocity
+- `pole_angle` = pole angle
+- `angular_velocity` = pole angular velocity
+
+### Action space
+
+For CartPole, the action space is discrete:
+
+- move left
+- move right
+
+### Transition tuple
+
+A single interaction step can be written as:
+
+$$
+(s_t, a_t, r_t, s_{t+1}, done)
+$$
+
+### Episode termination conditions
+
+An episode ends if any one of these happens:
+
+1. pole angle goes beyond \(\pm 12^\circ\)
+2. cart position goes beyond \(\pm 2.4\)
+3. episode length exceeds 200 for CartPole-v0 and 500 for CartPole-v1
+
+### Why v0 and v1 both matter
+
+- **CartPole-v0** is the easier benchmark and is often used first for solving the base control problem.
+- **CartPole-v1** is harder because it allows longer episodes and therefore demands more consistent control.
+
+So v0 is good for early algorithm comparison, while v1 gives a better sense of generalization and stability.
+
+---
+
+## 3) RL concepts I need to be clear about first
+
+### Reinforcement learning
+
+In reinforcement learning, an **agent** interacts with an **environment** and learns a behavior policy that maximizes cumulative reward.
+
+### Reward vs return
+
+- **reward** = immediate feedback from one action
+- **return** = discounted sum of rewards over time
+
+The project uses cumulative discounted reward in the usual form:
+
+$$
+G_t = r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \cdots
+$$
+
+### Policy-based methods
+
+These learn the policy directly.
+Examples in this project:
+
+- REINFORCE
+- VPG
+- PPO
+
+### Value-based methods
+
+These learn action values first, then choose actions from those value estimates.
+Example in this project:
+
+- DQN
+
+### Hybrid methods
+
+These combine a policy view and a value view.
+Examples in this project:
+
+- Actor-Critic
+- SAC
+- Twin-Q style double-Q methods
+
+### On-policy vs off-policy
+
+- **On-policy** methods learn from data generated by the current policy.
+- **Off-policy** methods can learn from previously collected data and replay memory.
+
+This distinction matters because off-policy methods often use experience replay more effectively, while on-policy methods can be simpler conceptually but more sample-inefficient.
+
+---
+
+## 4) What was actually done in this project
+
+The project flow was broader than just “implement REINFORCE and stop.”
+
+### The actual sequence was roughly this
+
+1. start with a plain policy-gradient baseline for CartPole-v0
+2. generate observation data from rollouts and inspect variable behavior
+3. compare successful vs unsuccessful episodes
+4. add **baseline subtraction** to reduce gradient variance
+5. design and test **custom reward functions**
+6. tune hyperparameters using **random search + grid search**
+7. compare the tuned setup with **PPO, DQN, VPG, Actor-Critic, SAC, and Twin-Q**
+8. test the stronger models on **CartPole-v1** as well
+9. summarize convergence speed, stability, and overall performance
+
+### One small wording inconsistency I should keep in mind
+
+The report is framed as a REINFORCE project, but the tuned base training section also refers to the agent as a **Vanilla Policy Gradient (VPG)** model.
+In practice, I should read this as the project’s **plain Monte Carlo policy-gradient baseline**, then treat the later “VPG” comparison section as the more formal algorithm-specific comparison entry.
+
+---
+
+## 5) Observation space analysis and pseudo-EDA
+
+This project did not start with a ready-made tabular dataset.
+Instead, the data was **generated from environment rollouts**.
+That is an important difference from normal supervised ML projects.
+
+### What was extracted
+
+The project extracted observation-space values such as:
+
+- cart position
+- velocity
+- pole angle
+- angular velocity
+- action
+- reward
+- score
+
+So the “EDA” here is really **behavior-space analysis** rather than classic business-data EDA.
+
+### Main univariate observations
+
+#### Cart position
+
+- heavily left-skewed distribution
+- strong peak around 0
+- long right tail
+
+This suggests the cart spends much of its time near the center, but occasionally moves further out.
+
+#### Velocity
+
+- roughly bell-shaped
+- centered near 0
+- some spread in both directions
+
+This suggests the cart is often near rest or moving slowly, with occasional faster corrections.
+
+#### Pole angle
+
+- roughly centered near 0
+- most mass near the vertical region
+- occasional wider deviations
+
+This is exactly what I would expect in a balancing task.
+A good controller should keep the pole close to vertical most of the time.
+
+#### Angular velocity
+
+- also roughly centered near 0
+- most values are small
+- occasional faster rotational movement
+
+### Bivariate findings
+
+The report’s pairwise analysis suggests:
+
+- weak positive relationship between horizontal position and velocity
+- weak negative relationship between pole angle and angular velocity
+- no very strong clean linear relationships for several other pairs
+
+This is useful because it shows that the control dynamics are not something I should over-simplify into a single straight-line relationship.
+
+### Successful vs unsuccessful episode behavior
+
+A very useful part of the project was the successful vs unsuccessful comparison.
+The report found that successful scenarios generally had:
+
+- higher horizontal position than unsuccessful ones
+- lower velocity
+- lower pole angle
+- lower angular velocity
+- more oscillating pole behavior rather than getting stuck to one side
+
+That last point matters.
+A balancing agent does not simply “freeze” the system.
+It often learns controlled oscillation.
+That observation strongly motivates **reward shaping around both pole angle and cart position**.
+
+---
+
+## 6) Base policy-gradient model
+
+The base model is a simple neural policy.
+
+### Architecture
+
+- input = the 4-dimensional CartPole state
+- hidden layer = 128 neurons with ReLU
+- output = softmax probabilities over the two actions
+
+### Training logic
+
+The loop is standard policy-gradient training:
+
+1. observe current state
+2. compute action probabilities from the policy network
+3. sample an action
+4. execute it in the environment
+5. collect reward and next state
+6. continue until episode termination
+7. compute returns and update the network
+
+### Policy-gradient loss
+
+The report writes the objective in the usual REINFORCE style:
+
+$$
+L = - \sum_t \log \pi(a_t \mid s_t) \cdot G_t
+$$
+
+The intuition is:
+
+- if an action led to high return, increase its probability
+- if it led to poor return, reduce its probability
+
+### Base hyperparameter tuning flow
+
+The project did not tune casually.
+It used a two-step process:
+
+#### Step 1: random search
+
+Wide search over:
+
+- hidden layers: 1, 2, 3, 4
+- neurons: 64, 128, 256, 512
+- learning rate: 0.0001 to 0.01
+- gamma: 0.85, 0.90, 0.95, 0.97, 0.99
+- optimizer: Adam, SGD, RMSprop, Adagrad
+
+#### Step 2: grid search
+
+Focused grid over:
+
+- hidden layers: 1, 2
+- neurons: 128, 256
+- learning rate: 0.001, 0.003, 0.005
+- gamma: 0.95, 0.97, 0.99
+- optimizer: Adam, SGD, RMSprop
+
+A total of **108 configurations** were tested in the focused stage.
+
+### Best baseline configuration
+
+- hidden layers: 1
+- neurons per layer: 128
+- learning rate: 0.003
+- gamma: 0.95
+- optimizer: Adam
+
+### Base training behavior
+
+Training progress reported:
+
+- episode 50: average reward = 41.90
+- episode 100: average reward = 107.22
+- episode 150: average reward = 182.28
+- episode 200: average reward = 183.70
+- episode 250: average reward = 173.50
+- episode 300: average reward = 199.56
+
+### Base result
+
+The baseline solved CartPole-v0 in **328 episodes** with an average reward of **195.12** over the last 100 episodes.
+Testing over 100 episodes gave:
+
+- average score = 200.00
+- successes = 100
+- failures = 0
+
+So even the plain baseline was strong enough to solve v0 reliably.
+
+---
+
+## 7) Baseline subtraction and why it helps
+
+Plain REINFORCE is famous for **high variance**.
+The agent may get the right answer on average, but the gradient estimates can be noisy.
+
+### What baseline subtraction does
+
+The project introduced baseline subtraction by taking the mean return of the episode and subtracting it from the raw returns.
+That gives an **advantage-like signal** instead of using raw returns directly.
+
+In spirit:
+
+$$
+A_t \approx G_t - b
+$$
+
+where \(b\) is a baseline.
+
+### Why this helps
+
+It does not change the overall learning target in a harmful way.
+Instead, it reduces variance in the update and makes learning more stable.
+
+### Additional stabilization
+
+The project also normalized advantages.
+That centers and scales them, which usually helps optimization.
+
+### Result
+
+With baseline subtraction:
+
+- average reward over last 100 episodes = **195.18**
+- convergence = **275 episodes**
+
+So this was a meaningful improvement over the raw baseline, but not the biggest one in the whole project.
+
+---
+
+## 8) Reward shaping: the real turning point
+
+This is the most important section of the project.
+
+The default CartPole reward is simple, but it does not fully encode the qualitative behavior we actually want.
+The project therefore designed custom rewards that explicitly encouraged:
+
+- keeping the cart near the center
+- keeping the pole upright
+
+### 8.1 Linear custom reward
+
+The linear reward was defined as:
+
+$$
+Reward(x, \theta) = w_{cart}(1 - |x|) + w_{angle}(1 - |\theta|)
+$$
+
+with:
+
+- \(x\) = cart position
+- \(\theta\) = pole angle in radians
+- \(w_{cart} = 0.20\)
+- \(w_{angle} = 0.80\)
+
+### Intuition
+
+This gives higher reward when both:
+
+- cart position is close to the center
+- pole angle is close to vertical
+
+The linear formulation is simple and interpretable.
+It already improved training stability.
+
+### 8.2 Exponential custom reward
+
+The stronger reward design used exponential decay:
+
+$$
+r_{cart} = \exp\left(\frac{x_{threshold} - |x|}{x_{threshold}}\right) - 0.999
+$$
+
+$$
+r_{angle} = \exp\left(\frac{\theta_{threshold} - |\theta|}{\theta_{threshold}}\right) - 0.999
+$$
+
+$$
+Reward_{combined} = w_{cart} \cdot r_{cart} + w_{angle} \cdot r_{angle}
+$$
+
+with:
+
+- \(x_{threshold} = 2.4\)
+- \(\theta_{threshold} = 0.209\) radians
+- \(w_{cart} = 0.15\)
+- \(w_{angle} = 0.85\)
+
+### Why the exponential version worked better
+
+The key idea is that exponential reward shaping penalizes deviations more sharply, especially near important boundaries.
+So it gives the agent a stronger signal that “almost losing balance” is much worse than being near the center and upright.
+
+That makes sense for CartPole because:
+
+- pole angle matters more than cart position
+- recovery becomes harder near failure boundaries
+- the environment is simple enough that a carefully shaped reward can strongly guide learning
+
+### Result of exponential reward shaping
+
+This was the strongest REINFORCE-side improvement in the note.
+
+- convergence = **228 episodes**
+- average reward over last 100 episodes = **195.19**
+
+So compared with the plain baseline:
+
+- raw baseline: 328 episodes
+- baseline subtraction: 275 episodes
+- exponential custom reward: 228 episodes
+
+That is a clear step-up in convergence speed.
+
+---
+
+## 9) Noise imputation and entropy regularization
+
+These were mentioned in the report, but they were not documented with the same implementation detail as the core baseline and reward-shaping sections.
+So I should be careful not to pretend I have more detail than the report actually gives.
+
+### What I can safely say
+
+- **Noise imputation** was explored as a way to broaden exploration coverage of the observation space.
+- The report’s summary says it **helped exploration**, but **did not help faster convergence**.
+- **Entropy regularization** is mentioned as part of the motivation around exploration and policy stability.
+- In the detailed algorithm sections, the clearest entropy-based method documented is **SAC**.
+
+### What I should not overclaim
+
+The report does not give a fully step-by-step standalone implementation walkthrough for the earlier noise-imputation or entropy-regularized REINFORCE variants.
+So in my own note, I should treat them as **explored ideas with summarized conclusions**, not fully reconstructed notebook logic.
+
+---
+
+## 10) Comparison algorithms
+
+After improving the policy-gradient baseline, the project compared multiple RL families.
+That makes this note more useful because it is not stuck at one algorithm.
+
+---
+
+### 10.1 PPO
+
+#### Simple idea
+
+PPO is still policy-based, but it makes policy updates more controlled so that the network does not change too aggressively in one step.
+The report specifically used a **PPO-Penalty** style setup using KL-based penalty.
+
+#### Best configuration
+
+- actor hidden layers: 1
+- actor neurons: 64
+- critic hidden layers: 1
+- critic neurons: 64
+- learning rate: 0.005
+- gamma: 0.975
+- optimizer: Adam
+- `kl_coeff = 0.25`
+- `vf_coeff = 0.45`
+- custom reward cart weight: 0.175
+
+#### Result summary
+
+PPO was the strongest policy-gradient family result in the report.
+
+**CartPole-v0**
+
+- without custom reward: convergence 165 episodes, mean 197.97, success 97/100
+- with custom reward: convergence 139 episodes, mean 200.00, success 100/100
+
+**CartPole-v1**
+
+- trained without custom reward: v1 mean 493.83, success 95/100
+- trained with custom reward: v1 mean 471.58, success 81/100
+
+This is interesting because PPO was very fast and stable, but custom reward did not automatically dominate every v1 test statistic in the report.
+That is a good reminder that a reward that speeds up convergence on one benchmark does not always guarantee better generalization on every harder setting.
+
+---
+
+### 10.2 DQN
+
+#### Simple idea
+
+DQN is value-based.
+Instead of learning action probabilities directly, it learns a **Q-function** that estimates the value of each action in each state.
+
+The report uses the usual DQN stabilization ingredients:
+
+- neural Q-network
+- target network
+- replay memory
+
+#### Core loss form
+
+The report gives the standard idea:
+
+$$
+L = \mathbb{E}\Big[\big((r_t + \gamma (1-d_t) \max_a Q(s_{t+1}, a)) - Q(s_t, a)\big)^2\Big]
+$$
+
+#### Best configuration
+
+- policy network hidden layers: 2
+- policy neurons: 128
+- target network hidden layers: 2
+- target neurons: 128
+- learning rate: 0.0001
+- gamma: 0.99
+- optimizer: Adam
+- custom reward cart weight: 0.175
+
+#### Result summary
+
+DQN was the best-performing value-based method in the report.
+
+**CartPole-v0**
+
+- without custom reward: convergence 358 episodes, mean 200.00, success 100/100
+- with custom reward: convergence 100 episodes, mean 200.00, success 100/100
+
+**CartPole-v1**
+
+- without custom reward: v1 mean 500.00, success 100/100
+- with custom reward: v1 mean 500.00, success 100/100
+
+This is a very strong result.
+On v0, reward shaping massively reduced convergence time for DQN.
+On v1, both versions reached perfect test scores in the reported runs.
+
+---
+
+### 10.3 VPG
+
+#### Simple idea
+
+VPG is the plain direct policy-gradient formulation.
+It is conceptually simple, but it often suffers from high variance and weaker sample efficiency.
+
+#### Best configuration
+
+- hidden layers: 1
+- neurons: 128
+- learning rate: 0.001
+- gamma: 0.99
+- optimizer: Adam
+- custom reward cart weight: 0.15
+
+#### Result summary
+
+**CartPole-v0**
+
+- without custom reward: convergence 579 episodes, mean 197.69, success 94/100
+- with custom reward: convergence 365 episodes, mean 198.52, success 96/100
+
+**CartPole-v1**
+
+- without custom reward: v1 mean 484.09, success 92/100
+- with custom reward: v1 mean 494.81, success 98/100
+
+VPG improved with reward shaping, but it was still weaker than the strongest methods.
+That matches the usual intuition: direct policy gradient is elegant, but can be noisy and slower.
+
+---
+
+### 10.4 Actor-Critic (AC)
+
+#### Simple idea
+
+Actor-Critic separates:
+
+- the **actor** = policy
+- the **critic** = value estimator
+
+The critic provides a lower-variance learning signal for the actor.
+This is why Actor-Critic is often more stable than plain policy gradient.
+
+#### Advantage form used in the explanation
+
+The report presents the usual decomposition:
+
+$$
+A(a_t, s_t) = r_t + \gamma V(s_{t+1}) - V(s_t)
+$$
+
+#### Best configuration
+
+- hidden layers: 1
+- neurons: 64
+- learning rate: 0.009
+- gamma: 0.99
+- optimizer: Adam
+- custom reward cart weight: 0.165
+
+#### Result summary
+
+**CartPole-v0**
+
+- without custom reward: convergence 192 episodes, mean 200.00, success 100/100
+- with custom reward: convergence 178 episodes, mean 200.00, success 100/100
+
+**CartPole-v1**
+
+- without custom reward: v1 mean 500.00, success 100/100
+- with custom reward: v1 mean 500.00, success 100/100
+
+Actor-Critic was very strong and very stable.
+Reward shaping helped, but the baseline method itself was already solid.
+
+---
+
+### 10.5 Soft Actor-Critic (SAC)
+
+#### Simple idea
+
+SAC adds **entropy regularization** so that the policy does not become too deterministic too early.
+That gives a better exploration–exploitation balance.
+
+The report explains SAC as maximizing both:
+
+- expected value
+- policy entropy
+
+So it rewards good actions, but also rewards retaining enough randomness for effective exploration.
+
+#### Best configuration
+
+- hidden layers: 1
+- neurons: 64
+- learning rate: 0.005
+- gamma: 0.97
+- optimizer: Adam
+- alpha: 0.05
+- tau: 0.003
+- replay buffer batch size: 25
+- custom reward cart weight: 0.165
+
+#### Result summary
+
+**CartPole-v0**
+
+- without custom reward: convergence 109 episodes, mean 197.64, success 80/100
+- with custom reward: convergence 38 episodes, mean 200.00, success 100/100
+
+**CartPole-v1**
+
+- without custom reward: v1 mean 500.00, success 100/100
+- with custom reward: v1 mean 500.00, success 100/100
+
+This was the standout result in the report.
+SAC converged fastest overall, especially when combined with custom reward.
+
+---
+
+### 10.6 Clipped Double-Q Learning (Twin-Q)
+
+#### Simple idea
+
+Twin-Q uses two Q-networks and takes the smaller estimate when building targets.
+That helps reduce **overestimation bias**.
+
+#### Best configuration
+
+- hidden layers: 1
+- neurons: 64
+- learning rate: 0.0005
+- gamma: 0.99
+- optimizer: Adam
+- tau: 0.002
+- replay buffer batch size: 50
+- custom reward cart weight: 0.165
+- Ornstein–Uhlenbeck noise: sigma 0.05, theta 0.15, `dt = 1e-2`
+
+#### Result summary
+
+**CartPole-v0**
+
+- without custom reward: convergence 1412 episodes, mean 199.48, success 94/100
+- with custom reward: convergence 979 episodes, mean 200.00, success 100/100
+
+**CartPole-v1**
+
+- without custom reward: v1 mean 500.00, success 100/100
+- with custom reward: v1 mean 500.00, success 100/100
+
+Twin-Q eventually performed well in final score terms, but it was much slower to converge than the stronger alternatives.
+So the main weakness here was not ultimate capability, but training efficiency.
+
+---
+
+## 11) Clean comparison tables
+
+### 11.1 CartPole-v0 comparison
+
+| Algorithm | Without custom reward: convergence | Without custom reward: mean | Without custom reward: success | With custom reward: convergence | With custom reward: mean | With custom reward: success |
+|---|---:|---:|---:|---:|---:|---:|
+| REINFORCE / base PG | 328 | 200.00* | 100/100* | 228 | 195.19** | solved |
+| PPO | 165 | 197.97 | 97/100 | 139 | 200.00 | 100/100 |
+| DQN | 358 | 200.00 | 100/100 | 100 | 200.00 | 100/100 |
+| VPG | 579 | 197.69 | 94/100 | 365 | 198.52 | 96/100 |
+| Actor-Critic | 192 | 200.00 | 100/100 | 178 | 200.00 | 100/100 |
+| SAC | 109 | 197.64 | 80/100 | 38 | 200.00 | 100/100 |
+| Twin-Q | 1412 | 199.48 | 94/100 | 979 | 200.00 | 100/100 |
+
+\* For the base PG section, the test run over 100 episodes reported mean 200.00 and 100/100 successes after convergence.
+
+\** For the custom-reward REINFORCE variant, the report states average reward 195.19 over the last 100 training episodes and convergence in 228 episodes.
+
+### 11.2 CartPole-v1 comparison
+
+| Algorithm | Train setup | Convergence | V0 test mean | V0 success | V1 test mean | V1 success |
+|---|---|---:|---:|---:|---:|---:|
+| PPO | without custom reward | 275 | 200.00 | 100/100 | 493.83 | 95/100 |
+| PPO | with custom reward | 193 | 199.97 | 100/100 | 471.58 | 81/100 |
+| DQN | without custom reward | 360 | 200.00 | 100/100 | 500.00 | 100/100 |
+| DQN | with custom reward | 193 | 200.00 | 100/100 | 500.00 | 100/100 |
+| VPG | without custom reward | 799 | 199.20 | 97/100 | 484.09 | 92/100 |
+| VPG | with custom reward | 623 | 200.00 | 100/100 | 494.81 | 98/100 |
+| Actor-Critic | without custom reward | 460 | 200.00 | 100/100 | 500.00 | 100/100 |
+| Actor-Critic | with custom reward | 208 | 200.00 | 100/100 | 500.00 | 100/100 |
+| SAC | without custom reward | 747 | 200.00 | 100/100 | 500.00 | 100/100 |
+| SAC | with custom reward | 122 | 200.00 | 100/100 | 500.00 | 100/100 |
+| Twin-Q | without custom reward | 1344 | 200.00 | 100/100 | 500.00 | 100/100 |
+| Twin-Q | with custom reward | 1159 | 200.00 | 100/100 | 500.00 | 100/100 |
+
+### Fastest convergence by simple ranking
+
+#### On CartPole-v0 with custom reward
+
+1. SAC — 38 episodes
+2. DQN — 100 episodes
+3. PPO — 139 episodes
+4. Actor-Critic — 178 episodes
+5. REINFORCE with exponential reward — 228 episodes
+6. VPG — 365 episodes
+7. Twin-Q — 979 episodes
+
+#### On CartPole-v1 with custom reward
+
+1. SAC — 122 episodes
+2. PPO — 193 episodes
+3. DQN — 193 episodes
+4. Actor-Critic — 208 episodes
+5. VPG — 623 episodes
+6. Twin-Q — 1159 episodes
+
+---
+
+## 12) What I learned from the results
+
+### 1. Reward shaping was the biggest lever
+
+This is the central result.
+Changing the reward to better reflect desired control behavior improved convergence across the board.
+
+### 2. Baseline subtraction helped, but less dramatically
+
+It gave a clear variance-reduction benefit, but the gain was smaller than the gain from reward shaping.
+
+### 3. SAC was the best overall performer in this report
+
+That makes sense because SAC balances value learning and policy learning while explicitly preserving exploration through entropy.
+
+### 4. PPO was the strongest policy-gradient family result
+
+PPO’s constrained update logic made it faster and more stable than plain VPG.
+
+### 5. DQN was the best value-based method
+
+It benefited strongly from replay, target stabilization, and reward shaping.
+
+### 6. REINFORCE beat plain VPG in this project story
+
+That is an interesting takeaway because it shows that a well-improved “simple” method can stay competitive with a more formal baseline method when reward design is good.
+
+### 7. Final score alone is not enough
+
+Some methods eventually reached very high scores, but the real practical difference came from:
+
+- convergence speed
+- training stability
+- consistency across runs/tests
+
+That is the more useful way to compare RL algorithms in practice.
+
+---
+
+## 13) What was done here vs what a stronger RL research workflow would add
+
+This is important.
+The project is good and useful, but it is still a course/project workflow rather than a full research-grade benchmark.
+
+### What was actually done here
+
+- implemented several RL algorithms
+- compared them on CartPole-v0 and CartPole-v1
+- tuned hyperparameters
+- shaped rewards
+- inspected training curves and test results
+
+### What a stronger RL research workflow would usually add
+
+- multiple random seeds for every experiment
+- mean and standard deviation over repeated runs
+- confidence intervals, not only single-run scores
+- cleaner ablation studies isolating one change at a time
+- explicit train / evaluation seed control
+- standardized reporting of sample efficiency
+- stronger reproducibility packaging
+- more detailed treatment of entropy, exploration schedules, and reward-scale sensitivity
+
+### Why this distinction matters
+
+A project note should be honest.
+This work is strong enough to build intuition and show clear experimental thinking.
+But I should not present it as if it were a fully standardized benchmark paper.
+
+---
+
+## 14) Limits of the project
+
+The report itself acknowledges a few important limitations.
+
+### Simulation limitation
+
+This was done in a simulated OpenAI Gym / Gymnasium-style environment.
+So it does not directly capture:
+
+- material properties
+- real friction
+- hardware noise
+- actuator imperfections
+- real-world disturbances
+
+### Transfer limitation
+
+Strong performance on CartPole does not automatically mean strong performance on more complex real control systems.
+
+### Documentation limitation
+
+Some ideas, especially around noise imputation and entropy regularization outside the SAC section, were summarized but not described in enough implementation detail to fully reconstruct everything step by step.
+
+---
+
+## 15) Why this note matters for my wider portfolio
+
+Even though this is not a credit-risk project, it still strengthens my broader quantitative foundation.
+
+It helps me practice:
+
+- thinking clearly about objective functions
+- separating policy learning from value learning
+- understanding optimization stability
+- comparing model families under the same benchmark
+- reasoning about reward design as part of problem formulation
+- summarizing experiments in a structured way
+
+That matters because good modeling work is never just about code.
+It is about:
+
+- framing the problem correctly
+- choosing the right signal
+- measuring performance properly
+- understanding model limitations
+
+That mindset transfers well beyond RL.
+
+---
+
+## 16) Compact memory map
+
+### If I want the shortest summary possible
+
+- **CartPole** = balance a pole by moving left or right
+- **REINFORCE / plain PG** = simple but high variance
+- **Baseline subtraction** = reduces variance, modest convergence improvement
+- **Custom reward** = major improvement because it aligns learning with desired behavior
+- **PPO** = more stable policy-gradient updates
+- **DQN** = value-based learning with replay + target network
+- **Actor-Critic** = actor learns policy, critic reduces variance
+- **SAC** = entropy-regularized actor-critic, best overall in this report
+- **Twin-Q** = reduces overestimation bias, but slow here
+
+### The clean project takeaway
+
+The strongest single idea from this project is:
+
+> In reinforcement learning, the choice of algorithm matters, but the quality of the reward signal can matter even more.
+
+---
+
+## 17) Final closing summary
+
+This CartPole project started from a simple policy-gradient baseline and gradually became a broader comparative RL study.
+The project showed three clear things:
+
+1. a simple policy-gradient method can solve CartPole
+2. variance reduction helps
+3. reward shaping can dramatically change convergence behavior
+
+From there, the comparison across PPO, DQN, VPG, Actor-Critic, SAC, and Twin-Q made the broader lesson even clearer:
+
+- there is no single “best” algorithm in all settings
+- but for this project, **SAC was the strongest overall**, **PPO was the strongest policy-gradient family result**, and **DQN was the strongest value-based result**
+- across the entire study, **custom reward design was one of the most important drivers of improvement**
+
+That is the main insight I want to remember from this project.

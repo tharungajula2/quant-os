@@ -17,7 +17,7 @@ export default function HomeDashboard({
   notes,
   graphData,
 }: HomeDashboardProps) {
-  const [view, setView] = useState<"grid" | "graph">("graph");
+  const [view, setView] = useState<"grid" | "graph" | "portfolio">("graph");
   const searchParams = useSearchParams();
 
   // ── Sync View State from URL Query ──
@@ -40,7 +40,8 @@ export default function HomeDashboard({
               fontWeight: 600,
               letterSpacing: "0.25em",
               textTransform: "uppercase",
-              color: "rgba(255,255,255,0.25)",
+              color: "var(--accent)",
+              opacity: 0.5,
               marginBottom: "0.4rem",
             }}
           >
@@ -59,7 +60,7 @@ export default function HomeDashboard({
               gap: "1rem",
             }}
           >
-            Quant OS
+            <span className="heading-gradient">Quant OS</span>
             
             {/* ── OS Sync Mastery Pill ── */}
             <div
@@ -69,9 +70,9 @@ export default function HomeDashboard({
                 gap: "0.5rem",
                 padding: "0.25rem 0.75rem",
                 borderRadius: "99px",
-                background: "rgba(16, 185, 129, 0.1)",
-                border: "1px solid rgba(16, 185, 129, 0.2)",
-                boxShadow: "0 0 12px rgba(16, 185, 129, 0.15)",
+                background: "rgba(34, 211, 238, 0.1)",
+                border: "1px solid rgba(34, 211, 238, 0.2)",
+                boxShadow: "0 0 12px rgba(34, 211, 238, 0.15)",
                 transform: "translateY(-2px)",
               }}
             >
@@ -81,13 +82,13 @@ export default function HomeDashboard({
                   width: "6px",
                   height: "6px",
                   borderRadius: "50%",
-                  background: "#34d399",
-                  boxShadow: "0 0 8px #34d399",
-                  animation: "pulse-green 2s infinite ease-in-out",
+                  background: "var(--accent)",
+                  boxShadow: "0 0 8px var(--accent)",
+                  animation: "pulse-cyan 2s infinite ease-in-out",
                 }}
               />
               <style>{`
-                @keyframes pulse-green {
+                @keyframes pulse-cyan {
                   0%   { opacity: 0.5; transform: scale(0.9); }
                   50%  { opacity: 1; transform: scale(1.2); }
                   100% { opacity: 0.5; transform: scale(0.9); }
@@ -99,7 +100,7 @@ export default function HomeDashboard({
                   fontSize: "0.75rem",
                   fontWeight: 700,
                   letterSpacing: "0.1em",
-                  color: "#34d399",
+                  color: "var(--accent)",
                   textTransform: "uppercase",
                 }}
               >
@@ -186,6 +187,32 @@ export default function HomeDashboard({
             <Network size={14} />
             Graph
           </button>
+          <button
+            onClick={() => setView("portfolio")}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.4rem",
+              padding: "0.45rem 0.85rem",
+              borderRadius: "0.55rem",
+              fontSize: "0.75rem",
+              fontWeight: 600,
+              border: "none",
+              cursor: "pointer",
+              transition: "all 0.2s ease",
+              background:
+                view === "portfolio"
+                  ? "rgba(34, 211, 238, 0.12)"
+                  : "transparent",
+              color:
+                view === "portfolio"
+                  ? "var(--accent)"
+                  : "rgba(255,255,255,0.3)",
+            }}
+          >
+            <Briefcase size={14} />
+            Portfolio
+          </button>
 
 
           <div style={{ width: "1px", background: "rgba(255,255,255,0.1)", margin: "0.25rem", alignSelf: "stretch" }} />
@@ -224,10 +251,10 @@ export default function HomeDashboard({
 
       {/* ── Content Area ── */}
       <div
-        className="flex-1 w-full relative overflow-hidden rounded-2xl mx-auto"
+        className="flex-1 w-full relative overflow-hidden rounded-2xl mx-auto glass-card"
         style={{
-          border: "1px solid rgba(255,255,255,0.06)",
-          background: "rgba(5,5,5,0.3)",
+          border: "1px solid var(--border)",
+          background: "rgba(2, 4, 10, 0.4)",
           minHeight: "75vh",
         }}
       >
@@ -237,6 +264,13 @@ export default function HomeDashboard({
             style={{ minHeight: "75vh" }}
           >
             <UniverseGrid notes={notes} />
+          </div>
+        ) : view === "portfolio" ? (
+          <div
+            className="w-full h-full overflow-y-auto p-4"
+            style={{ minHeight: "75vh" }}
+          >
+            <UniverseGrid notes={notes.filter(n => n.frontmatter.cluster === "03 — Portfolio Projects")} />
           </div>
         ) : (
           <div style={{ height: "75vh", width: "100%" }}>

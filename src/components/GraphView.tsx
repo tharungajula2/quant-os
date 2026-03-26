@@ -28,20 +28,18 @@ const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), {
   ),
 });
 
-// ── Premium cluster color palette ──
+/* ── Premium cluster color palette: Final Color Sync ── */
 const CLUSTER_COLORS: Record<string, string> = {
-  "00 — System Atlas": "#60a5fa", // blue-400
-  "01 — Foundations": "#8b5cf6", // violet-500
-  "02 — End-to-End Credit Risk Modeling": "#10b981", // emerald-500
-  "03 — Applied Machine Learning Projects": "#f59e0b", // amber-500
-  "04 — Sandbox": "#06b6d4", // cyan-500
-  "Isolated Nodes": "#9ca3af",
-  Others: "#9ca3af",
+  "01 — Profile": "#ffffff", // Brilliant White
+  "02 — Foundations": "#f97316", // Premium Orange (Complementary)
+  "03 — Portfolio Projects": "#22d3ee", // Design Accent Cyan-Blue
+  "Isolated Nodes": "#475569",
+  Others: "#475569",
 };
 
 function getColor(group: string, id: string): string {
-  if (id === "Tharun-Kumar-Gajula") return "#ffffff"; // Distinct white color for profile
-  return CLUSTER_COLORS[group] ?? "#9ca3af";
+  if (id === "Tharun-Kumar-Gajula") return "#ffffff"; // Brilliant white for profile
+  return CLUSTER_COLORS[group] ?? "#475569";
 }
 
 function hexToRgba(hex: string, alpha: number): string {
@@ -145,7 +143,7 @@ export default function GraphView({ graphData }: GraphViewProps) {
           const hoverRadius = isCentralNode ? 10 : 7;
           const radius = isHovered ? hoverRadius : baseRadius;
 
-          // Outer glow
+          // Outer glow (Reverted to subtle clinical glow)
           const glowRadius = isHovered ? (isCentralNode ? 24 : 18) : (isCentralNode ? 16 : 10);
           const grad = ctx.createRadialGradient(x, y, 0, x, y, glowRadius);
           grad.addColorStop(0, hexToRgba(color, isHovered ? 0.35 : 0.12));
@@ -164,7 +162,7 @@ export default function GraphView({ graphData }: GraphViewProps) {
           // Specular highlight
           ctx.beginPath();
           ctx.arc(x, y - radius * 0.25, radius * 0.35, 0, 2 * Math.PI);
-          ctx.fillStyle = "rgba(255,255,255,0.25)";
+          ctx.fillStyle = "rgba(255,255,255,0.4)";
           ctx.fill();
 
           // ── Small permanent label ──

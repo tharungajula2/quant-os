@@ -18,7 +18,7 @@ tags:
   - ROC-AUC
   - precision
   - recall
-cluster: "03 — Applied Machine Learning Projects"
+cluster: "03 — Portfolio Projects"
 progress: 0
 links:
   - "[[Tharun-Kumar-Gajula]]"

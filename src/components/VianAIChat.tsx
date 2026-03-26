@@ -47,7 +47,7 @@ export default function VianAIChat() {
       {/* ── Floating Toggle Button ── */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 cursor-pointer ${isOpen ? "bg-gray-800 text-white" : "bg-blue-600 hover:bg-blue-500 text-white"
+        className={`fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 cursor-pointer ${isOpen ? "bg-slate-800 text-white" : "bg-cyan-600 hover:bg-cyan-500 text-white"
           }`}
         title="Toggle Vian AI"
       >
@@ -57,18 +57,18 @@ export default function VianAIChat() {
       {/* ── Chat Window ── */}
       {isOpen && (
         <div
-          className="fixed bottom-24 right-2 sm:right-6 w-[calc(100vw-16px)] sm:w-[400px] h-[600px] max-h-[80vh] backdrop-blur-2xl bg-black/80 border border-white/10 rounded-2xl flex flex-col shadow-[0_0_40px_rgba(0,0,0,0.5)] overflow-hidden z-[100]"
+          className="fixed bottom-24 right-2 sm:right-6 w-[calc(100vw-16px)] sm:w-[400px] h-[600px] max-h-[80vh] backdrop-blur-2xl bg-slate-950/80 border border-cyan-500/20 rounded-2xl flex flex-col shadow-[0_0_40px_rgba(0,0,0,0.5)] overflow-hidden z-[100]"
         >
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-white/[0.03]">
             <div className="flex items-center gap-2">
-              <BrainCircuit size={18} className="text-blue-400" />
+              <BrainCircuit size={18} className="text-cyan-400" />
               <span className="font-bold text-white">Vian AI</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+              <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
               {isUnlocked ? (
-                <Unlock size={14} className="text-emerald-400" />
+                <Unlock size={14} className="text-cyan-400" />
               ) : (
                 <Lock size={14} className="text-red-500" />
               )}
@@ -110,8 +110,8 @@ export default function VianAIChat() {
                     <div
                       key={m.id}
                       className={isUser
-                        ? 'text-sm whitespace-pre-wrap bg-blue-600 text-white px-5 py-3 rounded-2xl rounded-tr-sm w-fit max-w-[85%] ml-auto shadow-md leading-relaxed'
-                        : 'text-sm whitespace-pre-wrap bg-[#1a1a24] text-gray-200 px-5 py-3 rounded-2xl rounded-tl-sm w-fit max-w-[85%] mr-auto border border-white/5 shadow-sm leading-relaxed'
+                        ? 'text-sm whitespace-pre-wrap bg-cyan-600 text-white px-5 py-3 rounded-2xl rounded-tr-sm w-fit max-w-[85%] ml-auto shadow-md leading-relaxed'
+                        : 'text-sm whitespace-pre-wrap bg-slate-900/80 text-gray-200 px-5 py-3 rounded-2xl rounded-tl-sm w-fit max-w-[85%] mr-auto border border-cyan-500/10 shadow-sm leading-relaxed'
                       }
                     >
                       {m.parts
@@ -146,7 +146,7 @@ export default function VianAIChat() {
                 <button
                   type="submit"
                   disabled={isLoading || !input?.trim()}
-                  className="w-9 h-9 flex items-center justify-center bg-blue-600 rounded-full hover:bg-blue-500 shrink-0 text-white transition-colors disabled:opacity-50 disabled:hover:bg-blue-600 cursor-pointer"
+                  className="w-9 h-9 flex items-center justify-center bg-cyan-600 rounded-full hover:bg-cyan-500 shrink-0 text-white transition-colors disabled:opacity-50 disabled:hover:bg-cyan-600 cursor-pointer"
                 >
                   <Send size={16} />
                 </button>

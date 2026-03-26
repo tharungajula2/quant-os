@@ -12,7 +12,7 @@ tags:
   - data-science
   - banking
   - machine-learning
-cluster: "00 — System Atlas"
+cluster: "01 — Profile"
 progress: 0
 links:
   - "[[1_lending_club_credit_risk_masterclass]]"
@@ -97,71 +97,41 @@ That is why these notes are written the way they are. They are intentionally det
 
 ---
 
-## The Architecture of My Brain Notes
+## The current system is easiest to understand as **three connected clusters**.
 
-The current system is easiest to understand as **three connected clusters**.
+### Cluster 1 — Profile
 
-### Cluster 1 — Credit Risk Core
+The entry point and high-level map of my professional direction.
 
-This is the professional spine of the vault.
+- [[Tharun-Kumar-Gajula]]
 
-- [[1_lending_club_credit_risk_masterclass]]
+### Cluster 2 — Foundations
 
-This one master note now brings together the full Lending Club flow in one connected story:
-
-- target definition and bad-rate logic
-- preprocessing and feature engineering
-- missing-value treatment
-- WoE and IV
-- logistic regression scorecard building
-- validation metrics
-- monitoring and drift
-- LGD and EAD
-- expected loss
-- CECL and stress-testing extensions
-
-This note is the anchor of the whole system because it connects statistics, modeling, monitoring, and credit-risk interpretation into one workflow.
-
-### Cluster 2 — Applied Machine Learning Through Projects
-
-These notes broaden my modeling range across different business problems and data types:
-
-- [[5_bank_churn_neural_networks_masterclass]]
-- [[6_employee_retention_tree_models_masterclass]]
-- [[7_socio_economic_household_classification_masterclass]]
-- [[8_twitter_sentiment_nlp_masterclass]]
-
-Together these notes help me internalize classification, tree models, boosting, neural networks, imbalance handling, feature engineering, and NLP through concrete projects.
-
-### Cluster 3 — Data Science Foundations and Toolkit
-
-These notes give me the concept-level base that supports both the risk work and the project work:
+The technical and theoretical toolkit that supports every project.
 
 - [[2_regression_analysis_masterclass]]
 - [[3_machine_learning_masterclass]]
 - [[4_python_data_analytics_master_cheatsheet]]
-
-This cluster matters because it helps me step back from individual projects and understand the deeper foundations:
-
-- regression analysis
-- statistical assumptions
-- logistic regression and classification
-- supervised and unsupervised learning
-- ensembles and tuning
-- Python, Pandas, visualization, and workflow basics
-
-### Cluster 4 — Sandbox
-
-This is the regulatory and governance sandbox where I map out the compliance environment that banking analytics operates within:
-
+- [[10_quant_modeling_workflow_master_reference]]
 - [[9_regulatory_foundations_masterclass]]
 
-So the vault now has a cleaner structure:
+### Cluster 3 — Portfolio Projects
 
-- **one risk master note**
-- **four applied projects**
-- **three foundational concept notes**
-- **one sandbox note**
+Hands-on masterclasses covering end-to-end modeling problems.
+
+- [[1_lending_club_credit_risk_masterclass]]
+- [[5_bank_churn_neural_networks_masterclass]]
+- [[6_employee_retention_tree_models_masterclass]]
+- [[7_socio_economic_household_classification_masterclass]]
+- [[8_twitter_sentiment_nlp_masterclass]]
+- [[11_cartpole_reinforcement_learning_masterclass]]
+- [[12_antidiabetic_drug_prescription_forecasting_masterclass]]
+- [[13_nifty100_portfolio_optimization_mpt_masterclass]]
+
+So the vault now has a clear 1-2-3 structure:
+- **My Profile** (01)
+- **Foundations** (02)
+- **Portfolio Projects** (03)
 
 That gives me both depth and breadth.
 
@@ -170,24 +140,24 @@ That gives me both depth and breadth.
 ## The Full Brain as a Concept Map
 
 ```text
-[Tharun-Kumar-Gajula]
+[Tharun-Kumar-Gajula] (01 — Profile)
         │
-        ├── Credit Risk Core
-        │      └── [1_lending_club_credit_risk_masterclass]
+        ├── 02 — Foundations
+        │      ├── [2_regression_analysis_masterclass]
+        │      ├── [3_machine_learning_masterclass]
+        │      ├── [4_python_data_analytics_master_cheatsheet]
+        │      ├── [10_quant_modeling_workflow_master_reference]
+        │      └── [9_regulatory_foundations_masterclass]
         │
-        ├── Applied Machine Learning Projects
-        │      ├── [5_bank_churn_neural_networks_masterclass]
-        │      ├── [6_employee_retention_tree_models_masterclass]
-        │      ├── [7_socio_economic_household_classification_masterclass]
-        │      └── [8_twitter_sentiment_nlp_masterclass]
-        │
-        └── Data Science Foundations
-               ├── [2_regression_analysis_masterclass]
-               ├── [3_machine_learning_masterclass]
-               └── [4_python_data_analytics_master_cheatsheet]
-        │
-        └── Sandbox
-               └── [9_regulatory_foundations_masterclass]
+        └── 03 — Portfolio Projects
+               ├── [1_lending_club_credit_risk_masterclass]
+               ├── [5_bank_churn_neural_networks_masterclass]
+               ├── [6_employee_retention_tree_models_masterclass]
+               ├── [7_socio_economic_household_classification_masterclass]
+               ├── [8_twitter_sentiment_nlp_masterclass]
+               ├── [11_cartpole_reinforcement_learning_masterclass]
+               ├── [12_antidiabetic_drug_prescription_forecasting_masterclass]
+               └── [13_nifty100_portfolio_optimization_mpt_masterclass]
 ```
 
 The logic of this structure is simple:
