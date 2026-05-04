@@ -33,11 +33,10 @@ links:
 
 # Portfolio Projects Master Summary — 8 End-to-End Projects Across Credit Risk, ML, NLP, RL, Forecasting, and Quant Finance
 
-> This note is my single portfolio-level summary across the main project notes in Quant OS.
-> I use it as a clean map of what I built, what each project taught me, and how the projects fit together into one broader quantitative story.
+> This note is a comprehensive portfolio-level summary across the main project notes in the Analytics & Quant Track.
+> It provides a clean map of the technical progression, what each project demonstrates, and how the work fits together into one broader quantitative story.
 >
-> The main goal is not to make the portfolio look like a random collection of notebooks.
-> The goal is to show that the work forms a progression: from business problem framing and preprocessing, to classification, monitoring, NLP, reinforcement learning, forecasting, and portfolio construction.
+> The objective is to show that the work forms a consistent progression: from business problem framing and preprocessing, to classification, monitoring, NLP, reinforcement learning, forecasting, and portfolio construction.
 
 ---
 
@@ -63,8 +62,8 @@ Retail credit risk
 → portfolio optimization and modern portfolio theory
 ```
 
-This portfolio shows that I am not only interested in one narrow model family.
-I have used different projects to understand:
+This portfolio demonstrates that this technical track is not limited to one narrow model family.
+It uses different projects to explore:
 
 - scorecards and credit-loss logic
 - tabular classification with linear models, trees, ensembles, and neural networks
@@ -143,9 +142,9 @@ It is an end-to-end credit-risk system note.
 - monitoring through PSI / CSI-style stability analysis on later data
 - extension from PD into LGD, EAD, and Expected Loss
 
-### Why it matters in the portfolio
+### Why it matters in this track
 
-This project shows that I can think beyond a single predictive model.
+This project demonstrates a technical capability that extends beyond a single predictive model.
 It brings together:
 
 - underwriting logic
@@ -155,7 +154,7 @@ It brings together:
 - loss modeling
 - regulatory extensions like CECL and stress testing
 
-It is the best demonstration that I understand how a model fits into a real banking workflow rather than treating modeling as a standalone coding exercise.
+It shows how a model fits into a real banking workflow rather than treating modeling as a standalone exercise.
 
 ### The main lesson I retain
 
@@ -203,14 +202,14 @@ That means the project is a very good example of a real modeling trade-off:
 - the statistically cleaner model is not always the preferred business model
 - the preferred business model depends on the cost of false negatives versus false positives
 
-### Why it matters in the portfolio
+### Why it matters in this track
 
-This project shows that I understand an important practical point:
+This project demonstrates an understanding of an important practical point:
 
 > a model should not be chosen by accuracy alone.
 
 In retention-style problems, missing an at-risk customer can matter more than incorrectly flagging a safe one.
-That is exactly the kind of reasoning I also need in banking and risk analytics.
+That reasoning is central to high-fidelity banking and risk analytics.
 
 ---
 
@@ -252,9 +251,9 @@ That is a very useful lesson:
 
 > feature engineering should be tested empirically, not assumed to help automatically.
 
-### Why it matters in the portfolio
+### Why it matters in this track
 
-This project shows that I understand why tree-based models often outperform linear baselines on real tabular problems with threshold behavior and interactions.
+This project demonstrates why tree-based models often outperform linear baselines on real tabular problems with threshold behavior and interactions.
 It is also a strong example of using validation structure more carefully rather than relying on one casual train-test split.
 
 ---
@@ -301,10 +300,10 @@ It is about data design discipline:
 - what to engineer
 - and how to interpret class-level performance instead of trusting overall accuracy alone
 
-### Why it matters in the portfolio
+### Why it matters in this track
 
-This project is a very strong demonstration of broad tabular ML workflow maturity.
-It shows that I can work through a larger and noisier dataset without collapsing the analysis into only “run XGBoost and report the score.”
+This project is a strong demonstration of broad tabular ML workflow maturity.
+It shows how to work through a larger and noisier dataset without collapsing the analysis into only “run XGBoost and report the score.”
 
 ---
 
@@ -341,10 +340,10 @@ In this notebook, **CountVectorizer + Random Forest** slightly outperformed **TF
 The negative class was easiest to detect, while the neutral class was clearly the hardest.
 That is a very realistic sentiment-modeling lesson, because neutral language often overlaps with both positive and negative language.
 
-### Why it matters in the portfolio
+### Why it matters in this track
 
-This project proves that the portfolio is not limited to structured numeric data.
-It shows that I can reason about:
+This project proves that the track is not limited to structured numeric data.
+It shows how to reason about:
 
 - raw language data
 - sparse feature spaces
@@ -352,7 +351,7 @@ It shows that I can reason about:
 - class imbalance in NLP
 - and methodological caveats like vectorizer leakage if fit before the split
 
-That is very useful for any broader analytics role where text data appears.
+This is essential for any broader analytics setting where text data appears.
 
 ---
 
@@ -396,9 +395,9 @@ Within the REINFORCE-side progression:
 
 Across the broader comparison, **SAC with custom reward** was the fastest standout result, converging in about **38 episodes** on CartPole-v0 while achieving perfect success in the reported test runs.
 
-### Why it matters in the portfolio
+### Why it matters in this track
 
-This project shows that I can move beyond supervised learning and think about:
+This project moves beyond supervised learning and explores:
 
 - states
 - actions
@@ -407,7 +406,7 @@ This project shows that I can move beyond supervised learning and think about:
 - policy improvement
 - reward design
 
-It adds a completely different modeling paradigm to the portfolio and shows broader curiosity and range.
+It adds a completely different modeling paradigm to the track and shows broader technical range.
 
 ---
 
@@ -462,10 +461,10 @@ That makes the project a clean demonstration of why forecasting requires its own
 - residual diagnostics matter
 - and simple baselines are essential
 
-### Why it matters in the portfolio
+### Why it matters in this track
 
-This project adds a completely different problem type: **predicting the future of a sequence**, not classifying independent rows.
-That is useful not only for demand planning, but also for bank-style settings like provisioning, collections staffing, liquidity planning, and volume forecasting.
+This project adds a different problem type: **predicting the future of a sequence**, not classifying independent rows.
+This is useful not only for demand planning, but also for bank-style settings like provisioning, collections staffing, liquidity planning, and volume forecasting.
 
 ---
 
@@ -511,18 +510,10 @@ The best simulated portfolio achieved approximately:
 The main lesson is that portfolio optimization is not really about picking the “best stock.”
 It is about how assets interact through covariance and how weights transform those interactions into a risk-return trade-off.
 
-### Why it matters in the portfolio
+### Why it matters in this track
 
-This project adds a quant-finance layer to the portfolio and shows that I can think about:
-
-- returns
-- volatility
-- covariance
-- diversification
-- efficient-frontier intuition
-- and optimization under simple constraints
-
-That broadens the portfolio beyond predictive analytics into market-risk and investment-style reasoning.
+This project adds a quant-finance layer and shows how assets interact through covariance and how weights transform those interactions into a risk-return trade-off.
+It broadens the track beyond predictive analytics into market-risk and investment-style reasoning.
 
 ---
 
@@ -626,11 +617,9 @@ The portfolio works best when I can explain:
 
 ---
 
-## How I Would Describe the Full Portfolio in an Interview
+## Narrative Summary of the Track
 
-A clean summary would be:
-
-> I built a portfolio of eight end-to-end projects across credit risk, customer analytics, NLP, reinforcement learning, forecasting, and quant finance. The common thread across them is that I treat each one as a full modeling workflow rather than a notebook that ends at one score. I focus on target definition, preprocessing, model choice, evaluation, business interpretation, and honest discussion of limitations. The portfolio starts from a credit-risk scorecard and expands into neural networks, tree ensembles, text classification, reinforcement learning, SARIMA forecasting, and portfolio optimization, which shows both breadth and a strong workflow mindset.
+The Analytics & Quant Track consists of eight end-to-end projects across credit risk, customer analytics, NLP, reinforcement learning, forecasting, and quant finance. The common thread is that each is treated as a full modeling workflow rather than a notebook that ends at one score. The focus remains on target definition, preprocessing, model choice, evaluation, and business interpretation. The progression starts from a credit-risk scorecard and expands into neural networks, tree ensembles, text classification, reinforcement learning, SARIMA forecasting, and portfolio optimization.
 
 ---
 

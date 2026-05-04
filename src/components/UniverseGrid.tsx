@@ -11,7 +11,7 @@ interface UniverseGridProps {
 
 /* ── Cluster palette: Distinct Clinical Spectrum ── */
 const PALETTE: Record<string, { badge: string; glowColor: string }> = {
-  "01 — Profile": { 
+  "01 — Overview": { 
     badge: "text-white bg-white/10 border-white/20", 
     glowColor: "rgba(255, 255, 255, 0.1)" 
   },

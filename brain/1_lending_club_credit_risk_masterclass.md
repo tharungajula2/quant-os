@@ -24,7 +24,7 @@ tags:
 cluster: "03 — Portfolio Projects"
 progress: 0
 links:
-  - "[[Tharun-Kumar-Gajula]]"
+  - "[[Analytics-Quant-Track-Overview]]"
   - "[[2_regression_analysis_masterclass]]"
   - "[[3_machine_learning_masterclass]]"
   - "[[4_python_data_analytics_master_cheatsheet]]"
@@ -2400,7 +2400,7 @@ That is exactly why I wanted one single note instead of several disconnected one
 
 ## Connections to the Rest of My Notes
 
-- [[Tharun-Kumar-Gajula]] — this master note is the core credit-risk anchor inside my broader system
+- [[Analytics-Quant-Track-Overview]] — this master note is the core credit-risk anchor inside my broader system
 - [[5_bank_churn_neural_networks_masterclass]] — useful contrast for how binary classification appears outside credit-risk scorecards
 - [[6_employee_retention_tree_models_masterclass]] — useful comparison for classification with nonlinear tree models
 - [[7_socio_economic_household_classification_masterclass]] — useful comparison for structured-tabular supervised learning

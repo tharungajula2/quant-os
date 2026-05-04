@@ -18,7 +18,7 @@ tags:
 cluster: "02 — Foundations"
 progress: 0
 links:
-  - "[[Tharun-Kumar-Gajula]]"
+  - "[[Analytics-Quant-Track-Overview]]"
   - "[[2_regression_analysis_masterclass]]"
   - "[[3_machine_learning_masterclass]]"
   - "[[1_lending_club_credit_risk_masterclass]]"
@@ -32,9 +32,9 @@ links:
 
 # Python for Data Analytics Master Cheat Sheet — Core Python, Pandas, Visualization, and Git
 
-> This note is my quick-scan master cheat sheet for Python in data analytics. I want it to help me revise the entire practical toolkit from core syntax to Pandas data handling, plotting, and Git/GitHub workflow.
+> This note is a quick-scan master cheat sheet for Python in data analytics. It is designed to help revise the entire practical toolkit from core syntax to Pandas data handling, plotting, and Git/GitHub workflow.
 >
-> My goal here is not to learn every corner of Python. My goal is to become strong in the subset of Python that I actually use in analytics, modeling, notebooks, interviews, and project building.
+> The objective is not to learn every corner of Python. The goal is to focus on the subset of Python used in analytics, modeling, notebooks, and project building.
 
 ---
 
@@ -92,7 +92,7 @@ In Python, everything is an object. I assign an object to a variable using `=`.
 ```python
 x = 100
 rate = 0.125
-name = "Tharun"
+name = "Ecosystem"
 is_default = False
 ```
 
@@ -427,7 +427,7 @@ text.split(",")
 ### F-strings
 
 ```python
-name = "Tharun"
+name = "Analytics"
 score = 0.873
 msg = f"Model score is {score:.2%} for {name}"
 ```

@@ -23,7 +23,7 @@ tags:
 cluster: "03 — Portfolio Projects"
 progress: 0
 links:
-  - "[[Tharun-Kumar-Gajula]]"
+  - "[[Analytics-Quant-Track-Overview]]"
   - "[[1_lending_club_credit_risk_masterclass]]"
 ---
 

@@ -153,7 +153,7 @@ export default async function NotePage({ params }: NotePageProps) {
                     border: `1px solid ${
                       frontmatter.cluster === "03 — Portfolio Projects" 
                         ? "rgba(34, 211, 238, 0.25)" 
-                        : frontmatter.cluster === "01 — Profile"
+                        : frontmatter.cluster === "01 — Overview"
                         ? "rgba(255, 255, 255, 0.25)"
                         : "rgba(249, 115, 22, 0.25)"
                     }`,
@@ -164,13 +164,13 @@ export default async function NotePage({ params }: NotePageProps) {
                     color: 
                       frontmatter.cluster === "03 — Portfolio Projects" 
                         ? "#22d3ee" 
-                        : frontmatter.cluster === "01 — Profile"
+                        : frontmatter.cluster === "01 — Overview"
                         ? "#ffffff"
                         : "#f97316",
                     background: 
                       frontmatter.cluster === "03 — Portfolio Projects" 
                         ? "rgba(34, 211, 238, 0.08)" 
-                        : frontmatter.cluster === "01 — Profile"
+                        : frontmatter.cluster === "01 — Overview"
                         ? "rgba(255, 255, 255, 0.08)"
                         : "rgba(249, 115, 22, 0.08)",
                   }}
@@ -353,7 +353,7 @@ export default async function NotePage({ params }: NotePageProps) {
                         color: 
                           bl.cluster === "03 — Portfolio Projects" 
                             ? "#22d3ee" 
-                            : bl.cluster === "01 — Profile"
+                            : bl.cluster === "01 — Overview"
                             ? "#ffffff"
                             : "#f97316",
                         opacity: 0.8,

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { LayoutGrid, Network, Briefcase, User } from "lucide-react";
+import { LayoutGrid, Network, Briefcase, Compass } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import UniverseGrid from "@/components/UniverseGrid";
@@ -218,7 +218,7 @@ export default function HomeDashboard({
           <div style={{ width: "1px", background: "rgba(255,255,255,0.1)", margin: "0.25rem", alignSelf: "stretch" }} />
 
           <Link
-            href="/notes/Tharun-Kumar-Gajula"
+            href="/notes/Analytics-Quant-Track-Overview"
             style={{
               display: "flex",
               alignItems: "center",
@@ -243,8 +243,8 @@ export default function HomeDashboard({
               e.currentTarget.style.background = "transparent";
             }}
           >
-            <User size={14} />
-            Profile
+            <Compass size={14} />
+            Overview
           </Link>
         </div>
       </div>

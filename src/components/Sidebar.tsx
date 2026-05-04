@@ -109,7 +109,7 @@ export default function Sidebar({ notes }: SidebarProps) {
               boxShadow: "0 0 10px rgba(34, 211, 238, 0.1)",
             }}
           >
-            <span style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--accent)" }}>T</span>
+            <span style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--accent)" }}>Q</span>
           </div>
           
           {/* Details */}
@@ -124,7 +124,7 @@ export default function Sidebar({ notes }: SidebarProps) {
                 fontWeight: 600,
               }}
             >
-              Author
+              Ecosystem
             </p>
             <p
               style={{
@@ -135,7 +135,7 @@ export default function Sidebar({ notes }: SidebarProps) {
                 letterSpacing: "-0.01em",
               }}
             >
-              Tharun Gajula
+              Analytics & Quant Track
             </p>
             <p
               style={{
@@ -146,7 +146,7 @@ export default function Sidebar({ notes }: SidebarProps) {
                 opacity: 0.9,
               }}
             >
-              Concept Phase
+              Active Wing
             </p>
           </div>
         </div>

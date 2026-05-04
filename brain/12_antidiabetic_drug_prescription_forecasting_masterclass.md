@@ -17,7 +17,7 @@ tags:
 cluster: "03 — Portfolio Projects"
 progress: 0
 links:
-  - "[[Tharun-Kumar-Gajula]]"
+  - "[[Analytics-Quant-Track-Overview]]"
   - "[[2_regression_analysis_masterclass]]"
   - "[[3_machine_learning_masterclass]]"
   - "[[4_python_data_analytics_master_cheatsheet]]"
@@ -926,7 +926,7 @@ The notebook still does a strong job teaching the core logic.
 
 ## Connections to the Rest of My Notes
 
-- [[Tharun-Kumar-Gajula]] — this project sits inside my broader portfolio and shows that my work is not only classification-focused
+- [[Analytics-Quant-Track-Overview]] — this project sits inside my broader portfolio and shows that my work is not only classification-focused
 - [[2_regression_analysis_masterclass]] — useful for the statistical mindset, hypothesis testing logic, and model-interpretation discipline behind this project
 - [[3_machine_learning_masterclass]] — useful for placing classical forecasting alongside broader ML methods and model-selection thinking
 - [[4_python_data_analytics_master_cheatsheet]] — useful for the Python workflow, plotting, pandas handling, and coding syntax that support this notebook

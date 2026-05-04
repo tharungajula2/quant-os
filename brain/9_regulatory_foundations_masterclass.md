@@ -27,7 +27,7 @@ tags:
 cluster: "02 — Foundations"
 progress: 0
 links:
-  - "[[Tharun-Kumar-Gajula]]"
+  - "[[Analytics-Quant-Track-Overview]]"
   - "[[1_lending_club_credit_risk_masterclass]]"
   - "[[2_regression_analysis_masterclass]]"
   - "[[3_machine_learning_masterclass]]"
@@ -38,9 +38,9 @@ links:
 
 # Regulatory Foundations Masterclass — Basel, IFRS 9, CECL, BCBS 239, ICAAP, SR 11-7, and AML Basics
 
-> This note is my compact regulatory cheat sheet. I do **not** want this note to become a giant policy encyclopedia. I want one ready reference that helps me quickly remember the big picture, the main formulas, the core vocabulary, and how each framework connects back to my profile, my Lending Club credit-risk note, and real US-bank interview discussions.
+> This note is a compact regulatory cheat sheet. It serves as a ready reference that helps quickly remember the big picture, the main formulas, the core vocabulary, and how each framework connects back to the Analytics & Quant Track, the Lending Club project, and real-world banking discussions.
 >
-> The goal is simple: when I see terms like **Basel III**, **IFRS 9**, **CECL**, **BCBS 239**, **ICAAP**, or **SR 11-7**, I should immediately know what problem each one is trying to solve.
+> The goal is simple: when seeing terms like **Basel III**, **IFRS 9**, **CECL**, **BCBS 239**, **ICAAP**, or **SR 11-7**, it should be clear what problem each one is trying to solve.
 
 ---
 
@@ -203,7 +203,7 @@ The higher the risk weight, the larger the RWA, and the more capital the bank mu
 
 ---
 
-# 5. Standardized vs IRB — the most interview-relevant distinction
+# 5. Standardized vs IRB — Core Methodological Distinction
 
 ## 5.1 Standardized approach
 
@@ -218,8 +218,7 @@ $$
 \text{RWA}_{\text{standardized}} \approx \text{Exposure} \times \text{Risk Weight}
 $$
 
-### When I should describe it this way
-In interviews, I should say:
+### Key analytical point
 
 > The standardized approach is more rule-based and less dependent on the bank’s own internal risk-parameter estimates.
 
@@ -265,7 +264,7 @@ $$
 \text{Capital Requirement} = 0.08 \times \text{RWA} = K \times EAD
 $$
 
-### Important interview point
+### Important technical point
 
 I should say this very clearly:
 
@@ -285,7 +284,7 @@ I should say this very clearly:
 
 ---
 
-# 6. Basel III / “Basel IV” — what I should say in interviews
+# 6. Basel III / “Basel IV” — The Evolving Framework
 
 ## 6.1 Basel III
 
@@ -305,7 +304,7 @@ It is an informal market label often used for the **finalised Basel III post-cri
 
 When people say Basel IV, they usually mean the later reform package that tightened and revised parts of Basel III, including changes to standardized approaches, constraints on internal models, and the **output floor**.
 
-### One-line interview answer
+### Summary definition
 
 > Basel IV is really shorthand for the final Basel III reform package rather than a totally separate framework.
 
@@ -554,15 +553,15 @@ When I hear BCBS 239, I should immediately think of:
 - **governance**
 - **lineage**
 
-## 10.3 The practical interview translation
+## 10.3 Practical translation
 
-If asked what BCBS 239 means in practice, I should say:
+If asked what BCBS 239 means in practice, the answer is:
 
 > BCBS 239 is about whether the bank can aggregate and report risk data accurately, completely, and quickly enough to support decision-making, especially under stress.
 
-## 10.4 How this connects to my profile
+## 10.4 Connection
 
-This fits my profile very naturally because I already talk about:
+This fits the track naturally because it covers:
 
 - reporting automation
 - data validation
@@ -571,15 +570,13 @@ This fits my profile very naturally because I already talk about:
 - model governance
 - documentation
 
-If I want a stronger professional bridge, I can say:
+The reporting, validation, and data-lineage thinking sits much closer to BCBS 239 than to generic dashboard work.
 
-> My reporting, validation, and data-lineage thinking sits much closer to BCBS 239 than to generic dashboard work.
-
-That is a strong line because it sounds both practical and regulated.
+That is a strong point because it sounds both practical and regulated.
 
 ---
 
-# 11. ICAAP — what it is and how I should remember it
+# 11. ICAAP — definition and application
 
 ## 11.1 What ICAAP means
 
@@ -627,17 +624,17 @@ $$
 
 That is not an official prescribed formula, but it is a good way to remember the logic.
 
-## 11.5 One-line interview answer
+## 11.5 One-line summary
 
 > ICAAP is the bank’s own internal capital assessment and planning process under Pillar 2, used to test whether regulatory minimums are really enough for the bank’s actual risk profile.
 
 ---
 
-# 12. SR 11-7 — model governance cheat sheet
+# 12. SR 11-7 — model governance
 
-## 12.1 Why this matters so much for me
+## 12.1 Relevance
 
-This is one of the most relevant frameworks for my profile because my direction is not only model building but also:
+This is one of the most relevant frameworks because the focus is not only model building but also:
 
 - model validation
 - monitoring
@@ -653,7 +650,7 @@ The core definition to remember is:
 
 > model risk is the potential for adverse consequences from decisions based on incorrect or misused model outputs.
 
-## 12.3 The three pillars I should remember
+## 12.3 The three pillars
 
 ### 1. Model development, implementation, and use
 Questions:
@@ -679,13 +676,13 @@ Questions:
 - Is monitoring ongoing?
 - Are approvals documented?
 
-## 12.4 My shortcut memory line
+## 12.4 Shortcut memory line
 
 > SR 11-7 is about building models properly, validating them independently, and governing them continuously.
 
-## 12.5 How this links to my projects
+## 12.5 Connection
 
-This connects especially to my Lending Club master note because that note already covers:
+This connects especially to the Lending Club master note because that note already covers:
 
 - target definition
 - preprocessing discipline
@@ -698,11 +695,9 @@ So SR 11-7 is the governance umbrella over that technical workflow.
 
 ---
 
-# 13. AML / sanctions basics — only the minimum I need right now
+# 13. AML / sanctions basics — Core Regulatory Context
 
-I do **not** want this section to become a separate AML course.
-
-I only want the basics that help me connect the regulatory map.
+This section provides the basics to connect the broader regulatory map.
 
 ## 13.1 BSA/AML big picture
 
@@ -721,7 +716,7 @@ The key practical components are:
 - **FinCEN** is the US Financial Crimes Enforcement Network
 - **SAR** = Suspicious Activity Report
 
-Very basic interview memory line:
+### Basic memory line:
 
 > FinCEN is the US authority that receives SAR filings, while banks are expected to detect and escalate suspicious activity through their BSA/AML controls.
 
@@ -735,13 +730,13 @@ This is related to, but not identical to, AML.
 
 > AML is about suspicious money flows and financial crime risk; OFAC is about sanctions compliance and prohibited persons / jurisdictions.
 
-## 13.4 Why this section still matters for me
+## 13.4 Why this section matters for the track
 
-Even if I am not going deep into AML now, this section helps me understand the broader US-bank control environment that sits around model governance and risk operations.
+Even if the focus is not deep AML modeling, this section provides context on the broader control environment that sits around model governance and risk operations.
 
 ---
 
-# 14. What I should be able to say fast in an interview
+# 14. Quick Reference Summary
 
 ## Basel
 
@@ -786,11 +781,11 @@ Even if I am not going deep into AML now, this section helps me understand the b
 
 ---
 
-# 15. How this note connects to my profile specifically
+# 15. Narrative Context
 
-## Why this note belongs in my brain
+## Strategic Importance
 
-This note is relevant to my profile because I am not only trying to talk about models as math objects.
+This note is relevant because it frames models within their institutional environment rather than as isolated math objects.
 
 I also want to show that I understand the institutional environment around them:
 

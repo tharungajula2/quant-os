@@ -19,12 +19,12 @@ The `brain/` directory is the sole source of truth:
 - **YAML Frontmatter**: Controls the "OS Sync" progress bars and cluster categorization.
 - **Wikilinks**: Native `[[Link]]` parsing for seamless graph connectivity.
 - **Cluster System**: 
-  - 01 — Profile (Core)
+  - 01 — Overview (Core)
   - 02 — Foundations (Warm Orange Glow)
   - 03 — Portfolio Projects (Cool Cyan Glow)
 
 ### 2. The Design: "Deep Void"
-The application adheres to a strict "Tharun Learning Lab" clinical aesthetic:
+The application adheres to a strict "Analytics Wing" clinical aesthetic:
 - **The Hull**: Deeper void background (`#02040c`).
 - **Cyber-Grid**: Dual-layer Macro/Micro grid textures with radial blue ambient lighting.
 - **Liquid Glass**: Advanced glassmorphism (`backdrop-blur-2xl`, `border-white/10`).
@@ -40,4 +40,4 @@ The application adheres to a strict "Tharun Learning Lab" clinical aesthetic:
 This document is the absolute ground truth for the application's structure. It defines the layout constraints, CSS design tokens, and data models required for consistent system expansion.
 
 ---
-*Ground Truth Architectural Save State — 26 March 2026*
+*Ground Truth Architectural Save State — May 2026 Revision*

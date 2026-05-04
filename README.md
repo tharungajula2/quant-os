@@ -6,7 +6,7 @@ Quant OS is a premium, [Next.js 16](https://nextjs.org)-powered spatial knowledg
 
 ![Quant OS UI Showcase](public/ui-showcase.png)
 
-## 🌌 The Design: "Tharun Learning Lab" Aesthetic
+## 🌌 The Design: "Analytics Wing" Aesthetic
 Quant OS is built with a "Deep Void" philosophy, prioritizing visual silence, intense focus, and clinical precision:
 - **The Void**: A dual-layer Cyber-Grid background (`#02040c`) with macro and micro textures.
 - **Electric Accents**: A high-contrast palette featuring **Brilliant White** (Profile), **Design Cyan-Blue** (Portfolio), and **Complementary Orange** (Foundations).
@@ -50,4 +50,4 @@ For a deep dive into the system logic, markdown parsing rules, and design constr
 - [QUANT-ARCHITECTURE.md](./QUANT-ARCHITECTURE.md)
 
 ---
-*Built for the Tharun Learning Lab Ecosystem — March 2026*
+*Part of the tharungajula portfolio — May 2026*

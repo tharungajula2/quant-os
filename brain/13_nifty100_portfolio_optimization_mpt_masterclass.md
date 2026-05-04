@@ -18,7 +18,7 @@ tags:
 cluster: "03 — Portfolio Projects"
 progress: 0
 links:
-  - "[[Tharun-Kumar-Gajula]]"
+  - "[[Analytics-Quant-Track-Overview]]"
   - "[[2_regression_analysis_masterclass]]"
   - "[[3_machine_learning_masterclass]]"
   - "[[4_python_data_analytics_master_cheatsheet]]"
@@ -848,7 +848,7 @@ That is fine for learning, but not enough for a full investment process.
 
 ## Connections to the Rest of My Notes
 
-- [[Tharun-Kumar-Gajula]] — this project expands my portfolio beyond classification and forecasting into quant-finance portfolio construction
+- [[Analytics-Quant-Track-Overview]] — this project expands my portfolio beyond classification and forecasting into quant-finance portfolio construction
 - [[2_regression_analysis_masterclass]] — useful for the statistical mindset behind estimation, variance, covariance, and careful interpretation of summary measures
 - [[3_machine_learning_masterclass]] — useful for model-selection thinking, optimization mindset, and the broader contrast between prediction problems and allocation problems
 - [[4_python_data_analytics_master_cheatsheet]] — useful for the pandas, plotting, NumPy, and data-handling workflow that supports this notebook

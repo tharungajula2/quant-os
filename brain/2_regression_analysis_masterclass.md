@@ -27,7 +27,7 @@ tags:
 cluster: "02 — Foundations"
 progress: 0
 links:
-  - "[[Tharun-Kumar-Gajula]]"
+  - "[[Analytics-Quant-Track-Overview]]"
   - "[[1_lending_club_credit_risk_masterclass]]"
   - "[[5_bank_churn_neural_networks_masterclass]]"
   - "[[6_employee_retention_tree_models_masterclass]]"

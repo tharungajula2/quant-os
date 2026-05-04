@@ -30,7 +30,7 @@ const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), {
 
 /* ── Premium cluster color palette: Final Color Sync ── */
 const CLUSTER_COLORS: Record<string, string> = {
-  "01 — Profile": "#ffffff", // Brilliant White
+  "01 — Overview": "#ffffff", // Brilliant White
   "02 — Foundations": "#f97316", // Premium Orange (Complementary)
   "03 — Portfolio Projects": "#22d3ee", // Design Accent Cyan-Blue
   "Isolated Nodes": "#475569",
@@ -38,7 +38,7 @@ const CLUSTER_COLORS: Record<string, string> = {
 };
 
 function getColor(group: string, id: string): string {
-  if (id === "Tharun-Kumar-Gajula") return "#ffffff"; // Brilliant white for profile
+  if (id === "Analytics-Quant-Track-Overview") return "#ffffff"; // Brilliant white for overview
   return CLUSTER_COLORS[group] ?? "#475569";
 }
 
@@ -128,7 +128,7 @@ export default function GraphView({ graphData }: GraphViewProps) {
           };
 
           // Fix the central node strictly to the center of the universe
-          if (n.id === "Tharun-Kumar-Gajula") {
+          if (n.id === "Analytics-Quant-Track-Overview") {
             n.fx = 0;
             n.fy = 0;
           }
@@ -137,7 +137,7 @@ export default function GraphView({ graphData }: GraphViewProps) {
           const y = n.y ?? 0;
           const color = getColor(n.group, n.id);
           const isHovered = hoveredNode === n.id;
-          const isCentralNode = n.id === "Tharun-Kumar-Gajula";
+          const isCentralNode = n.id === "Analytics-Quant-Track-Overview";
           
           const baseRadius = isCentralNode ? 8 : 4.5;
           const hoverRadius = isCentralNode ? 10 : 7;
