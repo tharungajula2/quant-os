@@ -45,9 +45,8 @@ Quant OS is built with a "Deep Void" philosophy, prioritizing visual silence, in
    Open [http://localhost:3000](http://localhost:3000).
 
 ## 🦾 Architecture Ground Truth
-For a deep dive into the system logic, markdown parsing rules, and design constraints, refer to:
-- [FULL_CONTEXT.md](./FULL_CONTEXT.md)
-- [QUANT-ARCHITECTURE.md](./QUANT-ARCHITECTURE.md)
+For a deep dive into the system logic, markdown parsing rules, design constraints, and mathematical models, refer to:
+- [SOURCE_OF_TRUTH.md](./SOURCE_OF_TRUTH.md)
 
 ---
 *Part of the tharungajula portfolio — May 2026*
