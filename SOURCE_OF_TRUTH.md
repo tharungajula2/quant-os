@@ -1,5 +1,7 @@
 # QUANT OS — SOURCE OF TRUTH
 
+> **Historical design record.** This preserves earlier design intent and may describe features or assurances more strongly than the current implementation supports. For the current source-audited guide, start with [README.md](README.md) and [PROJECT_BLUEPRINT.md](PROJECT_BLUEPRINT.md).
+
 This document is the absolute, single source of truth for **Quant OS**. If this entire project were deleted, any software engineer could reconstruct the entire system exactly as it exists today, with zero deviation in behavior, design, or architecture, using only this guide.
 
 ---

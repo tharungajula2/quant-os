@@ -1,52 +1,51 @@
-# Quant OS — Professional Knowledge Graph & Spatial OS
+# Quant OS
 
-> **The Clinical-Grade Learning Environment for Quantitative Risk and Financial Engineering.**
+**A navigable reading room for quantitative finance, risk, and applied analytics.** Quant OS turns authored Markdown notes into a 2D knowledge graph, a browsable grid, and linked long form articles. It is a learning interface for students, analysts, and reviewers following concepts across disciplines.
 
-Quant OS is a premium, [Next.js 16](https://nextjs.org)-powered spatial knowledge environment designed to map complex quantitative concepts into a beautiful, interactive void. It transforms a local Markdown-driven Obsidian vault into a high-performance **Knowledge Graph** and **Universe Grid**.
+> **Maturity:** working source backed web prototype. The repository contains educational notes and a reading interface; it does not contain executable finance notebooks, market data, a trading engine, or a validated risk model.
 
-![Quant OS UI Showcase](public/ui-showcase.png)
+## Explore the project
 
-## 🌌 The Design: "Analytics Wing" Aesthetic
-Quant OS is built with a "Deep Void" philosophy, prioritizing visual silence, intense focus, and clinical precision:
-- **The Void**: A dual-layer Cyber-Grid background (`#02040c`) with macro and micro textures.
-- **Electric Accents**: A high-contrast palette featuring **Brilliant White** (Profile), **Design Cyan-Blue** (Portfolio), and **Complementary Orange** (Foundations).
-- **Liquid Glass**: Premium glassmorphism with deep Gaussian blurs and specular borders.
+| Area | What the source implements |
+| --- | --- |
+| Knowledge graph | Root level `brain/*.md` files become nodes; valid `[[wikilinks]]` become edges. The 2D canvas supports node navigation and zoom. |
+| Grid and portfolio views | Cards are grouped and sorted by note metadata. The portfolio tab filters notes in the `03 — Portfolio Projects` cluster. |
+| Reading experience | Note routes render Markdown through MDX with math, tables, highlighted code, tags, metadata progress, and incoming links. |
+| Search | The sidebar filters note titles locally. |
+| Vian AI | Optional Gemini chat sends the root note corpus as prompt context. It needs an API key and has access and grounding limits. |
 
-## 🛠️ Tech Stack
-- **Framework**: Next.js 16 (React Server Components, App Router)
-- **Styling**: Tailwind CSS v4 + Vanilla CSS Design Tokens
-- **Graph Engine**: `react-force-graph-2d` (Physics-based Knowledge Map)
-- **Content**: Local Markdown (Zettelkasten) + `next-mdx-remote`
-- **AI Integration**: Vian AI (Google Gemini 2.5 Flash Lite)
-- **Animations**: Framer Motion + CSS Transitions
+The notes span credit risk, regression, machine learning, portfolio construction, forecasting, regulation, and related projects. Reported metrics and methods in those notes are **authored accounts**, not independently reproduced by this repository. The [project blueprint](PROJECT_BLUEPRINT.md) explains the data flow, formulas, source map, and limitations.
 
-## 📂 Project Structure
-- `brain/`: The raw markdown engine (Foundations, Projects, Profile).
-- `src/components/`: Premium UI components (GraphView, UniverseGrid, VianAI).
-- `src/lib/markdown.ts`: The core relationship parser (Wikilinks, Backlinks).
-- `shelf/`: Auxiliary automation and link-fixing utilities.
+## How it works
 
-## 🚀 Getting Started
+```mermaid
+flowchart LR
+    A[Root Markdown notes] --> B[Server file parser]
+    B --> C[Graph and note metadata]
+    C --> D[Client graph, grid, and sidebar]
+    B --> E[MDX note pages]
+    A --> F[Optional chat API]
+    F --> G[Google Gemini]
+```
 
-1. **Install Dependencies**:
-   ```bash
-   npm install
-   ```
+**Stack:** Next.js 16 App Router, React 19, TypeScript, Tailwind CSS 4, `react-force-graph-2d`, `next-mdx-remote`, KaTeX, Framer Motion, and the Vercel AI SDK. The content store is committed Markdown; there is no database or per-reader progress storage. [Parser](src/lib/markdown.ts) · [Home route](src/app/page.tsx) · [Note route](src/app/notes/%5Bslug%5D/page.tsx) · [Chat route](src/app/api/chat/route.ts)
 
-2. **Configure Environment**:
-   Create a `.env.local` and add your `GOOGLE_GENERATIVE_AI_API_KEY`.
+## Run locally
 
-3. **Run Development Server**:
-   ```bash
-   npm run dev
-   ```
+With a Node.js version compatible with Next.js 16 and npm:
 
-4. **Access the OS**:
-   Open [http://localhost:3000](http://localhost:3000).
+```bash
+npm ci
+npm run dev
+```
 
-## 🦾 Architecture Ground Truth
-For a deep dive into the system logic, markdown parsing rules, design constraints, and mathematical models, refer to:
-- [SOURCE_OF_TRUTH.md](./SOURCE_OF_TRUTH.md)
+Open `http://localhost:3000`. Reading and graph navigation do not need an API key. For chat, put `GOOGLE_GENERATIVE_AI_API_KEY=...` in an uncommitted `.env.local` and restart the server. Both npm and pnpm lockfiles are committed; these commands use the npm lockfile.
 
----
-*Part of the tharungajula portfolio — May 2026*
+## Boundaries
+
+- The graph is **2D**, and its links match filenames rather than semantic similarity.
+- Progress percentages are note frontmatter values, not tracked reading activity. One root note is excluded from the graph while remaining in the grid and sidebar.
+- The visible chat clearance code is checked in client code; `/api/chat` has no server authentication. The route sends the full root note corpus to Gemini and does not enforce its claimed domain restriction through retrieval, citations, or evaluation.
+- No committed tests or executable modeling artifacts are present. These documents were checked against source; app runtime and financial results were not independently verified.
+
+For setup, formulas, worked examples, troubleshooting, and the file map, read [PROJECT_BLUEPRINT.md](PROJECT_BLUEPRINT.md). [SOURCE_OF_TRUTH.md](SOURCE_OF_TRUTH.md) remains as a historical design record.
